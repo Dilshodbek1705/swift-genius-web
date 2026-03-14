@@ -1,17 +1,1647 @@
 ---
+import '../styles/global.css';
+const education = [
+  { name: "Swift Academy" },
+  { name: "PDP Academy" },
+  { name: "Essential Developer Academy" },
+  { name: "Swiftful Thinking" }
+];
+const modules = [
+  {
+    num: '01',
+    category: 'SwiftUI Foundations',
+    title: 'UI Elements, State & Navigation',
+    subsections: [
+      {
+        head: 'UI Elements & Modifiers',
+        items: ['Text, Image, Button, Spacer', 'VStack, HStack, ZStack', 'padding, frame, alignment', 'background, overlay']
+      },
+      {
+        head: 'State va Data Flow',
+        items: ['@State, @Binding, @Bindable', '@StateObject, @ObservedObject', '@ObservableObject, @Published', '@EnvironmentObject, @Environment']
+      },
+      {
+        head: 'Lists va Dynamic UI',
+        items: ['List, ScrollView, ForEach', 'LazyVStack, LazyHStack', 'CustomView, ViewModifier']
+      },
+      {
+        head: 'Navigation & Presentation',
+        items: ['NavigationStack, NavigationPath', 'navigationDestination', 'sheet, fullScreenCover, Alert']
+      }
+    ]
+  },
+  {
+    num: '02',
+    category: 'Application Structure',
+    title: 'App Lifecycle & Flow Architecture',
+    subsections: [
+      {
+        head: "App Architecture & Lifecycle",
+        items: ["App protocol, @main", "Scene, WindowGroup", "UIKit AppDelegate implementation", "Practical: Lifecycle-driven management"]
+      },
+      {
+        head: "Application Flow Architecture",
+        items: ["RootView logic & Navigation State", "App Flow Controller (Splash → Auth → Main)", "Modular Feature Flows", "Deep Linking foundations"]
+      }
+    ]
+  },
+  {
+    num: '03',
+    category: 'Architecture',
+    title: 'MVVM Architecture & SoC',
+    subsections: [
+      {
+        head: "MVVM Architecture",
+        items: ["View, ViewModel, Model Roles", "Business Logic Separation", "Data Binding Techniques", "Separation of Concerns (SoC)"]
+      }
+    ]
+  },
+  {
+    num: '04',
+    category: 'Software Engineering',
+    title: 'Dependency Injection & POP',
+    subsections: [
+      {
+        head: "Dependency Injection (DI)",
+        items: ["Inversion of Control (IoC)", "Loose Coupling principles", "DI Container architecture", "Service registration & resolution"]
+      },
+      {
+        head: "Protocol-Oriented Programming (POP)",
+        items: ["Abstraction & Interface Design", "Swappability & Decoupling", "Enhanced Testability architecture"]
+      }
+    ]
+  },
+  {
+    num: '05',
+    category: 'Global Architecture',
+    title: 'Global Managers & SOLID',
+    subsections: [
+      {
+        head: "Global Managers & Service Architecture",
+        items: ["Composite & Delegation patterns", "Decoupling Massive Managers", "SOLID Principles application", "Environment Dependency Injection"]
+      }
+    ]
+  },
+  {
+    num: '06',
+    category: 'Business Logic',
+    title: 'Interactor Layer & Refactoring',
+    subsections: [
+      {
+        head: "Interactor & Business Logic Architecture",
+        items: ["Domain Logic Separation", "ViewModel to Interactor Interaction", "Unidirectional Data Flow"]
+      },
+      {
+        head: "Centralized global Business Logic",
+        items: ["Global Business Layer orchestration", "Global State Synchronization", "Service Management & Abstraction"]
+      },
+      {
+        head: "CoreInteractor: Refactoring",
+        items: ["Interface Segregation", "Breaking down Monolithic Logic", "Dependency Optimization"]
+      }
+    ]
+  },
+  {
+    num: '07',
+    category: 'Core Application',
+    title: 'CoreBuilder & Composition Root',
+    subsections: [
+      {
+        head: "CoreBuilder & Composition Root",
+        items: ["Composition Root Pattern", "Centralized Component Initialization", "Object Graph Construction"]
+      },
+      {
+        head: "CoreBuilder: Refactoring",
+        items: ["Composition Root Optimization", "Architecture Simplification", "Streamlining Dependency Assembly"]
+      }
+    ]
+  },
+  {
+    num: '08',
+    category: 'Navigation Architecture',
+    title: 'CoreRouter & Routing Patterns',
+    subsections: [
+      {
+        head: "Navigation Architecture & CoreRouter",
+        items: ["CoreRouter Architecture", "ViewModel to Router Communication", "Decoupling Navigation from UI"]
+      },
+      {
+        head: "Navigation Refactoring",
+        items: ["Navigation Logic Centralization", "Global Router Migration Strategy", "Dynamic Flow Management"]
+      }
+    ]
+  },
+  {
+    num: '09',
+    category: 'Environment',
+    title: 'Environment & Build Configuration',
+    subsections: [
+      {
+        head: "Environment & Build Configuration",
+        items: ["Dev, Release & Mock Schemes", "Build Configuration Management", "Scheme-based Environment Switching"]
+      }
+    ]
+  },
+  {
+    num: '10',
+    category: 'Production Features',
+    title: 'Analytics, Security & Localization',
+    subsections: [
+      {
+        head: "Logging & Diagnostics",
+        items: ["Centralized AppLogger", "Diagnostic Log Levels", "Unified Logging Strategy"]
+      },
+      {
+        head: "Analytics & Crashlytics",
+        items: ["Firebase & Mixpanel Integration", "Facade Pattern for Analytics", "Behavioral Tracking events"]
+      },
+      {
+        head: "App Security & Protected UI",
+        items: ["Privacy-preserving UI (Blur Overlay)", "DeepLink Security", "Sensitive Data Protection"]
+      },
+      {
+        head: "Language & Theme Architecture",
+        items: ["Scalable Localization", "AppLocalModifier & AppThemeModifier", "Dynamic Environment Sync"]
+      }
+    ]
+  },
+  {
+    num: '11',
+    category: 'Advanced Engineering',
+    title: 'Modular Architecture & RIBs',
+    subsections: [
+      {
+        head: "Architectural Decomposition",
+        items: ["Modular Architecture (Feature separation)", "RIBs (Router, Interactor, Builder)", "System Design for Large-Scale"]
+      },
+      {
+        head: "Scalability & Isolation",
+        items: ["Decoupling Feature Modules", "Dependency Management in Modules", "Independent Feature Lifecycle"]
+      }
+    ]
+  },
+  {
+    num: '12',
+    category: 'Quality Assurance',
+    title: 'Unit & UI Testing Strategies',
+    subsections: [
+      {
+        head: "Unit Testing & QA",
+        items: ["Isolated Business Logic verification", "Mock Services & Data Stubbing", "ViewModel State testing"]
+      },
+      {
+        head: "UI Testing",
+        items: ["XCUITest Framework", "Automated UI Flow Verification", "Multi-screen Navigation Testing"]
+      }
+    ]
+  }
+];
 
----
+const faqs = [
+  { q: 'Kurs qancha davom etadi?', a: 'Kurs modullar bo\'yicha tashkil etilgan. Har bir modul amaliyot va loyiha bilan birga o\'tiladi. Aniq muddat mentor bilan kelishiladi.' },
+  { q: 'Swift bilmasam ham qo\'shilishim mumkinmi?', a: 'Swift asoslari va SwiftUI ning boshlang\'ich darajasi talab qilinadi. Agar sizda 1+ yillik iOS tajriba bo\'lsa, kurs siz uchun mos.' },
+  { q: 'Dars darslar qanday o\'tkaziladi?', a: 'Darslar onlayn, jonli formatda. Kod review, loyiha muhokamasi va arxitektura qarorlari mentor bilan birga amalga oshiriladi.' },
+  { q: 'Sertifikat beriladimi?', a: 'Kursni muvaffaqiyatli tamomlaganlar uchun SwiftGenius sertifikati taqdim etiladi.' },
+];
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+const mentorProjects = [
+  { name: 'MyBank UZ', logo: '/mybank_logo.png', href: 'https://apps.apple.com/uz/app/mybank-uz/id6503429804', badge: null },
+  { name: 'Milliy Business', logo: '/milliy_logo.png', href: 'https://apps.apple.com/uz/app/milliy-business/id6742812650', badge: null },
+  { name: 'Sello', logo: '/sello_logo.png', href: 'https://apps.apple.com/uz/app/sello-pay-payments-transfers/id1603818062', badge: null },
+  { name: 'SwiftGenius App', logo: '/swiftGenius_logo.png', href: 'https://apps.apple.com/uz/app/swiftgenius/id6759780139', badge: null },
+  { name: 'MyBank Business', logo: '/mybank_business.png', href: null, badge: 'Internal Tool' },
+];
+--- 
+<html lang="uz">
+ <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>SwiftGenius — iOS Architecture Course | Dilshodbek Qulmirzayev</title>
+    <meta name="title" content="SwiftGenius — iOS Architecture Course | Dilshodbek Qulmirzayev" />
+    <meta name="description" content="Katta miqyosli ilovalar arxitekturasi, tizimli muhandislik va professional iOS engineering madaniyati bo'yicha chuqurlashtirilgan kurs." />
+    <meta name="keywords" content="iOS, Swift, SwiftUI, iOS Architecture, RIBs, MVVM, Clean Architecture, Dilshodbek Qulmirzayev, SwiftGenius, iOS Kurslari" />
+    <meta name="author" content="Dilshodbek Qulmirzayev" />
+    <link rel="canonical" href="https://swiftgenius.uz/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://swiftgenius.uz/" />
+    <meta property="og:site_name" content="SwiftGenius Academy" />
+    <meta property="og:title" content="SwiftGenius — Professional iOS Architecture Course" />
+    <meta property="og:description" content="Katta loyihalar arxitekturasini noldan loyihalashni o'rganing. Senior iOS Engineer darajasiga chiqish uchun professional kurs." />
+    <meta property="og:image" content="/my_big_picutre.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SwiftGenius iOS Architecture Course Preview" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://swiftgenius.uz/" />
+    <meta property="twitter:title" content="SwiftGenius — Professional iOS Architecture Course" />
+    <meta property="twitter:description" content="Katta loyihalar arxitekturasini noldan loyihalashni o'rganing. Dilshodbek Qulmirzayev bilan professional iOS engineering." />
+    <meta property="twitter:image" content="/my_big_picutre.jpg" />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+  <body class="sg-body sg-mesh">
+   <style is:global>
+  /* 1. Global Reset & Performance */
+  html { scroll-behavior: smooth; }
+  .sg-body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #000000;
+    color: #FFFFFF;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 2. Hero Section Refined */
+ .hero-title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem) !important; 
+  line-height: 1.1 !important;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  font-style: italic;
+  color: #ffffff;
+  white-space: normal !important; 
+  width: 120% !important; 
+  max-width: none !important;
+  display: block;
+  /* MANA SHU QATORNI QO'SHING YOKI YANGILANG */
+  margin-bottom: 2.5rem !important; 
+}
+
+@media (max-width: 1023px) {
+  .hero-title {
+    width: 100% !important;
+    font-size: 2.8rem !important;
+    white-space: normal !important;
+  }
+}
+  /* Hero Logo Majburiy Kichraytirish */
+  .hero-logo-col img {
+    width: 220px !important;
+    height: auto !important;
+    object-fit: contain;
+    filter: drop-shadow(0 0 50px rgba(168, 85, 247, 0.4));
+  }
+
+  @media (max-width: 1023px) {
+    .hero-title { white-space: normal; font-size: 3rem; }
+    .hero-logo-col img { width: 180px !important; }
+  }
+
+  /* 3. Mentor & Education Refactor */
+ 
+ .mentor-photo-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1.15);
+  z-index: 10;
+}
+
+.mentor-photo-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -60px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+  filter: blur(50px); /* Nurni yumshatish uchun muhim */
+  z-index: -1; /* !!! MANA SHU: Nurni rasmning orqasiga o'tkazadi */
+  pointer-events: none; /* Nur rasm ustidagi kliklarni to'smaydi */
+}
+
+.mentor-photo-img {
+  position: relative; /* z-index ishlashi uchun kerak */
+  z-index: 2; /* Rasmni nurdan balandga ko'taramiz */
+  width: 100%;
+  max-width: 500px;
+  border-radius: 30px;
+}
+
+
+ /* 3. Credential & Education - Pro Refactor */
+ 
+  .edu-card-pro {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: 20px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+.edu-section-title {
+    font-size: 0.75rem;
+    font-weight: 900 !important; /* Bold bo'lishini kafolatlaydi */
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #A855F7;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Mission & Target Section Styles */
+  .mission-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+    border-left: 4px solid #A855F7;
+    padding: 2rem;
+    transition: 0.3s;
+  }
+  .target-badge {
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    color: #A855F7;
+    padding: 0.5rem 1.5rem;
+    border-radius: 99px;
+    font-weight: 800;
+    display: inline-block;
+  }
+  .feature-icon-box {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+  }
+
+ .roadmap-wrapper {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+  }
+  .roadmap-wrapper::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+  .roadmap-step-card {
+    min-width: 300px;
+    height: 400px;
+    scroll-snap-align: center;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(168, 85, 247, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    padding: 2.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: grab;
+  }
+
+  /* Architecture & Design Section Styles */
+  .arch-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 32px;
+    padding: 3rem;
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .arch-card:hover {
+    border-color: rgba(168, 85, 247, 0.3);
+    background: rgba(168, 85, 247, 0.02);
+  }
+
+  .arch-list-item {
+    position: relative;
+    padding-left: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .arch-dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 3px solid rgba(168, 85, 247, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arch-dot::after {
+    content: '';
+    width: 0.8rem;
+    height: 0.8rem;
+    background: #A855F7;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #A855F7;
+  }
+
+  .arch-icon-glow {
+    filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.4));
+  }
+
+  /* Spotlight Effect */
+  .roadmap-step-card:hover {
+    border-color: rgba(168, 85, 247, 0.6);
+    background: rgba(168, 85, 247, 0.05);
+    transform: scale(1.02) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(168, 85, 247, 0.2);
+  }
+
+  .step-index {
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(180deg, rgba(168, 85, 247, 0.2) 0%, transparent 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+  }
+
+  .glowing-path {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 200%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #A855F7, #6366f1, transparent);
+    z-index: 0;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+
+
+ /* 4. Interactive Curriculum - Spatial Refactor */
+  .module-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 24px !important; /* Burchaklar biroz o'tkirroq, ixchamroq */
+    padding: 1.5rem 2rem !important; /* Heightni kamaytirish uchun padding qisqartirildi */
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-bottom: 1rem;
+  }
+
+  .module-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(168, 85, 247, 0.4);
+    transform: translateY(-2px); /* Katta sakrash emas, nafis ko'tarilish */
+  }
+
+  .module-card.active {
+    background: rgba(168, 85, 247, 0.03);
+    border-color: rgba(168, 85, 247, 0.6);
+  }
+
+  /* Font o'lchamlarini normallashtirish */
+  .module-number {
+    font-size: 1.8rem !important; /* 3.5rem juda katta edi */
+    font-weight: 800;
+    opacity: 0.25;
+    background: linear-gradient(135deg, #fff, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 60px;
+  }
+
+  .module-title {
+    font-size: 1.25rem !important; /* Desktop uchun ideal sarlavha o'lchami */
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .category-tag {
+    font-size: 9px !important; /* Juda kichik, lekin o'qiladigan "eyecandy" */
+    letter-spacing: 0.15em;
+    color: #a855f7;
+    font-weight: 800;
+    margin-bottom: 2px;
+  }
+
+  /* Kontent ochilgandagi o'lchamlar */
+  .content-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .module-card.active .content-wrapper {
+    max-height: 1500px;
+    opacity: 1;
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  /* Section Title normallashtirish */
+  .section-title-main {
+    font-size: clamp(2rem, 5vw, 3.5rem) !important;
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+    /* 4. Interactive Curriculum tugadi */
+/* Final Big Picture Section */
+  .arch-display-container {
+    background: radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .arch-img-shadow {
+    filter: drop-shadow(0 0 50px rgba(168, 85, 247, 0.3));
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .arch-display-container:hover .arch-img-shadow {
+    transform: scale(1.02) translateY(-10px);
+  }
+
+  .big-picture-tag {
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    color: #A855F7;
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* Rasm konteynerini balandligini jilovlash */
+  .arch-display-container {
+    background: radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, transparent 70%);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 3rem 4rem; /* Padding biroz kamaytirildi */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .arch-img-shadow {
+    /* Balandlikni cheklash uchun max-height qo'shildi */
+    max-height: 450px !important; 
+    width: auto !important; /* Kenglik avtomat o'zi moslashadi */
+    object-fit: contain;
+    filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.25));
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  /* Mobil qurilmalar uchun yana biroz kichiklashtiramiz */
+  @media (max-width: 768px) {
+    .arch-img-shadow {
+      max-height: 300px !important;
+    }
+    .arch-display-container {
+      padding: 2rem;
+    }
+  }
+
+ /* Final Outcome - Card Style */
+  .outcome-card {
+    background: #080808; /* To'q fon */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 40px;
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .outcome-bullet {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .bullet-circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid rgba(168, 85, 247, 0.4);
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.25rem;
+  }
+
+  .bullet-dot {
+    width: 0.8rem;
+    height: 0.8rem;
+    background: #A855F7;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #A855F7;
+  }
+
+  .outcome-title-main {
+    font-size: 5rem;
+    line-height: 0.9;
+    font-weight: 950;
+    font-style: italic;
+    letter-spacing: -0.05em;
+    color: #fff;
+  }
+
+  .outcome-subtitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .outcome-desc {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    max-width: 500px;
+  }
+  /* Final Call to Action Styles */
+  ..cta-final-wrapper {
+    background: radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, #000 100%);
+    position: relative;
+    padding: 120px 20px;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* O'ng tarafdagi kontent ierarxiyasi */
+  .cta-right-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    text-align: right;
+  }
+
+  .cta-title-main {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 950;
+    line-height: 0.9;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  /* Joylar soni cheklangan - pastroqda */
+  .limited-text-box {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-button-final {
+    align-self: flex-end;
+    margin-top: auto;
+  }
+
+  .mentor-display-img {
+    width: 100%;
+    max-width: 580px;
+    filter: drop-shadow(0 0 50px rgba(168, 85, 247, 0.3));
+    z-index: 5;
+  }
+
+  /* 5. Utility Styles */
+  .sg-btn-gradient {
+    background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 14px;
+    font-weight: 800;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+  }
+
+  .sg-btn-gradient:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(168, 85, 247, 0.4);
+  }
+
+  .sg-scroll-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .sg-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Footer Contact Cards Style */
+  .contact-card-pro {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none !important;
+  }
+
+  .contact-card-pro:hover {
+    background: rgba(168, 85, 247, 0.04);
+    border-color: rgba(168, 85, 247, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .contact-icon-wrap {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+  }
+
+  .contact-card-pro:hover .contact-icon-wrap {
+    transform: scale(1.1);
+  }
+
+  .contact-label {
+    font-size: 0.65rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #A855F7;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-value {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    opacity: 0.9;
+  }
+.footer-title-fix {
+    display: inline-block;
+    line-height: 1.3 !important; /* Balandlikni sezilarli oshirdik */
+    padding: 20px 10px !important; /* Har tomondan xavfsizlik maydoni */
+    margin: 0 auto;
+    overflow: visible !important; /* Hech narsani yashirmaydi */
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .contact-card-pro {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 2.5rem 1.5rem; /* Ichki paddingni biroz oshirdik */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.4s ease;
+  }
+
+ .nav-link {
+    position: relative;
+    padding: 0.5rem 0.2rem; /* Yonlardan kamroq, tagidan joy qoldiramiz */
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  /* Tagidagi chiziq (Underline effect) */
+ .nav-link {
+    position: relative;
+    padding: 0.4rem 0.6rem; /* Gorizontal padding qisqartirildi */
+    font-size: 0.75rem; /* Shrift biroz kichraytirildi */
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.02em; /* Letter spacing kamaytirildi */
+    white-space: nowrap;
+  }
+
+  /* Tagidagi chiziq (Underline animation) */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 10%;
+    width: 0;
+    height: 2px;
+    background: #A855F7;
+    box-shadow: 0 0 8px #A855F7;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link.active {
+    color: #ffffff;
+  }
+
+  .nav-link.active::after {
+    width: 80%;
+  }
+
+  /* Kursga yozilish tugmasi - IERARXIYA uchun */
+  .nav-btn {
+    background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
+    color: white;
+    padding: 8px 16px; /* Tugma ixchamroq */
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.3s;
+    flex-shrink: 0;
+  }
+
+  .nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
+  }
+
+  /* Kichikroq laptop ekranlari uchun qo'shimcha qisqartirish */
+  @media (max-width: 1200px) {
+    .nav-link { padding: 0.4rem 0.4rem; font-size: 0.7rem; }
+    .nav-btn { padding: 6px 12px; font-size: 0.7rem; }
+  }
+
+  /* Mobil linklar uslubi */
+  .mobile-nav-link {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+  }
+
+  /* Overlay ochiq holati */
+  #mobile-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #mobile-overlay.active .mobile-nav-link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hamburger animatsiyasi */
+  .menu-open #path1 { transform: translateY(6px) rotate(45deg); transform-origin: center; }
+  .menu-open #path2 { opacity: 0; }
+  .menu-open #path3 { transform: translateY(-6px) rotate(-45deg); transform-origin: center; }
+
+  /* Body scrollni to'xtatish */
+  body.no-scroll { overflow: hidden; }
+
+</style>
+<nav class="fixed top-0 left-0 right-0 z-[100] border-b border-white/5 bg-black/80 backdrop-blur-xl">
+  <div class="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
+    
+    <a href="#" class="flex items-center gap-2 no-underline z-[110]">
+      <img src="/brend_logo.png" alt="Logo" class="h-8 w-auto" />
+      <span class="text-white font-[950] text-lg tracking-tighter italic">SWIFT GENIUS</span>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-1 xl:gap-2">
+      <a href="#mentor" class="nav-link">Mentor</a>
+      <a href="#mission" class="nav-link">Missiya</a>
+      <a href="#roadmap" class="nav-link">Dastur</a>
+      <a href="#curriculum" class="nav-link">Modullar</a>
+      <a href="#final-picture" class="nav-link">MVVM</a>
+      <a href="#modular-architecture" class="nav-link">RIBs</a>
+      <a href="#expected-outcome" class="nav-link">Natija</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="#contact" class="nav-link">Kontakt</a>
+      <a href="#contact" class="nav-btn ml-2">Kursga yozilish</a>
+    </div>
+
+    <button id="menu-toggle" class="lg:hidden z-[110] text-white p-2">
+      <svg id="menu-icon" class="w-8 h-8 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="path1" stroke-linecap="round" stroke-width="2" d="M4 6h16"></path>
+        <path id="path2" stroke-linecap="round" stroke-width="2" d="M4 12h16"></path>
+        <path id="path3" stroke-linecap="round" stroke-width="2" d="M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-overlay" class="fixed inset-0 bg-black z-[105] flex flex-col items-center justify-center gap-6 opacity-0 pointer-events-none transition-all duration-500">
+    <a href="#mentor" class="mobile-nav-link">Mentor</a>
+    <a href="#mission" class="mobile-nav-link">Missiya</a>
+    <a href="#roadmap" class="mobile-nav-link">Dastur</a>
+    <a href="#curriculum" class="mobile-nav-link">Modullar</a>
+    <a href="#final-picture" class="mobile-nav-link">Big Picture</a>
+    <a href="#modular-architecture" class="mobile-nav-link">RIBs</a>
+    <a href="#expected-outcome" class="mobile-nav-link">Natija</a>
+    <a href="#faq" class="mobile-nav-link">FAQ</a>
+    <a href="#contact" class="mobile-nav-link">Kontakt</a>
+    <a href="#contact" class="sg-btn-gradient text-xl px-10 py-5 mt-4">Kursga yozilish</a>
+  </div>
+</nav>
+
+<section class="min-h-screen flex items-center px-6 pt-20 overflow-hidden relative">
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-20 items-center w-full">
+        <div class="sg-scroll-in sg-visible">
+          <h1 class="hero-title">
+            Production-Ready<br />
+            iOS Architecture<br />
+            Course
+          </h1>
+          <p class="text-xl text-gray-400 mb-10 max-w-lg">
+            Scalable arxitekturalar, Production-Ready tizimlar va professional dasturlash standartlari.
+          </p>
+        </div>
+        <div class="flex justify-end relative hero-logo-col">
+          <div class="absolute inset-0 bg-purple-600/20 blur-[100px] rounded-full"></div>
+          <img src="/brend_logo.png" alt="SwiftGenius" />
+        </div>
+      </div>
+    </section>
+
+   <section id="mentor" class="py-32 px-6 border-t border-white/5 bg-[#050505]">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+      <div class="mentor-photo-col flex justify-center lg:pr-12">
+        <div class="mentor-photo-wrap">
+          <img src="/brend_me.png" alt="Dilshodbek Qulmirzayev" class="mentor-photo-img" />
+        </div>
+      </div>
+      <div class="space-y-10">
+        <div>
+          <h2 class="text-5xl md:text-6xl font-black tracking-tight mb-2 italic">Dilshodbek <br/> Qulmirzayev</h2>
+          <p class="text-2xl text-purple-400 font-bold">iOS Engineer at TUNE Consulting</p>
+        </div>
+
+        <div class="edu-container">
+          <h3 class="edu-section-title italic">Education</h3> 
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 mb-16">
+            {["- Swift Academy", "- PDP Academy", "- Essential Developer Academy", "- Swiftful Thinking"].map(edu => (
+              <div class="edu-item py-1">
+                <span class="font-bold text-gray-200">{edu}</span>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-8"> 
+            <h3 class="edu-section-title italic">Experienced with</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+              {mentorProjects.map((p) => (
+                <a href={p.href} target="_blank" class="flex items-center gap-3 p-3 bg-white/5 rounded-2xl border border-white/10 no-underline hover:border-purple-500 transition-all group">
+                  <img src={p.logo} class="w-12 h-12 rounded-xl object-contain shadow-lg" alt={p.name} />
+                  <div class="min-w-0">
+                    <span class="text-white font-bold block truncate group-hover:text-purple-400 transition">{p.name}</span>
+                    <span class="text-[10px] text-gray-500 uppercase tracking-wider">{p.badge || 'App Store →'}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+	<section id="mission" class="py-32 px-6 bg-black relative overflow-hidden">
+      <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[300px] h-[300px] bg-purple-600/10 blur-[120px] rounded-full"></div>
+
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 mb-24 items-start">
+          <div class="sg-scroll-in">
+            <h2 class="text-5xl md:text-7xl font-black italic tracking-tighter mb-8 leading-none">
+              Kurs <br/> <span class="text-purple-500">Missiyasi</span>
+            </h2>
+            <div class="mission-card rounded-r-3xl">
+              <p class="text-gray-300 text-lg leading-relaxed italic">
+                "Bugungi IT sohasida shunchaki SwiftUI interfeyslarini chizish yetarli emas. Haqiqiy Production darajasidagi loyihalar har qanday o'zgarishga moslashuvchan (Maintainable) va ishonchli (Testable) kod bazasini talab qiladi. Ushbu kurs iOS Engineeringni yangi bosqichiga olib chiqib, yirik tizimlarni professional arxitektura asosida loyihalashga yo'naltirilgan."
+              </p>
+            </div>
+          </div>
+
+          <div class="sg-scroll-in lg:pt-12">
+            <h3 class="text-3xl font-black mb-6 uppercase tracking-widest text-gray-500">Kimlar uchun:</h3>
+            <div class="mb-8">
+              <span class="target-badge text-xl md:text-2xl">Strong Junior & Middle iOS Engineerlar uchun</span>
+            </div>
+            <p class="text-gray-400 text-lg">
+             "Spagetti koddan" xalos bo'lish va tizimga professional iOS Architect ko'zi bilan qarashni istovchi dasturchilar uchun.
+			     </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-12 sg-scroll-in">
+          <div class="group">
+            <div class="feature-icon-box flex items-center justify-center text-white">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            </div>
+            <h4 class="text-xl font-bold mb-4 text-white group-hover:text-purple-400 transition">Architectural Evolution</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Ilovani bir-biriga bog'lanmagan modullarga ajratish va RIBs patterni orqali yuqori darajadagi Scalability-ga erishish.
+            </p>
+          </div>
+
+          <div class="group">
+            <div class="feature-icon-box flex items-center justify-center text-white">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h4 class="text-xl font-bold mb-4 text-white group-hover:text-purple-400 transition">Engineering Excellence</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              SOLID tamoyillari, POP va OOP paradigmalari asosidagi professional "Clean Code" madaniyati.
+            </p>
+          </div>
+
+          <div class="group">
+            <div class="feature-icon-box flex items-center justify-center text-white">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            </div>
+            <h4 class="text-xl font-bold mb-4 text-white group-hover:text-purple-400 transition">Logic Isolation</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              Biznes mantiqni UI qatlamidan to'liq ajratish va qatlamlar o'rtasida xatosiz Data Flow-ni yo'lga qo'yish.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+	<section id="roadmap" class="py-32 px-6 bg-black overflow-hidden relative">
+      
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div class="sg-scroll-in">
+            <h2 class="text-6xl md:text-8xl font-[950] italic tracking-tighter leading-none mb-4">
+              KURS <span class="text-purple-500">DASTURI</span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="roadmap-wrapper">
+          {[
+            { id: '01', t: 'SwiftUI', st: 'Fundamentals', d: 'Layout System, CustomViews, Custom Modifiers' },
+            { id: '02', t: 'App Flow', st: 'Architecture', d: 'Lifecycle, Flow Controllers, Deep Linking' },
+            { id: '03', t: 'Mastering', st: 'RIBs & Patterns', d: 'Uber Style Architecture, Scalability' },
+            { id: '04', t: 'Dependency', st: 'Injection', d: 'IoC, Containers, Lifecycle Management' },
+            { id: '05', t: 'SOLID', st: 'Principles', d: 'Engineering Excellence, Clean Code' },
+            { id: '06', t: 'Modular', st: 'System Design', d: 'Micro-features, Isolation' },
+            { id: '07', t: 'Diagnostics', st: '& Analytics', d: 'OSLog, Facade Analytics, Crashlytics' },
+            { id: '08', t: 'Testing', st: 'Unit & UI', d: 'XCUITest, Mocking Strategies' }
+          ].map((step) => (
+            <div class="roadmap-step-card group">
+              <span class="step-index">{step.id}</span>
+              <div class="z-10">
+                <div class="w-12 h-12 bg-purple-600/20 rounded-2xl flex items-center justify-center text-purple-400 mb-6 group-hover:bg-purple-600 group-hover:text-white transition-all duration-500">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </div>
+                <h3 class="text-3xl font-black text-white leading-tight mb-2">
+                  {step.t} <br/> <span class="text-purple-500">{step.st}</span>
+                </h3>
+              </div>
+              <p class="text-gray-400 text-sm leading-relaxed z-10">{step.d}</p>
+              
+              <div class="absolute bottom-0 left-10 right-10 h-1 bg-gradient-to-r from-transparent via-purple-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+	<section id="architecture-design" class="py-32 px-6 bg-black relative">
+      <div class="max-w-6xl mx-auto">
+        <div class="arch-card relative overflow-hidden">
+          <div class="absolute -right-20 -top-20 w-80 h-80 bg-purple-600/10 blur-[100px] rounded-full"></div>
+          
+          <div class="grid lg:grid-cols-2 gap-20 items-center">
+            <div class="sg-scroll-in">
+              <h2 class="text-5xl md:text-7xl font-[950] italic tracking-tighter leading-[0.9] mb-12">
+                Software <br/> 
+                Architecture <br/> 
+                <span class="text-purple-500">& Design</span>
+              </h2>
+              
+              <div class="arch-icon-glow inline-block">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#A855F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="#A855F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="#A855F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="space-y-4 sg-scroll-in">
+              <div class="arch-list-item">
+                <div class="arch-dot"></div>
+                <h3 class="text-2xl font-bold text-white mb-3">Arxitektura tafakkuri</h3>
+                <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                  Shunchaki kod yozishdan — ilovaning to'liq arxitekturasini mustaqil loyihalash darajasiga olib chiqadi. Bu bosqich dasturchining texnik dunyoqarashini tubdan o'zgartirib, uni yuqori darajadagi iOS muhandisiga aylantiradi.
+                </p>
+              </div>
+
+              <div class="arch-list-item">
+                <div class="arch-dot"></div>
+                <h3 class="text-2xl font-bold text-white mb-3">Kod ustidan mutloq nazorat</h3>
+                <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                  Minglab qatorli kodlar ichida adashib qolmaslik, har qanday murakkab loyihani noldan tartibli va professional boshqaruv uslublari o'rgatiladi.
+                </p>
+              </div>
+
+              <div class="arch-list-item">
+                <div class="arch-dot"></div>
+                <h3 class="text-2xl font-bold text-white mb-3">Professional ishonch</h3>
+                <p class="text-gray-400 leading-relaxed text-sm md:text-base">
+                  Har bir yozilgan funksiyani testlar bilan himoya qilib, barqaror va xatosiz (Reliable) mahsulot yetkazib berish mahorati shakllantiriladi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <section id="curriculum" class="py-32 px-6 bg-black relative">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+      <div class="max-w-5xl mx-auto relative z-10">
+        <div class="text-center mb-24">
+          <h2 class="text-6xl md:text-7xl font-black italic tracking-tighter mb-6 bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent">
+            DARSLAR REJASI
+          </h2>
+          <p class="text-gray-500 text-xl font-medium max-w-2xl mx-auto">
+            Professional iOS muhandisligi uchun 12 modulli chuqurlashtirilgan dastur.
+          </p>
+        </div>
+
+        <div class="space-y-8">
+          {modules.map((mod) => (
+            <div class="module-card rounded-[2.5rem] p-8 md:p-12 cursor-pointer group" onclick="this.classList.toggle('active')">
+              
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-8">
+                  <span class="module-number italic select-none">#{mod.num}</span>
+                  <div>
+                    <span class="text-purple-500 font-black uppercase tracking-[0.3em] text-xs md:text-sm mb-2 block">{mod.category}</span>
+                    <h3 class="text-2xl md:text-4xl font-bold text-white group-hover:text-purple-400 transition-all duration-300 tracking-tight">
+                      {mod.title}
+                    </h3>
+                  </div>
+                </div>
+                
+                <div class="chevron-box w-14 h-14 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:border-purple-500/50 transition-all duration-500">
+                  <svg class="chevron w-6 h-6 text-purple-500 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="content-wrapper">
+                <div class="grid md:grid-cols-2 gap-12 border-t border-white/5 pt-10">
+                  {mod.subsections.map((sub) => (
+                    <div class="space-y-6">
+                      <div class="flex items-center gap-3">
+                        <div class="h-[1px] w-8 bg-purple-500/50"></div>
+                        <h4 class="text-purple-400 font-black text-xs uppercase tracking-[0.2em]">
+                          {sub.head}
+                        </h4>
+                      </div>
+                      <ul class="space-y-4">
+                        {sub.items.map((item) => (
+                          <li class="lesson-item text-gray-400 text-sm md:text-base font-medium hover:text-white transition-all">
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+	<section id="final-picture" class="py-32 px-6 bg-black relative">
+      <div class="max-w-6xl mx-auto">
+        
+        <div class="text-center mb-16 sg-scroll-in">
+          <div class="mb-6">
+            <span class="big-picture-tag">Final Destination</span>
+          </div>
+          <h2 class="text-5xl md:text-7xl font-[950] italic tracking-tighter leading-none mb-6">
+            Final <span class="text-purple-500">Big Picture</span>
+          </h2>
+          <p class="text-gray-400 text-lg max-w-2xl mx-auto italic">
+            Kurs yakunida siz mana shunday murakkab, modulli va professional arxitekturani noldan loyihalash mahoratiga ega bo'lasiz.
+          </p>
+        </div>
+
+        <div class="arch-display-container sg-scroll-in">
+          <div class="absolute top-8 left-8 z-20">
+             <h3 class="text-2xl font-black text-white italic">Advanced MVVM & Clean Architecture</h3>
+          </div>
+
+          <div class="relative z-10 flex justify-center items-center">
+            <img 
+              src="/mvvmArch.png" 
+              alt="Advanced MVVM & Clean Architecture Big Picture" 
+              class="arch-img-shadow w-full max-w-5xl rounded-2xl"
+            />
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8 mt-16 border-t border-white/10 pt-10 relative z-20">
+            <div>
+              <span class="text-purple-500 font-bold block mb-2">Scalability</span>
+              <p class="text-xs text-gray-500 uppercase tracking-widest leading-relaxed">Istalgancha modullarni qo'shish va kengaytirish imkoniyati.</p>
+            </div>
+            <div>
+              <span class="text-purple-500 font-bold block mb-2">Testability</span>
+              <p class="text-xs text-gray-500 uppercase tracking-widest leading-relaxed">Har bir qatlam DI va Protocollar orqali 100% testlanuvchan.</p>
+            </div>
+            <div>
+              <span class="text-purple-500 font-bold block mb-2">Isolation</span>
+              <p class="text-xs text-gray-500 uppercase tracking-widest leading-relaxed">Business Logic UI dan butunlay ajratilgan tizim.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+	<section id="modular-architecture" class="py-32 px-6 bg-black relative">
+      <div class="max-w-6xl mx-auto">
+        
+        <div class="mb-16 sg-scroll-in">
+          <div class="mb-6">
+            <span class="big-picture-tag">Advanced Concepts</span>
+          </div>
+          <h2 class="text-5xl md:text-7xl font-[950] italic tracking-tighter leading-none mb-6">
+            Scalable <span class="text-purple-500">RIBs-based</span> <br/> Modular Architecture
+          </h2>
+          <p class="text-gray-400 text-lg max-w-3xl italic">
+            Uber tomonidan ishlab chiqilgan RIBs arxitekturasi yordamida ilovani o'zaro bog'lanmagan (decoupled) modullarga ajratish va ularni professional boshqarish tizimi.
+          </p>
+        </div>
+
+        <div class="arch-display-container sg-scroll-in">
+          <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-purple-600/10 blur-[100px] rounded-full"></div>
+
+          <div class="relative z-10 flex justify-center items-center">
+            <img 
+              src="/ribArch.png" 
+              alt="Scalable RIBs-based Modular Architecture" 
+              class="arch-img-shadow w-full max-w-5xl rounded-2xl"
+            />
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8 mt-16 border-t border-white/10 pt-10 relative z-20">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-2 h-2 bg-purple-500 rounded-full shadow-[0_0_10px_#a855f7]"></div>
+                <span class="text-white font-bold">Deep Link Support</span>
+              </div>
+              <p class="text-[11px] text-gray-500 uppercase tracking-widest leading-relaxed">Ilovaning istalgan qismiga xavfsiz va aniq yo'naltirish tizimi.</p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-2 h-2 bg-purple-500 rounded-full shadow-[0_0_10px_#a855f7]"></div>
+                <span class="text-white font-bold">Business Logic First</span>
+              </div>
+              <p class="text-[11px] text-gray-500 uppercase tracking-widest leading-relaxed">Router va Interactor yordamida UI ga bog'lanmagan mantiq boshqaruvi.</p>
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-2 h-2 bg-purple-500 rounded-full shadow-[0_0_10px_#a855f7]"></div>
+                <span class="text-white font-bold">Extreme Isolation</span>
+              </div>
+              <p class="text-[11px] text-gray-500 uppercase tracking-widest leading-relaxed">Modullar o'rtasidagi "Dependency"larni Builder orqali qat'iy nazorat qilish.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+	<section id="expected-outcome" class="py-32 px-6 bg-black relative">
+      <div class="max-w-6xl mx-auto">
+        <div class="outcome-card sg-scroll-in">
+          
+          <div class="grid lg:grid-cols-2 gap-20 items-center">
+            
+            <div class="space-y-12">
+              <h2 class="outcome-title-main">
+                Kutilayotgan <br/> 
+                <span class="text-purple-500">Natija:</span>
+              </h2>
+              
+              <div class="w-20 h-20 text-purple-500">
+                  <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="space-y-12">
+              
+              <div class="outcome-bullet">
+                <div class="bullet-circle">
+                  <div class="bullet-dot"></div>
+                </div>
+                <div>
+                  <h3 class="outcome-subtitle">Muhandislik poydevori</h3>
+                  <p class="outcome-desc">
+                    Ushbu kurs fundamental SwiftUI loyihasidan boshlab, yuqori darajadagi Production-Ready iOS arxitekturasini loyihalashgacha bo'lgan bosqichlarni qamrab oladi.
+                  </p>
+                </div>
+              </div>
+
+              <div class="outcome-bullet">
+                <div class="bullet-circle">
+                  <div class="bullet-dot"></div>
+                </div>
+                <div>
+                  <h3 class="outcome-subtitle">Professional Standartlar</h3>
+                  <p class="outcome-desc">
+                    Scalable, Testable va Software Engineering tamoyillariga asoslangan tizimlarni shakllantirish, yirik jamoalarda yuqori standartlar asosida ishlash imkonini beradi.
+                  </p>
+                </div>
+              </div>
+
+              <div class="outcome-bullet">
+                <div class="bullet-circle">
+                  <div class="bullet-dot"></div>
+                </div>
+                <div>
+                  <h3 class="outcome-subtitle">Software Architect Nigohi</h3>
+                  <p class="outcome-desc">
+                    Har qanday murakkablikdagi loyihaga tizimli tahlil va barqaror kod bazasi orqali professional iOS Architect sifatida yondashish ko'nikmasi shakllanadi.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+	
+	<section class="cta-final-wrapper border-t border-white/5">
+
+      <div class="max-w-7xl mx-auto w-full px-6">
+        <div class="grid lg:grid-cols-3 items-center gap-12">
+          
+          <div class="sg-scroll-in">
+            <h2 class="cta-title-main">
+              Kurs ma'qul <br/> 
+              <span class="text-purple-500">keldimi?</span>
+            </h2>
+          </div>
+
+          <div class="flex justify-center sg-scroll-in relative">
+            <div class="absolute inset-0 bg-purple-600/20 blur-[120px] rounded-full scale-75"></div>
+            <img 
+              src="/my_photo.png" 
+              alt="Dilshodbek Qulmirzayev" 
+              class="mentor-display-img"
+            />
+          </div>
+
+          <div class="cta-right-content sg-scroll-in">
+            
+            <div class="limited-text-box">
+              <h3 class="text-4xl md:text-5xl font-black text-white italic leading-tight uppercase tracking-tighter">
+                Joylar soni <br/> 
+                <span class="text-red-600 limited-seats-alert">cheklangan!</span>
+              </h3>
+            </div>
+
+          <div class="cta-button-final text-right pb-10"> <a href="#contact" class="sg-btn-gradient text-2xl px-14 py-6 rounded-2xl shadow-[0_20px_50px_rgba(168,85,247,0.3)] hover:scale-105 transition-all inline-block">
+        Kursga yozilish
+             </a>
+   
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-32 px-6 border-t border-white/5 bg-[#050505]">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-4xl md:text-6xl font-black text-center mb-16 italic tracking-tighter">FAQ</h2>
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <details class="module-card !rounded-2xl !p-0 overflow-hidden group">
+              <summary class="p-6 cursor-pointer font-bold flex justify-between items-center list-none hover:bg-white/5 transition-colors">
+                <span>{faq.q}</span>
+                <span class="text-purple-500 transition group-open:rotate-45">+</span>
+              </summary>
+              <div class="px-6 pb-6 text-gray-400 text-sm border-t border-white/5 pt-4 leading-relaxed">
+                {faq.a}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+ <footer id="contact" class="py-32 px-6 border-t border-white/5 bg-black relative overflow-hidden">
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-600/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="flex justify-center text-center mb-24">
+      <h2 class="footer-title-fix text-5xl md:text-7xl font-[950] italic tracking-tighter bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent">
+        BOG'LANISH
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full mb-24">
+      
+      <a href="tel:+998930676239" class="contact-card-pro group">
+        <div class="w-12 h-12 mb-6">
+          <img src="/phone_logo.png" class="w-full h-full object-contain" alt="Phone" />
+        </div>
+        <span class="text-white font-bold text-sm md:text-base group-hover:text-purple-400 transition">
+          +998 93 067 62 39
+        </span>
+      </a>
+
+      <a href="https://t.me/iosDev007" target="_blank" class="contact-card-pro group">
+        <div class="w-12 h-12 mb-6">
+          <img src="/telegram_logo.png" class="w-full h-full object-contain" alt="Telegram" />
+        </div>
+        <span class="text-white font-bold text-sm md:text-base group-hover:text-purple-400 transition">
+          @iosDev007
+        </span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/dilshodbek-qulmirzayev-14b308282/" target="_blank" class="contact-card-pro group">
+        <div class="w-12 h-12 mb-6">
+          <img src="/linkedin_logo.png" class="w-full h-full object-contain" alt="LinkedIn" />
+        </div>
+        <span class="text-white font-bold text-sm md:text-base group-hover:text-purple-400 transition">
+          Dilshodbek
+        </span>
+      </a>
+
+      <a href="https://www.youtube.com/@swift_Genius" target="_blank" class="contact-card-pro group">
+        <div class="w-12 h-12 mb-6">
+          <img src="/youtube_logo.png" class="w-full h-full object-contain" alt="YouTube" />
+        </div>
+        <span class="text-white font-bold text-sm md:text-base group-hover:text-purple-400 transition">
+          Swift Genius
+        </span>
+      </a>
+
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center justify-between pt-12 border-t border-white/5 gap-8">
+      <div class="flex items-center gap-4">
+        <img src="/brend_logo.png" class="h-10 w-auto" alt="Logo" />
+        <div class="flex flex-col text-left">
+          <span class="font-black italic tracking-tighter text-xl leading-none text-white uppercase">Swift Genius</span>
+          <span class="text-[10px] text-purple-500 font-bold tracking-[0.3em] uppercase">iOS Academy</span>
+        </div>
+      </div>
+      <p class="text-gray-500 text-xs md:text-sm">© 2026 SwiftGenius — Barcha huquqlar himoyalangan.</p>
+    </div>
+  </div>
+</footer>
+
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('sg-visible');
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.sg-scroll-in').forEach(el => observer.observe(el));
+
+	  const slider = document.querySelector('.roadmap-wrapper');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+  });
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+  });
+  slider.addEventListener('mousemove', (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2;
+    slider.scrollLeft = scrollLeft - walk;
+  });
+    </script>
+	<script>
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id]');
+
+  function handleScroll() {
+    let currentId = "";
+
+    // 1. Qaysi section markazga yaqinligini aniqlash
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      // Agar oyna o'rtasi section ichida bo'lsa
+      if (window.scrollY >= (sectionTop - 200)) {
+        currentId = section.getAttribute('id');
+      }
+    });
+
+    // 2. Navbatdagi linklarni yangilash
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentId}`) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  // Bosilganda scroll qilish (smooth scroll browser tomonidan boshqariladi)
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+
+  window.addEventListener('scroll', handleScroll);
+  // Sahifa yuklanganda holatni aniqlash
+  handleScroll();
+</script>
+<script>
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section[id]');
+
+  function handleScroll() {
+    let currentId = "";
+
+    // 1. Markaziy nuqtani hisobga olgan holda faol sectionni aniqlash
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (window.scrollY >= (sectionTop - 200)) {
+        currentId = section.getAttribute('id');
+      }
+    });
+
+    // 2. Active klassini yangilash
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href').replace('#', '');
+      if (href === currentId) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  // Click bo'lganda smooth scroll (Brauzer nativ qo'llaydi)
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+
+  window.addEventListener('scroll', handleScroll);
+  // Birinchi yuklanganda holatni tekshirish
+  window.addEventListener('DOMContentLoaded', handleScroll);
+</script>
+
+  </body>
 </html>
