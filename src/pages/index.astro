@@ -199,64 +199,125 @@ const modules = [
 
 const faqs = [
   { 
-    q: 'Swift bilmasam ham qo\'shilishim mumkinmi?', 
+    q: 'Swiftni bilmasam ham kursga qo\'shilishim mumkinmi?', 
     a: 'Yo\'q, bu kurs fundamental Swift va SwiftUI boshlang\'ich bilimlarini talab qiladi. Agar sizda kamida 1 yillik iOS tajriba bo\'lsa yoki kuchli "Strong Junior" bo\'lsangiz, kurs siz uchun maksimal foydali bo\'ladi.' 
   },
-  { 
-    q: 'Darslar qanday formatda o\'tkaziladi?', 
-    a: 'Darslar jonli (Live) formatda, onlayn yoki offlayn ko\'rinishda bo\'ladi. Faqat nazariya emas, balki kod review (kodni tahlil qilish), loyiha muhokamasi va mentor bilan real vaqtdagi arxitektura qarorlari ustuvorlik qiladi.' 
-  },
+ { 
+  q: 'Darslar qanday formatda o\'tkaziladi?', 
+  a: `Darslar offlayn yoki onlayn, interaktiv "Workshop" formatida tashkil etiladi.
+
+• Mentor bilan bevosita muloqot va real-time Code Review.
+
+• Nazariya va Production-ready yechimlarni birga yozish (Live-coding).
+
+• Darsda qurilgan arxitekturani mustaqil qayta yozish orqali Engineering Mindset'ni shakllantirish.` 
+},
   { 
     q: 'Kurs qancha davom etadi?', 
     a: 'Kurs murakkab modullar bo\'yicha tashkil etilgan. Har bir modulda real loyiha va amaliyot bor. O\'zlashtirish tezligiga qarab aniq muddat mentor bilan shaxsiy reja asosida belgilanadi.' 
+  },
+   {
+  q: 'Kursda qaysi frameworkdan foydalaniladi: SwiftUI yoki UIKit?',
+  a: `Kurs 100% SwiftUI frameworkiga asoslangan. Buning bir nechta strategik sabablari bor:
+
+• Kelajak standarti: Apple ekotizimining kelajagi shubhasiz SwiftUI bilan bog‘liq. Biz sizni bugungi emas, balki ertangi kunning yuqori daromadli mutaxassisi sifatida tayyorlaymiz.
+
+• Advanced SwiftUI ehtiyoji: SwiftUI da oddiy interfeys chizish oson, biroq uni murakkab, "Large-scale" loyihalarda professional arxitekturaga solish — hozirda eng talabgir mahorat hisoblanadi.
+
+• Professional yechimlar: Kursda biz aynan SwiftUI ning murakkab jihatlarini (Navigation, State Management, Modularization) professional muhandislik darajasiga olib chiqamiz.
+
+Xulosa: Biz eng zamonaviy Apple standartlariga tayanib, SwiftUI yordamida mukkamal va barqaror tizimlar qurishni o'rganamiz.`
+},
+ {
+  q: 'Kursda o‘qitish metodikasi va dars tartibi qanday?',
+  a: `Bizning metodikamiz "Evolyutsion rivojlanish" tamoyiliga va jonli offline muloqotga asoslangan:
+
+• Muammodan Yechimga: Darslar real loyihadagi to‘siqlarni tahlil qilishdan boshlanadi. Biz tayyor shablon bermaymiz, balki eng sodda yechimni bosqichma-bosqich "Production-ready" holatiga olib chiqamiz (Step-by-Step Optimization).
+
+• Offline Interaktivlik: Darslar mentor bilan yuzma-yuz, jonli muloqotda o‘tiladi. Mentor nazariyani tushuntiradi va amaliy kod yozib ko‘rsatadi.
+
+• Qayta ishlash mas’uliyati: O‘quvchilardan darsda yozilgan kodlarni noldan mustaqil qayta yozish va har bir qarorning yaxshi-yomon tomonlarini (Trade-offs) chuqur tahlil qilish talab qilinadi.
+
+• Engineering Mindset: Kursning maqsadi tayyor kod berish emas,balki sizda muhandislik fikrlashini shakllantirishdir. Shuning uchun o‘tilgan mavzularni amalda qayta-qayta takrorlash o‘zlashtirishning asosiy sharti hisoblanadi.
+
+Natija: Siz nazariya va amaliyotni mentor nazorati ostida birlashtirib, professional muhandislik fikrlashiga ega bo‘lasiz.`
+},
+  { 
+    q: 'Bu kursda asosiy fokus nimaga qaratilgan:  UI yoki Architecture ?', 
+    a: 'Bu kurs interfeys chizishga (UI) qaratilmagan. Bizning asosiy fokusimiz — har qanday murakkablikdagi ilovaga mos keladigan, "Production-Ready" darajasidagi mustahkam arxitektura qurishni o\'rganishdir. UI vaqtinchalik, lekin to\'g\'ri qurilgan arxitektura yillar davomida xizmat qiladi.' 
   },
   { 
     q: 'Nega bu kursda o\'qishim kerak, AI orqali ham o\'rgansam bo\'ladiku?', 
     a: 'AI (ChatGPT/Claude) sizga kod bo\'laklarini yozib berishi mumkin, lekin u loyihaning to\'liq arxitektura zanjirini va jamoaviy ishlash madaniyatini o\'rgata olmaydi. Kursimizda biz AI qila olmaydigan ishni — o\'zgaruvchan talablarga moslashuvchan va barqaror tizim loyihalashni "Engineering Mindset" orqali amalda ko\'rib chiqamiz.' 
   },
   { 
-    q: 'Bu kursda faqat chiroyli UI chizishni o\'rganamizmi?', 
-    a: 'Yo\'q, bu kurs interfeys chizishga (UI) qaratilmagan. Bizning asosiy fokusimiz — har qanday murakkablikdagi ilovaga mos keladigan, "Production-Ready" darajasidagi mustahkam arxitektura (Architecture) qurishni o\'rganishdir. UI vaqtinchalik, lekin to\'g\'ri qurilgan arxitektura yillar davomida xizmat qiladi.' 
+    q: 'Nega bu kursda o‘qishim kerak? AI (ChatGPT, Claude) ga prompt yozsam barcha ishlarni qilib beradiku.', 
+    a: `AI — bu mahoratli yordamchi, ammo u Arxitektor emas. U sizga alohida funksiyalar uchun kod yozib berishi mumkin, lekin loyihaning 2-3 yildan keyingi taqdirini, uning kengayuvchanligini (scalability) va jamoada ishlash qulayligini kafolatlamaydi.
+
+Siz nima uchun aynan shu kursda o‘qishingiz kerak?
+
+• AI "Context"ni yo‘qotadi: Katta va modulli (Modular Architecture) loyihalarda AI barcha qatlamlar orasidagi murakkab bog‘liqlikni (Dependency Graph) to‘liq ko‘ra olmaydi. Biz esa butun tizimni yaxlit va sog‘lom qurishni o‘rgatamiz.
+
+• Prompt Engineering vs Software Engineering: Prompt yozish — bu vazifa berish, arxitektura qurish esa — strategik qaror qabul qilishdir. Kursda AI bera olmaydigan "Muhandislik instinkti"ni shakllantirasiz.
+
+• Noto‘g‘ri yechim narxi: AI ba’zan xato ma'lumot beradi. Agar arxitekturaviy poydevor noto‘g‘ri qo‘yilsa, uni tuzatish oylab vaqt va minglab dollar zarar keltirishi mumkin. Biz o‘sha xatolarni oldindan ko‘rishni o‘rgatamiz.
+
+• Mentor vs Algoritm: AI sizga "qanday" qilishni aytsa, mentor "nima uchun" aynan shu yo‘l tanlanganini va biznes uchun qaysi biri foydaliroq ekanini tushuntiradi.
+
+Xulosa: AI kod yozadi, lekin mas'uliyatni bo'yniga olmaydi. Bizning maqsadimiz — sizni AIdan foydalanadigan oddiy koder emas, balki AIni boshqaradigan va murakkab tizimlarga Architect ko'zi bilan qarashni o'rgatamiz` 
   },
   { 
     q: 'Loyiha arxitekturasini noldan qurishni o\'rganamanmi?', 
-    a: 'Albatta. Kurs davomida bo\'sh varaqdan boshlab, qatlamlarga ajratilgan, modulli va barcha zamonaviy talablarga javob beradigan loyiha skeletini (Boilerplate) mentor bilan birga qurasiz.' 
+    a: 'Albatta. Kurs davomida noldan boshlab, qatlamlarga ajratilgan, modulli va barcha zamonaviy talablarga javob beradigan loyiha skeletini (Boilerplate) mentor bilan birga qurasiz.' 
   },
   { 
-    q: 'Mentorlik va kod review qanchalik muhim?', 
-    a: 'Bu kursning eng qimmatli qismi. Siz yozgan kod professional "Senior" ko\'zi bilan tahlil qilinadi. Qayerda xato qilganingiz, qaysi yondashuv kelajakda muammo tug\'dirishi mumkinligi va qanday qilib kodni yanada toza (Clean) qilish bo\'yicha shaxsiy maslahatlar olasiz.' 
+    q: 'Loyiham "Spaghetti code"ga aylanib bo‘lgan, kurs bu tartibsizlikni tuzatishga yordam beradimi?', 
+    a: `Ha, aynan shu muammo kursimizning diqqat markazida. Biz shunchaki nazariya o‘tmaymiz, balki tartibsiz kodni "Production-Ready" holatga keltirish texnologiyasini o‘rgatamiz.
+
+Yechim quyidagi aniq bosqichlar orqali amalga oshiriladi:
+
+• Logic Isolation: Biznes mantiqini (Business Logic) tarqoq holatdan yagona Domain Layerga yig‘amiz. Bu orqali "Massive View Model" muammosini ildizi bilan yo‘qotamiz.
+
+• Dependency Management: Komponentlar orasidagi qattiq bog‘liqlikni (Tight Coupling) Dependency Injection yordamida uzamiz. Natijada loyihaning bir qismini o‘zgartirish boshqa qismlarga zarar yetkazmaydi.
+
+• Protocol-Oriented Refactoring: Kodni protokollar asosida abstraksiya qilishni o‘rganamiz. Bu loyihani oson testlanadigan va modulga ajratishga tayyor holatga keltiradi.
+
+• Scalability Blueprint: Loyihangiz 5 ta ekrandan 50 ta ekranga o‘sganda ham kod sifati tushib ketmasligi uchun barqaror arxitektura poydevorini (Foundation) quramiz.
+
+Natija: Siz qiyinchilik bilan qo‘llab-quvvatlanadigan (Maintenance) koddan, professional jamoalarda qo‘llaniladigan Modular Clean Architecture standartiga o‘tasiz.` 
   },
-  { 
-    q: 'Yirik kompaniyalarda aynan shu bilimlarni so\'rashadimi?', 
-    a: 'Ha. Dubay, Yevropa va AQSHning top kompaniyalari (Uber, Grab, Revolut) aynan RIBs, Modularity va Unit Testing bo\'yicha chuqur bilimga ega iOS Engineerlarni qidirishadi. Bu kurs sizni global bozorga tayyorlaydi.' 
-  },
-  { 
-    q: 'Sertifikat beriladimi?', 
-    a: 'Ha, kursni muvaffaqiyatli tamomlagan va yakuniy arxitektura loyihasini himoya qilgan talabalarga SwiftGenius professional sertifikati taqdim etiladi.' 
-  },
-  { 
-    q: 'Nega SwiftUI ishlatiladi?', 
-    a: 'SwiftUI — bu iOS kelajagi. Biz deklarativ UI orqali interfeys qatlamini tezroq quramiz, lekin asosiy e\'tiborni uni biznes mantiqdan (RIBs orqali) qat\'iy ajratishga qaratamiz.' 
-  },
-  { 
-    q: 'MVVM v RIBs: Qaysi biri yaxshiroq?', 
-    a: 'MVVM kichik ilovalar uchun yaxshi, lekin RIBs navigatsiyani State-dan ajratgani uchun yirik (Enterprise) loyihalarda muvozanatni saqlaydi. Biz Senior muhandislar tanlaydigan RIBs tizimini chuqur o\'rgatamiz.' 
-  },
-  { 
-    q: 'Unit Testing shartmi?', 
-    a: 'Albatta! "Clean Code" va Senior darajasi testlarsiz tasavvur qilib bo\'lmaydi. Biz TDD elementlari orqali har bir yozilgan funksiyani barqarorligini ta\'minlashni o\'rgatamiz.' 
-  },
-  { 
-    q: 'Modullashtirish (Modularity) nima beradi?', 
-    a: 'Bu ilovani mustaqil bo\'laklarga ajratish san\'ati. Bu orqali Build vaqti kamayadi, kodni qayta ishlatish osonlashadi va yirik jamoalarda tartibli ishlash imkoniyati yaratiladi.' 
-  },
-  { 
-    q: 'Dependency Injection (DI) kursda qanchalik chuqur o\'rgatiladi?', 
-    a: 'DI — bu arxitekturaning asab tizimi. Biz IoC, konteynerlar va lifecycle management kabi Senior mavzularni RIBs builderlari misolida amalda ko\'rib chiqamiz.' 
-  },
-  { 
-    q: 'Kursdan so\'ng men Senior bo\'lamanmi?', 
-    a: 'Kurs sizga Senior muhandislik poydevorini (Arxitektura, Testing, Modular Design) beradi. Bu bilimlar bilan siz yirik kompaniyalarda arxitektor yoki jamoa yetakchisi sifatida ishlash darajasiga erishasiz.' 
+  {
+  q: 'Kurs yakunida menda qanday natija (loyiha) bo‘ladi?',
+  a: `Sizning portfoliongizda shunchaki "o‘quv mashqlari" emas, balki quyidagi xalqaro standartlarga javob beruvchi loyiha bo‘ladi:
+
+• Advanced MVVM / VIPER Architecture: Murakkab tizimlarni boshqarish uchun eng sara patternlar.
+
+• Modular Clean Architecture: RIBs (Uber) arxitekturasi prinsiplari asosida qurilgan modulli tizim.
+
+• Unit Testing: Har bir biznes mantiq qatlami testlar bilan to‘liq qoplangan.
+
+• Professional DI & Navigation: Dependency Injection va markazlashgan zamonaviy navigatsiya tizimi.
+
+• SOLID Principles: To‘liq SOLID prinsiplari va toza kod (Clean Code) qoidalariga asoslangan muhandislik yechimi.
+
+• Core Infrastructure: Markazlashgan CoreRouter, CoreBuilder va CoreInteractor komponentlari qo‘llanilgan arxitektura.
+
+• Production-Ready Boilerplate: Real yirik loyihalarda ishlatiladigan professional loyiha skeleti.
+
+
+Natija: Bu loyiha har qanday xalqaro intervyuda sizning "Senior-level" muhandislik darajangizni isbotlab beruvchi asosiy dalil bo‘ladi.`
+},
+  {
+    q: 'Kursni tugatgandan so‘ng men Senior iOS Developer bo‘lamanmi?',
+    a: `Seniorlik — bu yillar davomida toptalgan tajriba va mas’uliyat natijasidir. Biz sizga quruq unvonni va'da qilmaymiz, lekin kursimiz sizni o‘sha darajaga olib chiquvchi "Arxitekturaviy qarash"ni shakllantiradi:
+
+• Muhandislik tafakkuri: Siz endi shunchaki funksiya yozmaysiz, balki loyihaga Arxitektor ko‘zi bilan qarab, tizimli qarorlar qabul qilishni o‘rganasiz.
+
+• Professional arsenal: Senior dasturchilardan talab qilinadigan Modularization, Dependency Injection va Unit Testing kabi murakkab bilimlarni amalda o‘zlashtirasiz.
+
+• Sifat standarti: Kodingiz "shunchaki ishlaydigan" darajadan yirik kompaniyalar talab qiladigan "Production-ready" standartiga ko‘tariladi.
+
+Xulosa: Kurs sizga Senior unvonini bermasligi mumkin, lekin u sizni Seniorlar kabi fikrlashga va murakkab tizimlarni boshqarishga o‘rgatadi.`
   }
 ];
 
@@ -316,6 +377,7 @@ const mentorProjects = [
     margin: 0;
     -webkit-font-smoothing: antialiased;
   }
+
 
   /* 2. Hero Section Refined */
  .hero-title {
@@ -611,6 +673,7 @@ const mentorProjects = [
     margin-bottom: 1rem;
   }
     /* 4. Interactive Curriculum tugadi */
+
 /* Final Big Picture Section */
   .arch-display-container {
     background: radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
@@ -733,7 +796,7 @@ const mentorProjects = [
     max-width: 500px;
   }
   /* Final Call to Action Styles */
-  ..cta-final-wrapper {
+  .cta-final-wrapper {
     background: radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, #000 100%);
     position: relative;
     padding: 120px 20px;
@@ -751,13 +814,26 @@ const mentorProjects = [
     text-align: right;
   }
 
-  .cta-title-main {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 950;
-    line-height: 0.9;
-    font-style: italic;
-    text-transform: uppercase;
-    color: #fff;
+
+ .cta-title-main {
+  font-size: clamp(3rem, 6vw, 5rem); 
+  line-height: 1.3;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+.limited-seats-alert {
+  /* Qizil yozuvni o'ta katta qilmaymiz */
+  font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 0.5rem;
+}
+  @keyframes pulse-red {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
   }
 
   /* Joylar soni cheklangan - pastroqda */
@@ -877,6 +953,33 @@ const mentorProjects = [
     transition: all 0.4s ease;
   }
 
+.faq-item {
+    line-height: 1.6;
+    color: #d1d1d1; /* Matn rangi */
+}
+
+.intro-text {
+    margin-bottom: 12px;
+    display: block;
+}
+
+.points-list {
+    list-style: none; /* Standart nuqtalarni olib tashlaymiz */
+    padding-left: 0;
+}
+
+.point-item {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.bullet {
+    color: #a855f7; /* Binafsha rangli nuqta (SwiftGenius branding) */
+    margin-right: 10px;
+    font-weight: bold;
+}
+
  .nav-link {
     position: relative;
     padding: 0.5rem 0.2rem; /* Yonlardan kamroq, tagidan joy qoldiramiz */
@@ -992,16 +1095,16 @@ const mentorProjects = [
     <div class="hidden lg:flex items-center gap-1 xl:gap-2">
       <a href="#mentor" class="nav-link">Mentor</a>
       <a href="#mission" class="nav-link">Missiya</a>
-      <a href="#roadmap" class="nav-link">Dastur</a>
-	   <a href="#architecture-design" class="nav-link">Software Architecture</a>
-      <a href="#curriculum" class="nav-link">Modullar</a>
+      <a href="#roadmap" class="nav-link">Kurs Dasturi</a>
+	   <a href="#architecture-design" class="nav-link">Soft/Architecture</a>
+      <a href="#curriculum" class="nav-link">Darslar</a>
       <a href="#final-picture" class="nav-link">Architecture</a>
       <a href="#modular-architecture" class="nav-link">RIBs</a>
       <a href="#expected-outcome" class="nav-link">Natija</a>
       <a href="#faq" class="nav-link">FAQ</a>
-      <a href="#faq" class="nav-link">Kontakt</a> 
+      <a href="#contact" class="nav-link">Kontakt</a> 
       
-      <a href="https://t.me/Dilshodbek1705" target="_blank" class="nav-btn ml-2">
+      <a href="https://t.me/iosDev007" target="_blank" class="nav-btn ml-2">
         Kursga yozilish
       </a>
     </div>
@@ -1018,12 +1121,14 @@ const mentorProjects = [
   <div id="mobile-overlay" class="fixed inset-0 bg-black z-[105] flex flex-col items-center justify-center gap-6 opacity-0 pointer-events-none transition-all duration-500">
     <a href="#mentor" class="mobile-nav-link">Mentor</a>
     <a href="#mission" class="mobile-nav-link">Missiya</a>
-    <a href="#roadmap" class="mobile-nav-link">Dastur</a>
-    <a href="#curriculum" class="mobile-nav-link">Modullar</a>
+    <a href="#roadmap" class="mobile-nav-link">Kurs Dasturi</a>
+	<a href="#architecture-design" class="nav-link">Soft/Architecture</a>
+    <a href="#curriculum" class="mobile-nav-link">Darslar</a>
     <a href="#final-picture" class="mobile-nav-link">Big Picture</a>
     <a href="#modular-architecture" class="mobile-nav-link">RIBs</a>
     <a href="#expected-outcome" class="mobile-nav-link">Natija</a>
     <a href="#faq" class="mobile-nav-link">FAQ</a>
+	 <a href="#contact" class="nav-link">Kontakt</a> 
     
     <a href="https://t.me/Dilshodbek1705" target="_blank" class="sg-btn-gradient text-xl px-10 py-5 mt-4 no-underline text-white font-bold rounded-2xl">
       Kursga yozilish
@@ -1349,7 +1454,7 @@ const mentorProjects = [
         </div>
       </div>
     </section>
-	<section id="final-picture" class="py-3 px-6 bg-black relative">
+	<section id="final-picture" class="py-20 px-6 bg-black relative">
       <div class="max-w-6xl mx-auto">
         
         <div class="text-center mb-16 sg-scroll-in">
@@ -1360,8 +1465,8 @@ const mentorProjects = [
             Final <span class="text-purple-500">Big Picture</span>
           </h2>
           <p class="text-gray-400 text-lg max-w-2xl mx-auto italic">
-            Kurs yakunida siz mana shunday murakkab, modulli va professional arxitekturani noldan loyihalash mahoratiga ega bo'lasiz.
-          </p>
+            Kurs yakunida murakkab, modulli va professional arxitekturani noldan loyihalash ko'nikmalari shakllantiriladi.       
+		  </p>
         </div>
 
         <div class="arch-display-container sg-scroll-in">
@@ -1521,65 +1626,50 @@ const mentorProjects = [
       </div>
     </section>
 	
-	<section class="cta-final-wrapper border-t border-white/5">
-
-      <div class="max-w-7xl mx-auto w-full px-6">
-        <div class="grid lg:grid-cols-3 items-center gap-12">
-          
-          <div class="sg-scroll-in">
-            <h2 class="cta-title-main">
-              Kurs ma'qul <br/> 
-              <span class="text-purple-500">keldimi?</span>
-            </h2>
-          </div>
-
-          <div class="flex justify-center sg-scroll-in relative">
-            <div class="absolute inset-0 bg-purple-600/20 blur-[120px] rounded-full scale-75"></div>
-            <img 
-              src="/my_photo.png" 
-              alt="Dilshodbek Qulmirzayev" 
-              class="mentor-display-img"
-            />
-          </div>
-
-          <div class="cta-right-content sg-scroll-in">
-            
-            <div class="limited-text-box">
-              <h3 class="text-4xl md:text-5xl font-black text-white italic leading-tight uppercase tracking-tighter">
-                Joylar soni <br/> 
-                <span class="text-red-600 limited-seats-alert">cheklangan!</span>
-              </h3>
-            </div>
-
-          <div class="cta-button-final text-right pb-10"> <a href="#contact" class="sg-btn-gradient text-2xl px-14 py-6 rounded-2xl shadow-[0_20px_50px_rgba(168,85,247,0.3)] hover:scale-105 transition-all inline-block">
-        Kursga yozilish
-             </a>
-   
-          </div>
-
-          </div>
-        </div>
+	<section class="cta-final-wrapper border-t border-white/5 top 30">
+  <div class="max-w-6xl mx-auto w-full px-6">
+    <div class="grid lg:grid-cols-2 items-center gap-12">
+      
+      <div class="sg-scroll-in">
+       <h2 class="cta-title-main">
+            Level up <br/> 
+         <span class="text-purple-500">Your Engineering</span>
+       </h2>
       </div>
-    </section>
 
-    <section id="faq" class="py-32 px-6 border-t border-white/5 bg-[#050505]">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-4xl md:text-6xl font-black text-center mb-16 italic tracking-tighter">FAQ</h2>
-        <div class="space-y-4">
-          {faqs.map((faq) => (
-            <details class="module-card !rounded-2xl !p-0 overflow-hidden group">
-              <summary class="p-6 cursor-pointer font-bold flex justify-between items-center list-none hover:bg-white/5 transition-colors">
-                <span>{faq.q}</span>
-                <span class="text-purple-500 transition group-open:rotate-45">+</span>
-              </summary>
-              <div class="px-6 pb-6 text-gray-400 text-sm border-t border-white/5 pt-4 leading-relaxed">
-                {faq.a}
-              </div>
-            </details>
-          ))}
-        </div>
+      <div class="flex justify-center sg-scroll-in relative">
+        <div class="absolute inset-0 bg-purple-600/20 blur-[120px] rounded-full scale-75"></div>
+        <img 
+          src="/my_photo.png" 
+          alt="Dilshodbek Qulmirzayev" 
+          class="mentor-display-img relative z-10"
+        />
       </div>
-    </section>
+
+      
+    </div>
+  </div>
+</section>
+
+   <section id="faq" class="py-32 px-6 border-t border-white/5 bg-[#050505]">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-4xl md:text-6xl font-black text-center mb-16 italic tracking-tighter">FAQ</h2>
+    <div class="space-y-4">
+      {faqs.map((faq) => (
+        <details class="module-card !rounded-2xl !p-0 overflow-hidden group">
+          <summary class="p-6 cursor-pointer font-bold flex justify-between items-center list-none hover:bg-white/5 transition-colors">
+            <span>{faq.q}</span>
+            <span class="text-purple-500 transition group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-400 text-sm border-t border-white/5 pt-4 leading-relaxed whitespace-pre-line">
+            {/* 1-YECHIM: whitespace-pre-line klassini qo'shdik */}
+            {faq.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
 
  <footer id="contact" class="py-32 px-6 border-t border-white/5 bg-black relative overflow-hidden">
   <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-600/5 blur-[120px] rounded-full pointer-events-none"></div>
