@@ -6,6 +6,7 @@ const education = [
   { name: "Essential Developer Academy" },
   { name: "Swiftful Thinking" }
 ];
+
 const modules = [
   {
     num: '01',
@@ -196,7 +197,23 @@ const modules = [
     ]
   }
 ];
-
+const months = [
+  {
+    name: "1-OY: Foundations",
+    description: "SwiftUI asoslari va loyiha poydevorini qurish",
+    items: modules.slice(0, 4) // 01-04 modullar
+  },
+  {
+    name: "2-OY: Architecture Mastery",
+    description: "Biznes mantiqini ajratish va murakkab navigatsiya",
+    items: modules.slice(4, 8) // 05-08 modullar
+  },
+  {
+    name: "3-OY: Advanced Engineering",
+    description: "Modullashtirish, xavfsizlik va QA standartlari",
+    items: modules.slice(8, 12) // 09-12 modullar
+  }
+];
 const faqs = [
   { 
     q: 'Swiftni bilmasam ham kursga qo\'shilishim mumkinmi?', 
@@ -217,18 +234,6 @@ const faqs = [
     a: 'Kurs murakkab modullar bo\'yicha tashkil etilgan. Har bir modulda real loyiha va amaliyot bor. O\'zlashtirish tezligiga qarab aniq muddat mentor bilan shaxsiy reja asosida belgilanadi.' 
   },
    {
-  q: 'Kursda qaysi frameworkdan foydalaniladi: SwiftUI yoki UIKit?',
-  a: `Kurs 100% SwiftUI frameworkiga asoslangan. Buning bir nechta strategik sabablari bor:
-
-• Kelajak standarti: Apple ekotizimining kelajagi shubhasiz SwiftUI bilan bog‘liq. Biz sizni bugungi emas, balki ertangi kunning yuqori daromadli mutaxassisi sifatida tayyorlaymiz.
-
-• Advanced SwiftUI ehtiyoji: SwiftUI da oddiy interfeys chizish oson, biroq uni murakkab, "Large-scale" loyihalarda professional arxitekturaga solish — hozirda eng talabgir mahorat hisoblanadi.
-
-• Professional yechimlar: Kursda biz aynan SwiftUI ning murakkab jihatlarini (Navigation, State Management, Modularization) professional muhandislik darajasiga olib chiqamiz.
-
-Xulosa: Biz eng zamonaviy Apple standartlariga tayanib, SwiftUI yordamida mukkamal va barqaror tizimlar qurishni o'rganamiz.`
-},
- {
   q: 'Kursda o‘qitish metodikasi va dars tartibi qanday?',
   a: `Bizning metodikamiz "Evolyutsion rivojlanish" tamoyiliga va jonli offline muloqotga asoslangan:
 
@@ -242,13 +247,22 @@ Xulosa: Biz eng zamonaviy Apple standartlariga tayanib, SwiftUI yordamida mukkam
 
 Natija: Siz nazariya va amaliyotni mentor nazorati ostida birlashtirib, professional muhandislik fikrlashiga ega bo‘lasiz.`
 },
+   {
+  q: 'Kursda qaysi frameworkdan foydalaniladi: SwiftUI yoki UIKit?',
+  a: `Kurs 100% SwiftUI frameworkiga asoslangan. Buning bir nechta strategik sabablari bor:
+
+• Kelajak standarti: Apple ekotizimining kelajagi shubhasiz SwiftUI bilan bog‘liq. Biz sizni bugungi emas, balki ertangi kunning yuqori daromadli mutaxassisi sifatida tayyorlaymiz.
+
+• Advanced SwiftUI ehtiyoji: SwiftUI da oddiy interfeys chizish oson, biroq uni murakkab, "Large-scale" loyihalarda professional arxitekturaga solish — hozirda eng talabgir mahorat hisoblanadi.
+
+• Professional yechimlar: Kursda biz aynan SwiftUI ning murakkab jihatlarini (Navigation, State Management, Modularization) professional muhandislik darajasiga olib chiqamiz.
+
+Xulosa: Biz eng zamonaviy Apple standartlariga tayanib, SwiftUI yordamida mukkamal va barqaror tizimlar qurishni o'rganamiz.`
+},
+
   { 
     q: 'Bu kursda asosiy fokus nimaga qaratilgan:  UI yoki Architecture ?', 
     a: 'Bu kurs interfeys chizishga (UI) qaratilmagan. Bizning asosiy fokusimiz — har qanday murakkablikdagi ilovaga mos keladigan, "Production-Ready" darajasidagi mustahkam arxitektura qurishni o\'rganishdir. UI vaqtinchalik, lekin to\'g\'ri qurilgan arxitektura yillar davomida xizmat qiladi.' 
-  },
-  { 
-    q: 'Nega bu kursda o\'qishim kerak, AI orqali ham o\'rgansam bo\'ladiku?', 
-    a: 'AI (ChatGPT/Claude) sizga kod bo\'laklarini yozib berishi mumkin, lekin u loyihaning to\'liq arxitektura zanjirini va jamoaviy ishlash madaniyatini o\'rgata olmaydi. Kursimizda biz AI qila olmaydigan ishni — o\'zgaruvchan talablarga moslashuvchan va barqaror tizim loyihalashni "Engineering Mindset" orqali amalda ko\'rib chiqamiz.' 
   },
   { 
     q: 'Nega bu kursda o‘qishim kerak? AI (ChatGPT, Claude) ga prompt yozsam barcha ishlarni qilib beradiku.', 
@@ -265,6 +279,10 @@ Siz nima uchun aynan shu kursda o‘qishingiz kerak?
 • Mentor vs Algoritm: AI sizga "qanday" qilishni aytsa, mentor "nima uchun" aynan shu yo‘l tanlanganini va biznes uchun qaysi biri foydaliroq ekanini tushuntiradi.
 
 Xulosa: AI kod yozadi, lekin mas'uliyatni bo'yniga olmaydi. Bizning maqsadimiz — sizni AIdan foydalanadigan oddiy koder emas, balki AIni boshqaradigan va murakkab tizimlarga Architect ko'zi bilan qarashni o'rgatamiz` 
+  },
+    { 
+    q: 'Nega bu kursda o\'qishim kerak, AI orqali ham o\'rgansam bo\'ladiku?', 
+    a: 'AI (ChatGPT/Claude) sizga kod bo\'laklarini yozib berishi mumkin, lekin u loyihaning to\'liq arxitektura zanjirini va jamoaviy ishlash madaniyatini o\'rgata olmaydi. Kursimizda biz AI qila olmaydigan ishni — o\'zgaruvchan talablarga moslashuvchan va barqaror tizim loyihalashni "Engineering Mindset" orqali amalda ko\'rib chiqamiz.' 
   },
   { 
     q: 'Loyiha arxitekturasini noldan qurishni o\'rganamanmi?', 
@@ -1043,6 +1061,10 @@ const mentorProjects = [
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
   }
+   .nav-btn-hero:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px rgba(168, 85, 247, 0.5);
+	}
 
   /* Kichikroq laptop ekranlari uchun qo'shimcha qisqartirish */
   @media (max-width: 1200px) {
@@ -1093,12 +1115,12 @@ const mentorProjects = [
     </a>
 
     <div class="hidden lg:flex items-center gap-1 xl:gap-2">
-      <a href="#mentor" class="nav-link">Mentor</a>
+      <a href="#mentor" class="nav-link">Muallif</a>
       <a href="#mission" class="nav-link">Missiya</a>
       <a href="#roadmap" class="nav-link">Kurs Dasturi</a>
-	   <a href="#architecture-design" class="nav-link">Soft/Architecture</a>
-      <a href="#curriculum" class="nav-link">Darslar</a>
-      <a href="#final-picture" class="nav-link">Architecture</a>
+	   <a href="#architecture-design" class="nav-link">Tizim</a>
+      <a href="#curriculum" class="nav-link">O'quv rejasi</a>
+      <a href="#final-picture" class="nav-link">Arxitektura</a>
       <a href="#modular-architecture" class="nav-link">RIBs</a>
       <a href="#expected-outcome" class="nav-link">Natija</a>
       <a href="#faq" class="nav-link">FAQ</a>
@@ -1135,27 +1157,32 @@ const mentorProjects = [
     </a>
   </div>
 </nav>
-
-<section class="min-h-screen flex items-center px-6 pt-5 overflow-hidden relative">
-      <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-20 items-center w-full">
+<section class="min-h-screen flex items-center px-6 pt-20 overflow-hidden relative">
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-30 items-center w-full">
         <div class="sg-scroll-in sg-visible">
-          <h1 class="hero-title">
-            Production-Ready<br />
-            iOS Architecture<br />
-            Course
+          <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs font-black tracking-widest uppercase">
+            3-Month Intensive Course
+          </div>
+          <h1 class="hero-title bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
+            Production-Ready<br />iOS Architecture
           </h1>
-          <p class="text-xl text-gray-400 mb-10 max-w-lg">
-            Scalable arxitekturalar, Production-Ready tizimlar va professional dasturlash standartlari.
-          </p>
+          <p class="hero-description">
+           Barqaror tizimlar loyihalashni o‘rganing va engineering darajangizni oshiring. Kelajagingiz uchun qilingan eng to‘g‘ri investitsiya        
+		  </p>
+          <div class="flex gap-4">
+		   <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-xl px-10 py-5 mt-20 no-underline text-white font-bold rounded-2xl">
+           Kursga yozilish
+           </a>
+          </div>
         </div>
-        <div class="flex justify-end relative hero-logo-col">
-          <div class="absolute inset-0 bg-purple-600/20 blur-[100px] rounded-full"></div>
-          <img src="/brend_logo.png" alt="SwiftGenius" />
+        <div class="flex justify-end relative">
+          <div class="absolute inset-0 bg-purple-600/15 blur-[120px] rounded-full"></div>
+          <img src="/brend_logo.png" alt="SwiftGenius" class="w-[280px] lg:w-[400px] h-auto object-contain drop-shadow-[0_0_50px_rgba(168,85,247,0.3)]" />
         </div>
       </div>
     </section>
 
-   <section id="mentor" class="py-2 px-6 border-t border-white/5 bg-[#050505]">
+   <section id="mentor" class="py-2 px-6 bg-[#050505]">
   <div class="max-w-6xl mx-auto">
     <div class="grid lg:grid-cols-2 gap-20 items-center">
       <div class="mentor-photo-col flex justify-center lg:pr-12">
@@ -1166,7 +1193,7 @@ const mentorProjects = [
       <div class="space-y-10">
         <div>
           <h2 class="text-5xl md:text-6xl font-black tracking-tight mb-2 italic">Dilshodbek <br/> Qulmirzayev</h2>
-          <p class="text-2xl text-purple-400 font-bold">iOS Engineer at TUNE Consulting</p>
+          <p class="text-2xl text-purple-400 font-bold">iOS Engineer, TUNE Consulting</p>
         </div>
 
         <div class="edu-container">
@@ -1201,21 +1228,22 @@ const mentorProjects = [
   </div>
 </section>
 
-	<section id="mission" class="py-20 px-6 bg-black relative overflow-hidden">
+<section id="mission" class="py-20 px-6 bg-black relative overflow-hidden">
   <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[300px] h-[300px] bg-purple-600/10 blur-[120px] rounded-full"></div>
 
   <div class="max-w-6xl mx-auto">
-    <div class="arch-card relative overflow-hidden p-8 md:p-12">
+    <div class="arch-card relative overflow-hidden p-8 md:p-12 border border-purple-500/50 rounded-[40px] shadow-[0_0_65px_rgba(255,255,255,0.12)] bg-gradient-to-br from-purple-900/10 to-transparent">
+      
       <div class="absolute -right-20 -top-20 w-80 h-80 bg-purple-600/5 blur-[100px] rounded-full"></div>
 
       <div class="grid lg:grid-cols-2 gap-16 mb-24 items-start relative z-10">
         <div class="sg-scroll-in">
-          <h2 class="text-5xl md:text-7xl font-black italic tracking-tighter mb-8 leading-none">
+          <h2 class="text-5xl md:text-7xl font-black italic tracking-tighter mb-8 leading-none text-white">
             Kurs <br/> <span class="text-purple-500">Missiyasi</span>
           </h2>
-          <div class="mission-card rounded-r-3xl">
+          <div class="mission-card rounded-r-3xl border-l-4 border-purple-500 pl-6">
             <p class="text-gray-300 text-lg leading-relaxed italic">
-              "Bugungi IT sohasida shunchaki SwiftUI interfeyslarini chizish yetarli emas. Haqiqiy Production darajasidagi loyihalar har qanday o'zgarishga moslashuvchan (Maintainable) va ishonchli (Testable) kod bazasini talab qiladi. Ushbu kurs iOS Engineeringni yangi bosqichiga olib chiqib, yirik tizimlarni professional arxitektura asosida loyihalashga yo'naltirilgan."
+              "Bugungi IT sohasida shunchaki SwiftUI interfeyslarini chizish yetarli emas. Haqiqiy Production darajasidagi loyihalar har qanday o'zgarishga moslashuvchan (Maintainable) va ishonchli (Testable) kod bazasi talab qiladi. Ushbu kurs iOS Engineeringni yangi bosqichiga olib chiqib, yirik tizimlarni professional arxitektura asosida loyihalashga yo'naltirilgan."
             </p>
           </div>
         </div>
@@ -1223,7 +1251,9 @@ const mentorProjects = [
         <div class="sg-scroll-in lg:pt-12">
           <h3 class="text-3xl font-black mb-6 uppercase tracking-widest text-gray-500">Kimlar uchun:</h3>
           <div class="mb-8">
-            <span class="target-badge text-xl md:text-2xl">Strong Junior & Middle iOS Engineerlar uchun</span>
+            <span class="target-badge text-xl md:text-2xl bg-purple-500/10 text-purple-400 px-6 py-2 rounded-full border border-purple-500/30">
+              Strong Junior & Middle iOS Engineerlar uchun
+            </span>
           </div>
           <p class="text-gray-400 text-lg">
             "Spagetti koddan" xalos bo'lish va tizimga professional iOS Architect ko'zi bilan qarashni istovchi dasturchilar uchun.
@@ -1233,30 +1263,36 @@ const mentorProjects = [
 
       <div class="grid md:grid-cols-3 gap-12 sg-scroll-in relative z-10">
         <div class="group">
-          <div class="feature-icon-box flex items-center justify-center text-white">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          <div class="feature-icon-box flex items-center justify-center text-white w-12 h-12 bg-purple-600/20 rounded-xl mb-6 shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
           </div>
-          <h4 class="text-xl font-bold mb-4 text-white group-hover:text-purple-400 transition">Architectural Evolution</h4>
+          <h4 class="text-xl font-bold mb-4 text-white group-hover:text-purple-400 transition italic">Architectural Evolution</h4>
           <p class="text-gray-400 text-sm leading-relaxed">
             Ilovani bir-biriga bog'lanmagan modullarga ajratish va RIBs patterni orqali yuqori darajadagi Scalability-ga erishish.
           </p>
         </div>
 
         <div class="group">
-          <div class="feature-icon-box flex items-center justify-center text-white">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <div class="feature-icon-box flex items-center justify-center text-white w-12 h-12 bg-purple-600/20 rounded-xl mb-6 shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
           </div>
-          <h4 class="text-xl font-bold mb-4 text-white group-hover:text-purple-400 transition">Engineering Excellence</h4>
+          <h4 class="text-xl font-bold mb-4 text-white group-hover:text-purple-400 transition italic">Engineering Excellence</h4>
           <p class="text-gray-400 text-sm leading-relaxed">
             SOLID tamoyillari, POP va OOP paradigmalari asosidagi professional "Clean Code" madaniyati.
           </p>
         </div>
 
         <div class="group">
-          <div class="feature-icon-box flex items-center justify-center text-white">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <div class="feature-icon-box flex items-center justify-center text-white w-12 h-12 bg-purple-600/20 rounded-xl mb-6 shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
           </div>
-          <h4 class="text-xl font-bold mb-4 text-white group-hover:text-purple-400 transition">Logic Isolation</h4>
+          <h4 class="text-xl font-bold mb-4 text-white group-hover:text-purple-400 transition italic">Logic Isolation</h4>
           <p class="text-gray-400 text-sm leading-relaxed">
             Biznes mantiqni UI qatlamidan to'liq ajratish va qatlamlar o'rtasida xatosiz Data Flow-ni yo'lga qo'yish.
           </p>
@@ -1344,21 +1380,21 @@ const mentorProjects = [
 
 	<section id="architecture-design" class="py-20 px-2 bg-black relative">
       <div class="max-w-6xl mx-auto">
-        <div class="arch-card relative overflow-hidden">
+        <div class="arch-card relative overflow-hidden border border-purple-500/50 rounded-[40px] shadow-[0_0_65px_rgba(255,255,255,0.12)]">
           <div class="absolute -right-20 -top-20 w-80 h-80 bg-purple-600/10 blur-[100px] rounded-full"></div>
           
-          <div class="grid lg:grid-cols-2 gap-25 items-center">
+          <div class="grid lg:grid-cols-2 gap-25 items-center p-8 md:p-5">
             <div class="sg-scroll-in">
-              <h2 class="text-5xl md:text-7xl font-[950] italic tracking-tighter leading-[0.9] mb-12">
+              <h2 class="text-5xl md:text-7xl font-[950] italic tracking-tighter leading-[0.9] mb-12 text-white">
                 Software <br/> 
                 Architecture <br/> 
                 <span class="text-purple-500">& Design</span>
               </h2>
               
-              <div class="arch-icon-glow inline-block">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#A855F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 17L12 22L22 17" stroke="#A855F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="#A855F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <div class="arch-icon-glow inline-block text-purple-500">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
             </div>
@@ -1393,276 +1429,241 @@ const mentorProjects = [
       </div>
     </section>
 
-   <section id="curriculum" class="py-10 px-6 bg-black relative">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/5 blur-[120px] rounded-full pointer-events-none"></div>
+ <section id="curriculum" class="py-24 px-6 bg-black relative overflow-hidden">
+  <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+  <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div class="max-w-5xl mx-auto relative z-10">
-        <div class="text-center mb-24">
-          <h2 class="text-6xl md:text-7xl font-black italic tracking-tighter mb-6 bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent">
-            DARSLAR REJASI
-          </h2>
-          <p class="text-gray-500 text-xl font-medium max-w-2xl mx-auto">
-            Professional iOS muhandisligi uchun 12 modulli chuqurlashtirilgan dastur.
-          </p>
-        </div>
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="text-center mb-32">
+	 <h2 class="text-5xl md:text-7xl font-[950] italic tracking-tighter leading-[0.9] mb-12 text-white">
+                O'quv <span class="text-purple-500"> Rejasi</span>
+      </h2>
+      <p class="text-gray-400 text-xl font-medium max-w-2xl mx-auto">
+        Professional iOS Engineering: 12 modulli 3 oylik chuqurlashtirilgan o‘quv dasturi.
+      </p>
+    </div>
 
-        <div class="space-y-8">
-          {modules.map((mod) => (
-            <div class="module-card rounded-[2.5rem] p-8 md:p-12 cursor-pointer group" onclick="this.classList.toggle('active')">
-              
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-8">
-                  <span class="module-number italic select-none">#{mod.num}</span>
-                  <div>
-                    <span class="text-purple-500 font-black uppercase tracking-[0.3em] text-xs md:text-sm mb-2 block">{mod.category}</span>
-                    <h3 class="text-2xl md:text-4xl font-bold text-white group-hover:text-purple-400 transition-all duration-300 tracking-tight">
-                      {mod.title}
-                    </h3>
+    <div class="space-y-32">
+      {months.map((month, index) => (
+        <div class="month-group">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-white/10 pb-8 gap-4">
+            <div>
+              <h3 class="text-4xl md:text-5xl font-black text-purple-500 italic">{month.name}</h3>
+            </div>
+            <p class="text-gray-500 font-medium md:text-right max-w-sm">
+              {month.description}
+            </p>
+          </div>
+
+          <div class="grid gap-6">
+            {month.items.map((mod) => (
+              /* DOIMIY YORQIN BORDER VA 60PX WHITE SHADOW QO'SHILDI */
+              <div class="module-card bg-[#0A0A0A] border border-purple-500/50 shadow-[0_0_60px_rgba(255,255,255,0.08)] rounded-[2rem] p-6 md:p-10 cursor-pointer group transition-all duration-500 hover:bg-purple-500/[0.02]" onclick="this.classList.toggle('active')">
+                
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-6 md:gap-10">
+                    <span class="text-4xl md:text-5xl font-black italic text-white/5 group-hover:text-purple-500/20 transition-colors duration-500 select-none">
+                      {mod.num}
+                    </span>
+                    <div>
+                      <span class="text-purple-500/80 font-bold uppercase tracking-widest text-[10px] mb-1 block">{mod.category}</span>
+                      <h4 class="text-xl md:text-3xl font-bold text-white group-hover:text-purple-400 transition-all duration-300 italic">
+                        {mod.title}
+                      </h4>
+                    </div>
+                  </div>
+                  
+                  <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-purple-500 group-hover:border-purple-500 transition-all duration-500">
+                    <svg class="w-5 h-5 text-white transition-transform duration-500 group-[.active]:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
                   </div>
                 </div>
-                
-                <div class="chevron-box w-14 h-14 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:border-purple-500/50 transition-all duration-500">
-                  <svg class="chevron w-6 h-6 text-purple-500 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                  </svg>
-                </div>
-              </div>
 
-              <div class="content-wrapper">
-                <div class="grid md:grid-cols-2 gap-12 border-t border-white/5 pt-10">
-                  {mod.subsections.map((sub) => (
-                    <div class="space-y-6">
-                      <div class="flex items-center gap-3">
-                        <div class="h-[1px] w-8 bg-purple-500/50"></div>
-                        <h4 class="text-purple-400 font-black text-xs uppercase tracking-[0.2em]">
+                <div class="content-wrapper hidden group-[.active]:block transition-all duration-500">
+                  <div class="grid md:grid-cols-2 gap-10 border-t border-white/5 mt-8 pt-8">
+                    {mod.subsections.map((sub) => (
+                      <div class="space-y-4">
+                        <h5 class="text-purple-400 font-black text-[11px] uppercase tracking-[0.2em] flex items-center gap-2">
+                          <span class="w-4 h-[1px] bg-purple-500/50"></span>
                           {sub.head}
-                        </h4>
+                        </h5>
+                        <ul class="space-y-3">
+                          {sub.items.map((item) => (
+                            <li class="flex items-start gap-3 text-gray-400 text-sm md:text-base hover:text-white transition-colors">
+                              <span class="text-purple-500 mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0 shadow-[0_0_10px_#A855F7]"></span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <ul class="space-y-4">
-                        {sub.items.map((item) => (
-                          <li class="lesson-item text-gray-400 text-sm md:text-base font-medium hover:text-white transition-all">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section id="final-picture" class="py-20 px-6 bg-black relative">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-16 sg-scroll-in">
+      <div class="mb-6">
+        <span class="big-picture-tag">Final Destination</span>
+      </div>
+      <h2 class="text-3xl md:text-5xl font-[950] italic tracking-tighter leading-none mb-6">
+        Final <span class="text-purple-500">Big Picture</span>
+      </h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto italic">
+        Kurs yakunida murakkab, modulli va professional arxitekturani noldan loyihalash ko'nikmalari shakllantiriladi.
+      </p>
+    </div>
+
+    <div class="arch-display-container sg-scroll-in relative border border-purple-500/50 rounded-[40px] p-8 md:p-12 overflow-hidden bg-gradient-to-b from-purple-900/20 to-transparent shadow-[0_0_65px_rgba(255,255,255,0.12)]">
+      <div class="absolute inset-0 bg-purple-600/[0.04] blur-[100px] rounded-full pointer-events-none"></div>
+
+      <div class="absolute top-8 left-8 z-20">
+        <h3 class="text-2xl font-black text-white italic">Advanced MVVM & Clean Architecture</h3>
+      </div>
+
+      <div class="relative z-10 flex top-15 justify-center items-center">
+        <img src="/mvvmArch.png" alt="Architecture" class="arch-img-shadow w-full max-w-5xl rounded-2xl" />
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mt-16 border-t border-white/10 pt-10 relative z-20">
+        <div>
+          <span class="text-purple-500 font-bold block mb-2">Scalability</span>
+          <p class="text-xs text-gray-500 uppercase tracking-widest leading-relaxed">Istalgancha modullarni qo'shish va kengaytirish imkoniyati.</p>
+        </div>
+        <div>
+          <span class="text-purple-500 font-bold block mb-2">Testability</span>
+          <p class="text-xs text-gray-500 uppercase tracking-widest leading-relaxed">Har bir qatlam DI va Protocollar orqali 100% testlanuvchan.</p>
+        </div>
+        <div>
+          <span class="text-purple-500 font-bold block mb-2">Isolation</span>
+          <p class="text-xs text-gray-500 uppercase tracking-widest leading-relaxed">Business Logic UI dan butunlay ajratilgan tizim.</p>
         </div>
       </div>
-    </section>
-	<section id="final-picture" class="py-20 px-6 bg-black relative">
-      <div class="max-w-6xl mx-auto">
-        
-        <div class="text-center mb-16 sg-scroll-in">
-          <div class="mb-6">
-            <span class="big-picture-tag">Final Destination</span>
-          </div>
-          <h2 class="text-3xl md:text-5xl font-[950] italic tracking-tighter leading-none mb-6">
-            Final <span class="text-purple-500">Big Picture</span>
-          </h2>
-          <p class="text-gray-400 text-lg max-w-2xl mx-auto italic">
-            Kurs yakunida murakkab, modulli va professional arxitekturani noldan loyihalash ko'nikmalari shakllantiriladi.       
-		  </p>
-        </div>
-
-        <div class="arch-display-container sg-scroll-in">
-          <div class="absolute top-8 left-8 z-20">
-             <h3 class="text-2xl font-black text-white italic">Advanced MVVM & Clean Architecture</h3>
-          </div>
-
-          <div class="relative z-10 flex  top-15 justify-center items-center">
-            <img 
-              src="/mvvmArch.png" 
-              alt="Advanced MVVM & Clean Architecture Big Picture" 
-              class="arch-img-shadow w-full max-w-5xl rounded-2xl"
-            />
-          </div>
-
-          <div class="grid md:grid-cols-3 gap-8 mt-16 border-t border-white/10 pt-10 relative z-20">
-            <div>
-              <span class="text-purple-500 font-bold block mb-2">Scalability</span>
-              <p class="text-xs text-gray-500 uppercase tracking-widest leading-relaxed">Istalgancha modullarni qo'shish va kengaytirish imkoniyati.</p>
-            </div>
-            <div>
-              <span class="text-purple-500 font-bold block mb-2">Testability</span>
-              <p class="text-xs text-gray-500 uppercase tracking-widest leading-relaxed">Har bir qatlam DI va Protocollar orqali 100% testlanuvchan.</p>
-            </div>
-            <div>
-              <span class="text-purple-500 font-bold block mb-2">Isolation</span>
-              <p class="text-xs text-gray-500 uppercase tracking-widest leading-relaxed">Business Logic UI dan butunlay ajratilgan tizim.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
+  </div>
+</section>
 
 <section id="modular-architecture" class="py-20 px-2 bg-black relative">
   <div class="max-w-6xl mx-auto">
-    
-    <div class="outcome-card sg-scroll-in p-8 md:p-12 relative overflow-hidden">
-      <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-purple-600/10 blur-[100px] rounded-full"></div>
+    <div class="outcome-card sg-scroll-in p-8 md:p-12 relative overflow-hidden border border-purple-500/50 rounded-[40px] bg-gradient-to-tr from-purple-900/20 via-transparent to-transparent shadow-[0_0_65px_rgba(255,255,255,0.12)]">
+      <div class="absolute -left-20 -bottom-20 w-full h-full bg-purple-600/[0.06] blur-[120px] rounded-full pointer-events-none"></div>
 
       <div class="mb-12 relative z-10">
-        <div class="mb-6">
-          <span class="big-picture-tag">Advanced Concepts</span>
-        </div>
+        <div class="mb-6"><span class="big-picture-tag">Advanced Concepts</span></div>
         <h2 class="text-4xl md:text-6xl font-[950] italic tracking-tighter leading-none mb-6">
-          Scalable <span class="text-purple-500">RIBs-based</span> <br/> Modular Architecture
+          Scalable <span class="text-purple-500">RIBs-based</span> <br /> Modular Architecture
         </h2>
         <p class="text-gray-400 text-lg max-w-3xl italic leading-relaxed">
-          Uber tomonidan ishlab chiqilgan RIBs arxitekturasi yordamida ilovani o'zaro bog'lanmagan (decoupled) modullarga ajratish va ularni professional boshqarish tizimi.
+          Uber tomonidan ishlab chiqilgan RIBs arxitekturasi yordamida ilovani o'zaro bog'lanmagan modullarga ajratish.
         </p>
       </div>
 
       <div class="relative z-10 flex justify-center items-center mb-16">
-        <img 
-          src="/ribArch.png" 
-          alt="Scalable RIBs-based Modular Architecture" 
-          class="arch-img-shadow w-full rounded-2xl"
-        />
+        <img src="/ribArch.png" alt="RIBs Architecture" class="arch-img-shadow w-full rounded-2xl" />
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 border-t border-white/10 pt-10 relative z-20">
-        <div>
-          <div class="flex items-center gap-2 mb-3">
-            <div class="w-2 h-2 bg-purple-500 rounded-full shadow-[0_0_10px_#a855f7]"></div>
-            <span class="text-white font-bold text-lg">Deep Link Support</span>
+        <div class="flex flex-col"><span class="text-white font-bold text-lg">Deep Link Support</span><p class="text-xs text-gray-500 italic">Ilovaning istalgan qismiga yo'naltirish.</p></div>
+        <div class="flex flex-col"><span class="text-white font-bold text-lg">Business Logic First</span><p class="text-xs text-gray-500 italic">UI ga bog'lanmagan mantiq boshqaruvi.</p></div>
+        <div class="flex flex-col"><span class="text-white font-bold text-lg">Extreme Isolation</span><p class="text-xs text-gray-500 italic">Modullar o'rtasidagi qat'iy nazorat.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expected-outcome" class="py-20 px-6 bg-black relative">
+  <div class="max-w-6xl mx-auto">
+    <div class="outcome-card sg-scroll-in border border-purple-500/50 p-8 md:p-12 rounded-[40px] relative overflow-hidden bg-[#080808] shadow-[0_0_65px_rgba(255,255,255,0.1)]">
+      <div class="absolute inset-0 bg-purple-600/[0.04] blur-[150px] rounded-full pointer-events-none"></div>
+
+      <div class="grid lg:grid-cols-2 gap-20 items-center relative z-10">
+        <div class="space-y-12">
+          <h2 class="outcome-title-main">Kutilayotgan <br /><span class="text-purple-500">Natija:</span></h2>
+          <div class="w-20 h-20 text-purple-500">
           </div>
-          <p class="text-xs text-gray-500 uppercase tracking-widest leading-relaxed">
-            Ilovaning istalgan qismiga xavfsiz va aniq yo'naltirish tizimi.
-          </p>
         </div>
-        
-        <div>
-          <div class="flex items-center gap-2 mb-3">
-            <div class="w-2 h-2 bg-purple-500 rounded-full shadow-[0_0_10px_#a855f7]"></div>
-            <span class="text-white font-bold text-lg">Business Logic First</span>
-          </div>
-          <p class="text-xs text-gray-300 uppercase tracking-widest leading-relaxed">
-            Router va Interactor yordamida UI ga bog'lanmagan mantiq boshqaruvi.
-          </p>
-        </div>
-        
-        <div>
-          <div class="flex items-center gap-2 mb-3">
-            <div class="w-2 h-2 bg-purple-500 rounded-full shadow-[0_0_10px_#a855f7]"></div>
-            <span class="text-white font-bold text-lg">Extreme Isolation</span>
-          </div>
-          <p class="text-xs text-gray-300 uppercase tracking-widest leading-relaxed">
-            Modullar o'rtasidagi "Dependency"larni Builder orqali qat'iy nazorat qilish.
-          </p>
+
+        <div class="space-y-12">
+          <div class="outcome-bullet"><div class="bullet-circle"><div class="bullet-dot"></div></div><div><h3 class="outcome-subtitle">Muhandislik poydevori</h3><p class="outcome-desc text-sm italic">Ushbu kurs fundamental SwiftUI loyihasidan boshlab, yuqori darajadagi Production-Ready iOS arxitekturasini loyihalashgacha bo'lgan bosqichlarni qamrab oladi.</p></div></div>
+          <div class="outcome-bullet"><div class="bullet-circle"><div class="bullet-dot"></div></div><div><h3 class="outcome-subtitle">Professional Standartlar</h3><p class="outcome-desc text-sm italic">Scalable, Testable va Software Engineering tamoyillariga asoslangan tizimlarni shakllantirish, yirik jamoalarda yuqori standartlar asosida ishlash imkonini beradi.</p></div></div>
+          <div class="outcome-bullet"><div class="bullet-circle"><div class="bullet-dot"></div></div><div><h3 class="outcome-subtitle">Software Architect Nigohi</h3><p class="outcome-desc text-sm italic">Har qanday murakkablikdagi loyihaga tizimli tahlil va barqaror kod bazasi orqali professional iOS Architect sifatida yondashish ko'nikmasi shakllanadi.</p></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-	<section id="expected-outcome" class="py-20 px-6 bg-black relative">
-      <div class="max-w-6xl mx-auto">
-        <div class="outcome-card sg-scroll-in">
-          
-          <div class="grid lg:grid-cols-2 gap-20 items-center">
-            
-            <div class="space-y-12">
-              <h2 class="outcome-title-main">
-                Kutilayotgan <br/> 
-                <span class="text-purple-500">Natija:</span>
-              </h2>
-              
-              <div class="w-20 h-20 text-purple-500">
-                  <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-            </div>
-
-            <div class="space-y-12">
-              
-              <div class="outcome-bullet">
-                <div class="bullet-circle">
-                  <div class="bullet-dot"></div>
-                </div>
-                <div>
-                  <h3 class="outcome-subtitle">Muhandislik poydevori</h3>
-                  <p class="outcome-desc">
-                    Ushbu kurs fundamental SwiftUI loyihasidan boshlab, yuqori darajadagi Production-Ready iOS arxitekturasini loyihalashgacha bo'lgan bosqichlarni qamrab oladi.
-                  </p>
-                </div>
-              </div>
-
-              <div class="outcome-bullet">
-                <div class="bullet-circle">
-                  <div class="bullet-dot"></div>
-                </div>
-                <div>
-                  <h3 class="outcome-subtitle">Professional Standartlar</h3>
-                  <p class="outcome-desc">
-                    Scalable, Testable va Software Engineering tamoyillariga asoslangan tizimlarni shakllantirish, yirik jamoalarda yuqori standartlar asosida ishlash imkonini beradi.
-                  </p>
-                </div>
-              </div>
-
-              <div class="outcome-bullet">
-                <div class="bullet-circle">
-                  <div class="bullet-dot"></div>
-                </div>
-                <div>
-                  <h3 class="outcome-subtitle">Software Architect Nigohi</h3>
-                  <p class="outcome-desc">
-                    Har qanday murakkablikdagi loyihaga tizimli tahlil va barqaror kod bazasi orqali professional iOS Architect sifatida yondashish ko'nikmasi shakllanadi.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-	
-	<section class="cta-final-wrapper border-t border-white/5 top 30">
+<section class="cta-final-wrapper pt-32 pb-0 bg-black relative overflow-hidden">
   <div class="max-w-6xl mx-auto w-full px-6">
-    <div class="grid lg:grid-cols-2 items-center gap-12">
+    <div class="grid lg:grid-cols-2 items-end gap-12">
       
-      <div class="sg-scroll-in">
-       <h2 class="cta-title-main">
+      <div class="sg-scroll-in pb-20 lg:pb-32 flex flex-col items-start">
+        <h2 class="cta-title-main text-white font-[950] italic tracking-tighter leading-[1.1] text-6xl md:text-8xl uppercase mb-12">
             Level up <br/> 
-         <span class="text-purple-500">Your Engineering</span>
-       </h2>
+          <span class="text-purple-500">Your Engineering</span>
+        </h2>
+        
+        <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-xl px-10 py-20 no-underline text-white font-bold rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(168,85,247,0.3)]">
+          Karyerangizga investitsiya qiling
+        </a>
       </div>
 
-      <div class="flex justify-center sg-scroll-in relative">
-        <div class="absolute inset-0 bg-purple-600/20 blur-[120px] rounded-full scale-75"></div>
+      <div class="flex justify-center items-end relative h-full">
+        <div class="absolute inset-0 bg-purple-600/20 blur-[120px] rounded-full translate-y-20 pointer-events-none"></div>
+        
         <img 
           src="/my_photo.png" 
           alt="Dilshodbek Qulmirzayev" 
-          class="mentor-display-img relative z-10"
+          class="mentor-display-img relative z-10 w-full max-w-[550px] block"
+          style="display: block; vertical-align: bottom; margin-bottom: 0;" 
         />
       </div>
 
-      
     </div>
   </div>
 </section>
 
-   <section id="faq" class="py-32 px-6 border-t border-white/5 bg-[#050505]">
+<style>
+  /* Section va rasm orasidagi mikroskopik bo'shliqlarni yo'qotish */
+  .cta-final-wrapper {
+    padding-bottom: 0 !important;
+  }
+  
+  .mentor-display-img {
+    display: block !important;
+    line-height: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* Tugma uchun qo'shimcha stil (agar globalda bo'lmasa) */
+  .sg-btn-gradient {
+    background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
+    display: inline-block;
+  }
+</style>
+
+<section id="faq" class="py-32 px-6 border-t border-white/5 bg-[#050505]">
   <div class="max-w-3xl mx-auto">
-    <h2 class="text-4xl md:text-6xl font-black text-center mb-16 italic tracking-tighter">FAQ</h2>
-    <div class="space-y-4">
+    <h2 class="text-4xl md:text-6xl font-black text-center mb-16 italic tracking-tighter uppercase text-white">FAQ</h2>
+    <div class="space-y-6">
       {faqs.map((faq) => (
-        <details class="module-card !rounded-2xl !p-0 overflow-hidden group">
-          <summary class="p-6 cursor-pointer font-bold flex justify-between items-center list-none hover:bg-white/5 transition-colors">
-            <span>{faq.q}</span>
-            <span class="text-purple-500 transition group-open:rotate-45">+</span>
+        /* DOIMIY YORQIN BORDER VA 65PX WHITE SHADOW QO'SHILDI */
+        <details class="module-card !rounded-2xl !p-0 overflow-hidden group border border-purple-500/50 shadow-[0_0_55px_rgba(255,255,255,0.05)] bg-black transition-all duration-500">
+          <summary class="p-8 cursor-pointer font-bold flex justify-between items-center list-none hover:bg-purple-500/[0.03] transition-colors select-none">
+            <span class="text-lg md:text-xl pr-6 text-white">{faq.q}</span>
+            <span class="text-purple-500 text-3xl transition-transform duration-500 group-open:rotate-45">+</span>
           </summary>
-          <div class="px-6 pb-6 text-gray-400 text-sm border-t border-white/5 pt-4 leading-relaxed whitespace-pre-line">
-            {/* 1-YECHIM: whitespace-pre-line klassini qo'shdik */}
+          <div class="px-8 pb-8 text-gray-400 text-base md:text-lg border-t border-white/5 pt-8 leading-relaxed whitespace-pre-line bg-gradient-to-b from-purple-900/10 to-transparent">
             {faq.a}
           </div>
         </details>
@@ -1671,50 +1672,50 @@ const mentorProjects = [
   </div>
 </section>
 
- <footer id="contact" class="py-32 px-6 border-t border-white/5 bg-black relative overflow-hidden">
-  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-600/5 blur-[120px] rounded-full pointer-events-none"></div>
+<footer id="contact" class="py-32 px-6 border-t border-white/5 bg-black relative overflow-hidden">
+  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-500/[0.02] blur-[120px] rounded-full pointer-events-none"></div>
 
   <div class="max-w-6xl mx-auto relative z-10">
     <div class="flex justify-center text-center mb-24">
-      <h2 class="footer-title-fix text-3xl md:text-5xl font-[950] italic tracking-tighter bg-gradient-to-b from-white to-gray-500 bg-clip-text text-transparent">
-        BOG'LANISH  UCHUN:
+      <h2 class="cta-title-main text-white font-[950] italic tracking-tighter leading-[1.1] text-6xl md:text-7xl uppercase mb-12">
+        BOG'LANISH <br/> 
+        <span class="text-purple-500">UCHUN</span>
       </h2>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 w-full mb-24">
       
-      <a href="tel:+998930676239" class="contact-card-pro group">
-        <div class="w-12 h-12 mb-6">
+      <a href="tel:+998930676239" class="contact-card-pro group border border-purple-500/50 rounded-[2rem] p-8 flex flex-col items-center justify-center transition-all duration-500 shadow-lg bg-gradient-to-b from-purple-900/10 to-transparent hover:bg-purple-500/[0.03]">
+        <div class="w-20 h-20 mb-6">
           <img src="/phone_logo.png" class="w-full h-full object-contain" alt="Phone" />
         </div>
-        <span class="text-white font-bold text-sm md:text-base group-hover:text-purple-400 transition">
+        <span class="text-white font-bold text-sm md:text-base group-hover:text-purple-400 transition text-center">
           +998 93 067 62 39
         </span>
       </a>
 
-      <a href="https://t.me/iosDev007" target="_blank" class="contact-card-pro group">
-        <div class="w-12 h-12 mb-6">
-          <img src="/telegram_logo.png" class="w-full h-full object-contain" alt="Telegram" />
+      <a href="https://t.me/iosDev007" target="_blank" class="contact-card-pro group border border-purple-500/50 rounded-[2rem] p-8 flex flex-col items-center justify-center transition-all duration-500 shadow-lg bg-gradient-to-b from-purple-900/10 to-transparent hover:bg-purple-500/[0.03]">
+        <div class="w-20 h-20 mb-6"> <img src="/telegram_logo.png" class="w-full h-full object-contain" alt="Telegram" />
         </div>
-        <span class="text-white font-bold text-sm md:text-base group-hover:text-purple-400 transition">
+        <span class="text-white font-bold text-sm md:text-base group-hover:text-purple-400 transition text-center">
           @iosDev007
         </span>
       </a>
 
-      <a href="https://www.linkedin.com/in/dilshodbek-qulmirzayev-14b308282/" target="_blank" class="contact-card-pro group">
-        <div class="w-12 h-12 mb-6">
+      <a href="https://www.linkedin.com/in/dilshodbek-qulmirzayev-14b308282/" target="_blank" class="contact-card-pro group border border-purple-500/50 rounded-[2rem] p-8 flex flex-col items-center justify-center transition-all duration-500 shadow-lg bg-gradient-to-b from-purple-900/10 to-transparent hover:bg-purple-500/[0.03]">
+        <div class="w-20 h-20 mb-6">
           <img src="/linkedin_logo.png" class="w-full h-full object-contain" alt="LinkedIn" />
         </div>
-        <span class="text-white font-bold text-sm md:text-base group-hover:text-purple-400 transition">
+        <span class="text-white font-bold text-sm md:text-base group-hover:text-purple-400 transition text-center">
           Dilshodbek
         </span>
       </a>
 
-      <a href="https://www.youtube.com/@swift_Genius" target="_blank" class="contact-card-pro group">
-        <div class="w-12 h-12 mb-6">
+      <a href="https://www.youtube.com/@swift_Genius" target="_blank" class="contact-card-pro group border border-purple-500/50 rounded-[2rem] p-8 flex flex-col items-center justify-center transition-all duration-500 shadow-lg bg-gradient-to-b from-purple-900/10 to-transparent hover:bg-purple-500/[0.03]">
+        <div class="w-20 h-20 mb-6">
           <img src="/youtube_logo.png" class="w-full h-full object-contain" alt="YouTube" />
         </div>
-        <span class="text-white font-bold text-sm md:text-base group-hover:text-purple-400 transition">
+        <span class="text-white font-bold text-sm md:text-base group-hover:text-purple-400 transition text-center">
           Swift Genius
         </span>
       </a>
