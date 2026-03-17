@@ -27,7 +27,7 @@ const modules = [
       },
       {
         head: 'Navigation & Presentation',
-        items: ['NavigationStack, NavigationPath', 'navigationDestination', 'sheet, fullScreenCover, Alert']
+        items: ['NavigationStack, NavigationPath', 'navigationDestination', 'sheet, fullScreenCover, Alert, Custom modal']
       }
     ]
   },
@@ -49,7 +49,7 @@ const modules = [
   {
     num: '03',
     category: 'Architecture',
-    title: 'MVVM Architecture & SoC',
+    title: 'MVVM Architecture',
     subsections: [
       {
         head: "MVVM Architecture",
@@ -64,11 +64,11 @@ const modules = [
     subsections: [
       {
         head: "Dependency Injection (DI)",
-        items: ["Inversion of Control (IoC)", "Loose Coupling principles", "DI Container architecture", "Service registration & resolution"]
+        items: ["Dependency Injection (DI)", "Loose Coupling principles", "DI Container architecture", "Service registration & resolution"]
       },
       {
         head: "Protocol-Oriented Programming (POP)",
-        items: ["Abstraction & Interface Design", "Swappability & Decoupling", "Enhanced Testability architecture"]
+        items: ["Abstraction & Interface Design", "Decoupling techniques", "Enhanced Testability architecture"]
       }
     ]
   },
@@ -90,11 +90,11 @@ const modules = [
     subsections: [
       {
         head: "Interactor & Business Logic Architecture",
-        items: ["Domain Logic Separation", "ViewModel to Interactor Interaction", "Unidirectional Data Flow"]
+        items: ["System Design Foundations","Domain Logic Separation", "ViewModel to Interactor Interaction", "Decoupling View Logic from Business Logic"]
       },
       {
         head: "Centralized global Business Logic",
-        items: ["Global Business Layer orchestration", "Global State Synchronization", "Service Management & Abstraction"]
+        items: ["Global Business Layer (Centralized Logic)", "Manager Integration & Data Flow", "Service Management & Abstraction"]
       },
       {
         head: "CoreInteractor: Refactoring",
@@ -252,8 +252,8 @@ const mentorProjects = [
   { name: 'MyBank UZ', logo: '/mybank_logo.png', href: 'https://apps.apple.com/uz/app/mybank-uz/id6503429804', badge: null },
   { name: 'Milliy Business', logo: '/milliy_logo.png', href: 'https://apps.apple.com/uz/app/milliy-business/id6742812650', badge: null },
   { name: 'Sello', logo: '/sello_logo.png', href: 'https://apps.apple.com/uz/app/sello-pay-payments-transfers/id1603818062', badge: null },
-  { name: 'SwiftGenius App', logo: '/swiftGenius_logo.png', href: 'https://apps.apple.com/uz/app/swiftgenius/id6759780139', badge: null },
-  { name: 'MyBank Business', logo: '/mybank_business.png', href: null, badge: 'Internal Tool' },
+  { name: 'SwiftGenius', logo: '/swiftGenius_logo.png', href: 'https://apps.apple.com/uz/app/swiftgenius/id6759780139', badge: null },
+  { name: 'MyBank Business', logo: '/mybank_business.png', href: null, badge: 'Under develop' },
 ];
 --- 
 <html lang="uz">
@@ -1410,8 +1410,8 @@ const mentorProjects = [
             Advanced Concepts
           </span>
         </div>
-        <h2 class="text-3xl md:text-5xl lg:text-6xl font-[950] italic tracking-tighter leading-[1.1] mb-6 text-white uppercase">
-          Scalable <span class="text-purple-500">RIBs-based</span> <br class="hidden md:block" /> Modular Architecture
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-[950] italic tracking-tighter leading-[1.1] mb-6 text-white uppercase">
+          Scalable <span class="text-purple-500"> RIBs-based</span> <br class="hidden md:block" /> Modular  Architecture
         </h2>
       </div>
 
@@ -1438,6 +1438,7 @@ const mentorProjects = [
     </div>
   </div>
 </section>
+
 <section id="expected-outcome" class="py-16 md:py-24 px-4 md:px-6 bg-black relative">
   <div class="max-w-6xl mx-auto">
     <div class="outcome-card sg-scroll-in border border-purple-500/30 p-6 md:p-16 rounded-3xl md:rounded-[40px] relative overflow-hidden bg-[#080808] shadow-[0_0_80px_rgba(168,85,247,0.1)]">
@@ -1446,10 +1447,9 @@ const mentorProjects = [
 
       <div class="relative z-10">
         <div class="mb-12 md:mb-20 flex flex-col items-center text-center">
-          <h2 class="text-3xl md:text-5xl lg:text-6xl font-[950] italic tracking-tighter leading-none text-white uppercase mb-4 md:mb-6">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-[950] italic tracking-tighter leading-none text-white uppercase mb-4 md:mb-6">
             Kutilayotgan <span class="text-purple-500"> Natija</span>
           </h2>
-          <div class="w-16 md:w-24 h-1 bg-purple-500 rounded-full"></div>
         </div>
 
         <div class="grid gap-6 md:gap-8">
