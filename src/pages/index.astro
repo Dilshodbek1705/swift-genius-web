@@ -199,143 +199,52 @@ const modules = [
 ];
 const months = [
   {
-    name: "1-OY: Foundations",
-    description: "SwiftUI asoslari va loyiha poydevorini qurish",
+    name: "1-OY: SwiftUI asoslari va loyiha poydevorini qurish",
     items: modules.slice(0, 4) // 01-04 modullar
   },
   {
-    name: "2-OY: Architecture Mastery",
-    description: "Biznes mantiqini ajratish va murakkab navigatsiya",
+    name: "2-OY: Biznes mantiqini ajratish va murakkab navigatsiya",
     items: modules.slice(4, 8) // 05-08 modullar
   },
   {
-    name: "3-OY: Advanced Engineering",
-    description: "Modullashtirish, xavfsizlik va QA standartlari",
+    name: "3-OY: Modullashtirish, xavfsizlik va QA standartlari",
     items: modules.slice(8, 12) // 09-12 modullar
   }
 ];
+
 const faqs = [
   { 
     q: 'Swiftni bilmasam ham kursga qo\'shilishim mumkinmi?', 
-    a: 'Yo\'q, bu kurs fundamental Swift va SwiftUI boshlang\'ich bilimlarini talab qiladi. Agar sizda kamida 1 yillik iOS tajriba bo\'lsa yoki kuchli "Strong Junior" bo\'lsangiz, kurs siz uchun maksimal foydali bo\'ladi.' 
+    a: 'Yo\'q, bu kurs kamida 1 yillik ish tajribasi yoki kuchli "Strong Junior" darajasiga ega bo`lganlar uchun.' 
   },
- { 
-  q: 'Darslar qanday formatda o\'tkaziladi?', 
-  a: `Darslar offlayn yoki onlayn, interaktiv "Workshop" formatida tashkil etiladi.
-
-• Mentor bilan bevosita muloqot va real-time Code Review.
-
-• Nazariya va Production-ready yechimlarni birga yozish (Live-coding).
-
-• Darsda qurilgan arxitekturani mustaqil qayta yozish orqali Engineering Mindset'ni shakllantirish.` 
-},
   { 
-    q: 'Kurs qancha davom etadi?', 
-    a: 'Kurs murakkab modullar bo\'yicha tashkil etilgan. Har bir modulda real loyiha va amaliyot bor. O\'zlashtirish tezligiga qarab aniq muddat mentor bilan shaxsiy reja asosida belgilanadi.' 
+    q: 'Darslar qanday formatda o\'tkaziladi?', 
+    a: `Mentor bilan kelishilgan holda offlayn yoki onlayn`
   },
-   {
-  q: 'Kursda o‘qitish metodikasi va dars tartibi qanday?',
-  a: `Bizning metodikamiz "Evolyutsion rivojlanish" tamoyiliga va jonli offline muloqotga asoslangan:
-
-• Muammodan Yechimga: Darslar real loyihadagi to‘siqlarni tahlil qilishdan boshlanadi. Biz tayyor shablon bermaymiz, balki eng sodda yechimni bosqichma-bosqich "Production-ready" holatiga olib chiqamiz (Step-by-Step Optimization).
-
-• Offline Interaktivlik: Darslar mentor bilan yuzma-yuz, jonli muloqotda o‘tiladi. Mentor nazariyani tushuntiradi va amaliy kod yozib ko‘rsatadi.
-
-• Qayta ishlash mas’uliyati: O‘quvchilardan darsda yozilgan kodlarni noldan mustaqil qayta yozish va har bir qarorning yaxshi-yomon tomonlarini (Trade-offs) chuqur tahlil qilish talab qilinadi.
-
-• Engineering Mindset: Kursning maqsadi tayyor kod berish emas,balki sizda muhandislik fikrlashini shakllantirishdir. Shuning uchun o‘tilgan mavzularni amalda qayta-qayta takrorlash o‘zlashtirishning asosiy sharti hisoblanadi.
-
-Natija: Siz nazariya va amaliyotni mentor nazorati ostida birlashtirib, professional muhandislik fikrlashiga ega bo‘lasiz.`
-},
-   {
-  q: 'Kursda qaysi frameworkdan foydalaniladi: SwiftUI yoki UIKit?',
-  a: `Kurs 100% SwiftUI frameworkiga asoslangan. Buning bir nechta strategik sabablari bor:
-
-• Kelajak standarti: Apple ekotizimining kelajagi shubhasiz SwiftUI bilan bog‘liq. Biz sizni bugungi emas, balki ertangi kunning yuqori daromadli mutaxassisi sifatida tayyorlaymiz.
-
-• Advanced SwiftUI ehtiyoji: SwiftUI da oddiy interfeys chizish oson, biroq uni murakkab, "Large-scale" loyihalarda professional arxitekturaga solish — hozirda eng talabgir mahorat hisoblanadi.
-
-• Professional yechimlar: Kursda biz aynan SwiftUI ning murakkab jihatlarini (Navigation, State Management, Modularization) professional muhandislik darajasiga olib chiqamiz.
-
-Xulosa: Biz eng zamonaviy Apple standartlariga tayanib, SwiftUI yordamida mukkamal va barqaror tizimlar qurishni o'rganamiz.`
-},
-
   { 
-    q: 'Bu kursda asosiy fokus nimaga qaratilgan:  UI yoki Architecture ?', 
-    a: 'Bu kurs interfeys chizishga (UI) qaratilmagan. Bizning asosiy fokusimiz — har qanday murakkablikdagi ilovaga mos keladigan, "Production-Ready" darajasidagi mustahkam arxitektura qurishni o\'rganishdir. UI vaqtinchalik, lekin to\'g\'ri qurilgan arxitektura yillar davomida xizmat qiladi.' 
+    q: 'Kurs qancha vaqt davom etadi?', 
+    a: '3 oy' 
+  },
+  {
+    q: 'Kursda qaysi frameworkdan foydalaniladi: SwiftUI yoki UIKit?',
+    a: `SwiftUI`
+  },
+  { 
+    q: 'Bu kursda asosiy fokus nimaga qaratilgan: UI yoki Architecture ?', 
+    a: 'Asosiy maqsad — mustahkam arxitektura qurishga qaratilgan, UI bilan ishlash ko\'nikmasi ham shakillantiriladi.' 
   },
   { 
     q: 'Nega bu kursda o‘qishim kerak? AI (ChatGPT, Claude) ga prompt yozsam barcha ishlarni qilib beradiku.', 
-    a: `AI — bu mahoratli yordamchi, ammo u Arxitektor emas. U sizga alohida funksiyalar uchun kod yozib berishi mumkin, lekin loyihaning 2-3 yildan keyingi taqdirini, uning kengayuvchanligini (scalability) va jamoada ishlash qulayligini kafolatlamaydi.
-
-Siz nima uchun aynan shu kursda o‘qishingiz kerak?
-
-• AI "Context"ni yo‘qotadi: Katta va modulli (Modular Architecture) loyihalarda AI barcha qatlamlar orasidagi murakkab bog‘liqlikni (Dependency Graph) to‘liq ko‘ra olmaydi. Biz esa butun tizimni yaxlit va sog‘lom qurishni o‘rgatamiz.
-
-• Prompt Engineering vs Software Engineering: Prompt yozish — bu vazifa berish, arxitektura qurish esa — strategik qaror qabul qilishdir. Kursda AI bera olmaydigan "Muhandislik instinkti"ni shakllantirasiz.
-
-• Noto‘g‘ri yechim narxi: AI ba’zan xato ma'lumot beradi. Agar arxitekturaviy poydevor noto‘g‘ri qo‘yilsa, uni tuzatish oylab vaqt va minglab dollar zarar keltirishi mumkin. Biz o‘sha xatolarni oldindan ko‘rishni o‘rgatamiz.
-
-• Mentor vs Algoritm: AI sizga "qanday" qilishni aytsa, mentor "nima uchun" aynan shu yo‘l tanlanganini va biznes uchun qaysi biri foydaliroq ekanini tushuntiradi.
-
-Xulosa: AI kod yozadi, lekin mas'uliyatni bo'yniga olmaydi. Bizning maqsadimiz — sizni AIdan foydalanadigan oddiy koder emas, balki AIni boshqaradigan va murakkab tizimlarga Architect ko'zi bilan qarashni o'rgatamiz` 
-  },
-    { 
-    q: 'Nega bu kursda o\'qishim kerak, AI orqali ham o\'rgansam bo\'ladiku?', 
-    a: 'AI (ChatGPT/Claude) sizga kod bo\'laklarini yozib berishi mumkin, lekin u loyihaning to\'liq arxitektura zanjirini va jamoaviy ishlash madaniyatini o\'rgata olmaydi. Kursimizda biz AI qila olmaydigan ishni — o\'zgaruvchan talablarga moslashuvchan va barqaror tizim loyihalashni "Engineering Mindset" orqali amalda ko\'rib chiqamiz.' 
+    a: `AI taqdim etgan yechimlarni nazorat qilish va boshqarish — chuqur arxitektura bilimini talab qiladi. Biz bilan ushbu mahoratni bosqichma-bosqich o'zlashtirasiz.`
   },
   { 
     q: 'Loyiha arxitekturasini noldan qurishni o\'rganamanmi?', 
-    a: 'Albatta. Kurs davomida noldan boshlab, qatlamlarga ajratilgan, modulli va barcha zamonaviy talablarga javob beradigan loyiha skeletini (Boilerplate) mentor bilan birga qurasiz.' 
+    a: 'Kurs davomida zamonaviy talablarga javob beradigan, modullarga ajratilgan loyihalarni qurishni o`rganasiz.' 
   },
-  { 
-    q: 'Loyiham "Spaghetti code"ga aylanib bo‘lgan, kurs bu tartibsizlikni tuzatishga yordam beradimi?', 
-    a: `Ha, aynan shu muammo kursimizning diqqat markazida. Biz shunchaki nazariya o‘tmaymiz, balki tartibsiz kodni "Production-Ready" holatga keltirish texnologiyasini o‘rgatamiz.
-
-Yechim quyidagi aniq bosqichlar orqali amalga oshiriladi:
-
-• Logic Isolation: Biznes mantiqini (Business Logic) tarqoq holatdan yagona Domain Layerga yig‘amiz. Bu orqali "Massive View Model" muammosini ildizi bilan yo‘qotamiz.
-
-• Dependency Management: Komponentlar orasidagi qattiq bog‘liqlikni (Tight Coupling) Dependency Injection yordamida uzamiz. Natijada loyihaning bir qismini o‘zgartirish boshqa qismlarga zarar yetkazmaydi.
-
-• Protocol-Oriented Refactoring: Kodni protokollar asosida abstraksiya qilishni o‘rganamiz. Bu loyihani oson testlanadigan va modulga ajratishga tayyor holatga keltiradi.
-
-• Scalability Blueprint: Loyihangiz 5 ta ekrandan 50 ta ekranga o‘sganda ham kod sifati tushib ketmasligi uchun barqaror arxitektura poydevorini (Foundation) quramiz.
-
-Natija: Siz qiyinchilik bilan qo‘llab-quvvatlanadigan (Maintenance) koddan, professional jamoalarda qo‘llaniladigan Modular Clean Architecture standartiga o‘tasiz.` 
-  },
-  {
-  q: 'Kurs yakunida menda qanday natija (loyiha) bo‘ladi?',
-  a: `Sizning portfoliongizda shunchaki "o‘quv mashqlari" emas, balki quyidagi xalqaro standartlarga javob beruvchi loyiha bo‘ladi:
-
-• Advanced MVVM / VIPER Architecture: Murakkab tizimlarni boshqarish uchun eng sara patternlar.
-
-• Modular Clean Architecture: RIBs (Uber) arxitekturasi prinsiplari asosida qurilgan modulli tizim.
-
-• Unit Testing: Har bir biznes mantiq qatlami testlar bilan to‘liq qoplangan.
-
-• Professional DI & Navigation: Dependency Injection va markazlashgan zamonaviy navigatsiya tizimi.
-
-• SOLID Principles: To‘liq SOLID prinsiplari va toza kod (Clean Code) qoidalariga asoslangan muhandislik yechimi.
-
-• Core Infrastructure: Markazlashgan CoreRouter, CoreBuilder va CoreInteractor komponentlari qo‘llanilgan arxitektura.
-
-• Production-Ready Boilerplate: Real yirik loyihalarda ishlatiladigan professional loyiha skeleti.
-
-
-Natija: Bu loyiha har qanday xalqaro intervyuda sizning "Senior-level" muhandislik darajangizni isbotlab beruvchi asosiy dalil bo‘ladi.`
-},
   {
     q: 'Kursni tugatgandan so‘ng men Senior iOS Developer bo‘lamanmi?',
-    a: `Seniorlik — bu yillar davomida toptalgan tajriba va mas’uliyat natijasidir. Biz sizga quruq unvonni va'da qilmaymiz, lekin kursimiz sizni o‘sha darajaga olib chiquvchi "Arxitekturaviy qarash"ni shakllantiradi:
-
-• Muhandislik tafakkuri: Siz endi shunchaki funksiya yozmaysiz, balki loyihaga Arxitektor ko‘zi bilan qarab, tizimli qarorlar qabul qilishni o‘rganasiz.
-
-• Professional arsenal: Senior dasturchilardan talab qilinadigan Modularization, Dependency Injection va Unit Testing kabi murakkab bilimlarni amalda o‘zlashtirasiz.
-
-• Sifat standarti: Kodingiz "shunchaki ishlaydigan" darajadan yirik kompaniyalar talab qiladigan "Production-ready" standartiga ko‘tariladi.
-
-Xulosa: Kurs sizga Senior unvonini bermasligi mumkin, lekin u sizni Seniorlar kabi fikrlashga va murakkab tizimlarni boshqarishga o‘rgatadi.`
+    a: `Seniorlik — bu yillar davomida to'plangan tajriba va mas’uliyat natijasidir. Kursda ushbu darajaga olib chiquvchi arxitektura bilimlari shakllantiriladi.
+        Qolaversa Seniorlar kabi fikrlashga va murakkab tizimlarni boshqarishga o‘rgatadi.`
   }
 ];
 
@@ -1117,8 +1026,6 @@ const mentorProjects = [
     <div class="hidden lg:flex items-center gap-1 xl:gap-2">
       <a href="#mentor" class="nav-link">Muallif</a>
       <a href="#mission" class="nav-link">Missiya</a>
-      <a href="#roadmap" class="nav-link">Kurs Dasturi</a>
-	   <a href="#architecture-design" class="nav-link">Tizim</a>
       <a href="#curriculum" class="nav-link">O'quv rejasi</a>
       <a href="#final-picture" class="nav-link">Arxitektura</a>
       <a href="#modular-architecture" class="nav-link">RIBs</a>
@@ -1166,9 +1073,7 @@ const mentorProjects = [
           <h1 class="hero-title bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
             Production-Ready<br />iOS Architecture
           </h1>
-          <p class="hero-description">
-           Barqaror tizimlar loyihalashni o‘rganing va engineering darajangizni oshiring. Kelajagingiz uchun qilingan eng to‘g‘ri investitsiya        
-		  </p>
+          
           <div class="flex gap-4">
 		   <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-xl px-10 py-5 mt-20 no-underline text-white font-bold rounded-2xl">
            Kursga yozilish
@@ -1248,7 +1153,7 @@ const mentorProjects = [
           </div>
         </div>
 
-        <div class="sg-scroll-in lg:pt-12">
+        <div class="sg-scroll-in lg:pt-3">
           <h3 class="text-3xl font-black mb-6 uppercase tracking-widest text-gray-500">Kimlar uchun:</h3>
           <div class="mb-8">
             <span class="target-badge text-xl md:text-2xl bg-purple-500/10 text-purple-400 px-6 py-2 rounded-full border border-purple-500/30">
@@ -1256,7 +1161,7 @@ const mentorProjects = [
             </span>
           </div>
           <p class="text-gray-400 text-lg">
-            "Spagetti koddan" xalos bo'lish va tizimga professional iOS Architect ko'zi bilan qarashni istovchi dasturchilar uchun.
+            "Spagetti koddan" xalos bo'lish va tizimga professional iOS arxitekor ko'zi bilan qarashni istovchi dasturchilar uchun.
           </p>
         </div>
       </div>
@@ -1302,157 +1207,24 @@ const mentorProjects = [
   </div>
 </section>
 
-<section id="roadmap" class="pt-30 pb-0 bg-black overflow-hidden relative">
-  <div class="max-w-6xl mx-auto px-6 mb-16 relative z-10">
-    <div class="sg-scroll-in">
-      <h2 class="text-5xl md:text-7xl font-[950] italic tracking-tighter">
-        KURS <span class="text-purple-500">DASTURI</span>
-      </h2>
-    </div>
-  </div>
-
-  <div class="w-full overflow-x-auto scrollbar-hide snap-x snap-mandatory px-0 relative z-10">
-    <div class="flex flex-nowrap gap-8 pb-10 px-[10vw] md:px-[5vw] xl:px-[calc((100vw-1280px)/2+24px)]">
-      {[
-        { id: '01', t: 'SwiftUI', st: 'Fundamentals', d: 'Layout System, CustomViews, Custom Modifiers' },
-        { id: '02', t: 'App Flow', st: 'Architecture', d: 'Lifecycle, Flow Controllers, Deep Linking' },
-        { id: '03', t: 'Mastering', st: 'RIBs & Patterns', d: 'Uber Style Architecture, Scalability' },
-        { id: '04', t: 'Dependency', st: 'Injection', d: 'IoC, Containers, Lifecycle Management' },
-        { id: '05', t: 'SOLID', st: 'Principles', d: 'Engineering Excellence, Clean Code' },
-        { id: '06', t: 'Modular', st: 'System Design', d: 'Micro-features, Isolation' },
-        { id: '07', t: 'Diagnostics', st: '& Analytics', d: 'OSLog, Facade Analytics, Crashlytics' },
-        { id: '08', t: 'Testing', st: 'Unit & UI', d: 'XCUITest, Mocking Strategies' }
-      ].map((step) => (
-        <div class="roadmap-step-card group flex-shrink-0 w-[200px] md:w-[350px] snap-center">
-          <span class="step-index">{step.id}</span>
-          <div class="z-10">
-            <div class="w-12 h-12 bg-purple-600/20 rounded-2xl flex items-center justify-center text-purple-400 mb-6 group-hover:bg-purple-600 group-hover:text-white transition-all duration-500">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-            </div>
-            <h3 class="text-3xl font-black text-white leading-tight mb-2">
-              {step.t} <br/> <span class="text-purple-500">{step.st}</span>
-            </h3>
-          </div>
-          <p class="text-gray-400 text-sm leading-relaxed z-10 mb-0 pb-0">{step.d}</p>
-          <div class="absolute bottom-0 left-10 right-10 h-1 bg-gradient-to-r from-transparent via-purple-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        </div>
-      ))}
-      <div class="flex-shrink-0 w-1"></div>
-    </div>
-  </div>
-</section>
-
-<style is:global>
-  /* 1. Scale (kattalashish) effektini butunlay o'chirish */
-  .roadmap-step-card:hover {
-    transform: none !important; /* Kattalashishni taqiqlash */
-    scale: 1 !important;        /* Scale bo'lmasin */
-    z-index: 10 !important;
-  }
-
-  /* 2. Shrink (kichrayish) effektini butunlay o'chirish */
-  .roadmap-step-card {
-    flex-shrink: 0 !important;  /* Scroll paytida qisqarib ketmasligi uchun */
-    transform: none !important;
-  }
-
-  /* Scrollbarni yashirish */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-</style>
-
-
-<style>
-  /* Scrollbarni yashirish uchun */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-</style>
-
-	<section id="architecture-design" class="py-20 px-2 bg-black relative">
-      <div class="max-w-6xl mx-auto">
-        <div class="arch-card relative overflow-hidden border border-purple-500/50 rounded-[40px] shadow-[0_0_65px_rgba(255,255,255,0.12)]">
-          <div class="absolute -right-20 -top-20 w-80 h-80 bg-purple-600/10 blur-[100px] rounded-full"></div>
-          
-          <div class="grid lg:grid-cols-2 gap-25 items-center p-8 md:p-5">
-            <div class="sg-scroll-in">
-              <h2 class="text-5xl md:text-7xl font-[950] italic tracking-tighter leading-[0.9] mb-12 text-white">
-                Software <br/> 
-                Architecture <br/> 
-                <span class="text-purple-500">& Design</span>
-              </h2>
-              
-              <div class="arch-icon-glow inline-block text-purple-500">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 17L12 22L22 17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-            </div>
-
-            <div class="space-y-4 sg-scroll-in">
-              <div class="arch-list-item">
-                <div class="arch-dot"></div>
-                <h3 class="text-2xl font-bold text-white mb-3">Arxitektura tafakkuri</h3>
-                <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                  Shunchaki kod yozishdan — ilovaning to'liq arxitekturasini mustaqil loyihalash darajasiga olib chiqadi. Bu bosqich dasturchining texnik dunyoqarashini tubdan o'zgartirib, uni yuqori darajadagi iOS muhandisiga aylantiradi.
-                </p>
-              </div>
-
-              <div class="arch-list-item">
-                <div class="arch-dot"></div>
-                <h3 class="text-2xl font-bold text-white mb-3">Kod ustidan mutloq nazorat</h3>
-                <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                  Minglab qatorli kodlar ichida adashib qolmaslik, har qanday murakkab loyihani noldan tartibli va professional boshqaruv uslublari o'rgatiladi.
-                </p>
-              </div>
-
-              <div class="arch-list-item">
-                <div class="arch-dot"></div>
-                <h3 class="text-2xl font-bold text-white mb-3">Professional ishonch</h3>
-                <p class="text-gray-400 leading-relaxed text-sm md:text-base">
-                  Har bir yozilgan funksiyani testlar bilan himoya qilib, barqaror va xatosiz (Reliable) mahsulot yetkazib berish mahorati shakllantiriladi.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
  <section id="curriculum" class="py-24 px-6 bg-black relative overflow-hidden">
   <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full pointer-events-none"></div>
   <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
 
   <div class="max-w-6xl mx-auto relative z-10">
     <div class="text-center mb-32">
-	 <h2 class="text-5xl md:text-7xl font-[950] italic tracking-tighter leading-[0.9] mb-12 text-white">
-                O'quv <span class="text-purple-500"> Rejasi</span>
-      </h2>
-      <p class="text-gray-400 text-xl font-medium max-w-2xl mx-auto">
-        Professional iOS Engineering: 12 modulli 3 oylik chuqurlashtirilgan o‘quv dasturi.
-      </p>
-    </div>
+	 <h2 class="text-5xl md:text-7xl font-[950] italic tracking-tighter leading-[0.9] mb-12 text-white uppercase">
+    O'quv <span class="text-purple-500">Rejasi</span>
+    </h2>
+     </div>
 
     <div class="space-y-32">
       {months.map((month, index) => (
         <div class="month-group">
           <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-white/10 pb-8 gap-4">
             <div>
-              <h3 class="text-4xl md:text-5xl font-black text-purple-500 italic">{month.name}</h3>
+              <h3 class="text-3xl md:text-4xl font-black text-purple-500 italic">{month.name}</h3>
             </div>
-            <p class="text-gray-500 font-medium md:text-right max-w-sm">
-              {month.description}
-            </p>
           </div>
 
           <div class="grid gap-6">
@@ -1518,9 +1290,6 @@ const mentorProjects = [
       <h2 class="text-3xl md:text-5xl font-[950] italic tracking-tighter leading-none mb-6">
         Final <span class="text-purple-500">Big Picture</span>
       </h2>
-      <p class="text-gray-400 text-lg max-w-2xl mx-auto italic">
-        Kurs yakunida murakkab, modulli va professional arxitekturani noldan loyihalash ko'nikmalari shakllantiriladi.
-      </p>
     </div>
 
     <div class="arch-display-container sg-scroll-in relative border border-purple-500/50 rounded-[40px] p-8 md:p-12 overflow-hidden bg-gradient-to-b from-purple-900/20 to-transparent shadow-[0_0_65px_rgba(255,255,255,0.12)]">
@@ -1562,9 +1331,6 @@ const mentorProjects = [
         <h2 class="text-4xl md:text-6xl font-[950] italic tracking-tighter leading-none mb-6">
           Scalable <span class="text-purple-500">RIBs-based</span> <br /> Modular Architecture
         </h2>
-        <p class="text-gray-400 text-lg max-w-3xl italic leading-relaxed">
-          Uber tomonidan ishlab chiqilgan RIBs arxitekturasi yordamida ilovani o'zaro bog'lanmagan modullarga ajratish.
-        </p>
       </div>
 
       <div class="relative z-10 flex justify-center items-center mb-16">
@@ -1579,23 +1345,106 @@ const mentorProjects = [
     </div>
   </div>
 </section>
-
-<section id="expected-outcome" class="py-20 px-6 bg-black relative">
+<section id="expected-outcome" class="py-24 px-6 bg-black relative">
   <div class="max-w-6xl mx-auto">
-    <div class="outcome-card sg-scroll-in border border-purple-500/50 p-8 md:p-12 rounded-[40px] relative overflow-hidden bg-[#080808] shadow-[0_0_65px_rgba(255,255,255,0.1)]">
-      <div class="absolute inset-0 bg-purple-600/[0.04] blur-[150px] rounded-full pointer-events-none"></div>
+    <div class="outcome-card sg-scroll-in border border-purple-500/30 p-8 md:p-16 rounded-[40px] relative overflow-hidden bg-[#080808] shadow-[0_0_80px_rgba(168,85,247,0.1)]">
+      
+      <div class="absolute inset-0 bg-purple-600/[0.03] blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div class="grid lg:grid-cols-2 gap-20 items-center relative z-10">
-        <div class="space-y-12">
-          <h2 class="outcome-title-main">Kutilayotgan <br /><span class="text-purple-500">Natija:</span></h2>
-          <div class="w-20 h-20 text-purple-500">
-          </div>
+      <div class="relative z-10">
+        <div class="mb-20 flex flex-col items-center text-center">
+          <h2 class="text-3xl md:text-5xl lg:text-6xl font-[950] italic tracking-tighter leading-none text-white uppercase mb-6">
+            Kutilayotgan <span class="text-purple-500"> Natija</span>
+          </h2>
+          <div class="w-24 h-1 bg-purple-500 rounded-full"></div>
         </div>
 
-        <div class="space-y-12">
-          <div class="outcome-bullet"><div class="bullet-circle"><div class="bullet-dot"></div></div><div><h3 class="outcome-subtitle">Muhandislik poydevori</h3><p class="outcome-desc text-sm italic">Ushbu kurs fundamental SwiftUI loyihasidan boshlab, yuqori darajadagi Production-Ready iOS arxitekturasini loyihalashgacha bo'lgan bosqichlarni qamrab oladi.</p></div></div>
-          <div class="outcome-bullet"><div class="bullet-circle"><div class="bullet-dot"></div></div><div><h3 class="outcome-subtitle">Professional Standartlar</h3><p class="outcome-desc text-sm italic">Scalable, Testable va Software Engineering tamoyillariga asoslangan tizimlarni shakllantirish, yirik jamoalarda yuqori standartlar asosida ishlash imkonini beradi.</p></div></div>
-          <div class="outcome-bullet"><div class="bullet-circle"><div class="bullet-dot"></div></div><div><h3 class="outcome-subtitle">Software Architect Nigohi</h3><p class="outcome-desc text-sm italic">Har qanday murakkablikdagi loyihaga tizimli tahlil va barqaror kod bazasi orqali professional iOS Architect sifatida yondashish ko'nikmasi shakllanadi.</p></div></div>
+        <div class="grid gap-8">
+          <ul class="space-y-10 text-gray-300">
+            <li class="flex items-start gap-6 group">
+              <span class="text-purple-500 text-2xl leading-none mt-1.5">●</span>
+              <div>
+                <h3 class="text-2xl md:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-2">
+                  Advanced MVVM / VIPER Architecture
+                </h3>
+                <p class="text-xl md:text-2xl leading-relaxed italic text-gray-400">
+                  Murakkab tizimlarni boshqarish uchun eng sara patternlar.
+                </p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-6 group">
+              <span class="text-purple-500 text-2xl leading-none mt-1.5">●</span>
+              <div>
+                <h3 class="text-2xl md:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-2">
+                  Modular Clean Architecture
+                </h3>
+                <p class="text-xl md:text-2xl leading-relaxed italic text-gray-400">
+                  RIBs (Uber) arxitekturasi prinsiplari asosida qurilgan modulli tizim.
+                </p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-6 group">
+              <span class="text-purple-500 text-2xl leading-none mt-1.5">●</span>
+              <div>
+                <h3 class="text-2xl md:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-2">
+                  Unit Testing
+                </h3>
+                <p class="text-xl md:text-2xl leading-relaxed italic text-gray-400">
+                  Biznes mantiqning har bir bo'g'ini xatosiz ishlashini kafolatlovchi to'liq testlash jarayoni.
+                </p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-6 group">
+              <span class="text-purple-500 text-2xl leading-none mt-1.5">●</span>
+              <div>
+                <h3 class="text-2xl md:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-2">
+                  Professional DI & Navigation
+                </h3>
+                <p class="text-xl md:text-2xl leading-relaxed italic text-gray-400">
+                  Dependency Injection va markazlashgan zamonaviy navigatsiya tizimi.
+                </p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-6 group">
+              <span class="text-purple-500 text-2xl leading-none mt-1.5">●</span>
+              <div>
+                <h3 class="text-2xl md:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-2">
+                  SOLID Principles
+                </h3>
+                <p class="text-xl md:text-2xl leading-relaxed italic text-gray-400">
+                  Kodning moslashuvchanligini ta'minlovchi va har qanday yangi talabga oson moslashadigan "Clean Code" arxitekturasi.
+                </p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-6 group">
+              <span class="text-purple-500 text-2xl leading-none mt-1.5">●</span>
+              <div>
+                <h3 class="text-2xl md:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-2">
+                  Core Infrastructure
+                </h3>
+                <p class="text-xl md:text-2xl leading-relaxed italic text-gray-400">
+                  Markazlashgan CoreRouter, CoreBuilder va CoreInteractor komponentlari qo‘llanilgan arxitektura.
+                </p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-6 group">
+              <span class="text-purple-500 text-2xl leading-none mt-1.5">●</span>
+              <div>
+                <h3 class="text-2xl md:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-2">
+                  Production-Ready Boilerplate
+                </h3>
+                <p class="text-xl md:text-2xl leading-relaxed italic text-gray-400">
+                  Yirik loyihalarda ishlatiladigan loyiha tuzilmasi.
+                </p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
