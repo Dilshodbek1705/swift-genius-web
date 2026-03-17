@@ -261,20 +261,20 @@ const mentorProjects = [
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
   
-  <title>SwiftGenius — Professional iOS Development & Architecture</title>
-  <meta name="title" content="SwiftGenius — Professional iOS Development & Architecture" />
-  <meta name="description" content="Swift va SwiftUI bo'yicha arxitektura darajasidagi chuqurlashtirilgan kurslar va professional muhandislik yechimlari." />
+  <title>SwiftGenius — Professional iOS Engineering & Architecture</title>
+  <meta name="title" content="SwiftGenius — Professional iOS Engineering & Architecture" />
+  <meta name="description" content="iOS muhandisligi va arxitektura: Professional darajadagi chuqurlashtirilgan o'quv dasturi." />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://swiftgenius.uz/" />
-  <meta property="og:title" content="SwiftGenius — Professional iOS Development & Architecture" />
-  <meta property="og:description" content="Senior darajasidagi iOS arxitekturasi va SwiftUI kurslari. Kelajagingiz uchun eng to'g'ri investitsiya." />
+  <meta property="og:title" content="SwiftGenius — Professional iOS Engineering & Architecture" />
+  <meta property="og:description" content="Swift va SwiftUI: Yuqori darajadagi dasturiy arxitektura hamda yirik loyihalar uchun muhandislik yondashuvi." />
   <meta property="og:image" content="https://swiftgenius.uz/summery_image.png" />
 
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://swiftgenius.uz/" />
-  <meta property="twitter:title" content="SwiftGenius — Professional iOS Development & Architecture" />
-  <meta property="twitter:description" content="Senior darajasidagi iOS arxitekturasi va SwiftUI kurslari." />
+  <meta property="twitter:title" content="SwiftGenius — Professional iOS Engineering & Architecture" />
+  <meta property="twitter:description" content="Swift va SwiftUI: Yuqori darajadagi dasturiy arxitektura hamda yirik loyihalar uchun muhandislik yondashuvi." />
   <meta property="twitter:image" content="https://swiftgenius.uz/summery_image.png" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -961,6 +961,7 @@ const mentorProjects = [
         box-shadow: 0 20px 40px rgba(168, 85, 247, 0.5);
 	}
 
+
   /* Kichikroq laptop ekranlari uchun qo'shimcha qisqartirish */
   @media (max-width: 1200px) {
     .nav-link { padding: 0.4rem 0.4rem; font-size: 0.7rem; }
@@ -1081,37 +1082,49 @@ const mentorProjects = [
   });
 </script>
 
-<section class="min-h-screen flex items-center px-4 md:px-6 pt-24 md:pt-20 overflow-hidden relative">
+<section class="min-h-screen flex items-center px-4 md:px-6 pt-24 md:pt-20 overflow-hidden relative bg-black">
+  
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+    <div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-purple-600/10 blur-[150px] rounded-full"></div>
+    <div class="absolute bottom-[10%] right-[5%] w-[30%] h-[30%] bg-purple-800/5 blur-[120px] rounded-full"></div>
+  </div>
+
   <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full relative z-10">
     
     <div class="sg-scroll-in sg-visible text-center lg:text-left order-2 lg:order-1">
+      
       <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-[10px] md:text-xs font-black tracking-widest uppercase">
-        3-Month Intensive Course
+        3 oylik intensiv o'quv dasturi
       </div>
       
-      <h1 class="text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent mb-8">
-        Production-Ready<br class="hidden md:block" /> iOS Architecture
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] bg-gradient-to-b from-white to-purple-500/30 bg-clip-text text-transparent mb-6">
+        Professional <br class="hidden md:block" /> iOS Muhandisligi
       </h1>
-      
+
+      <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed italic">
+        Murakkab tizimlarni loyihalash: <span class="text-white">Arxitektura</span>, <span class="text-white">modullashtirish va mustahkam yechimlar.</span>
+      </p>
+
       <div class="flex justify-center lg:justify-start">
-        <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 no-underline text-white font-bold rounded-2xl inline-block transition-transform hover:scale-105">
+        <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 no-underline text-white font-bold rounded-2xl inline-block transition-transform hover:scale-105 shadow-[0_0_30px_rgba(168,85,247,0.2)]">
           Kursga yozilish
         </a>
       </div>
     </div>
 
     <div class="flex justify-center lg:justify-end relative order-1 lg:order-2">
-      <div class="absolute inset-0 bg-purple-600/15 blur-[80px] md:blur-[120px] rounded-full"></div>
+      <div class="absolute inset-0 bg-purple-600/20 blur-[80px] md:blur-[120px] rounded-full"></div>
       
       <img 
         src="/brend_logo.png" 
         alt="SwiftGenius" 
-        class="w-[180px] md:w-[280px] lg:w-[400px] h-auto object-contain drop-shadow-[0_0_50px_rgba(168,85,247,0.3)] relative z-10" 
+        class="w-[180px] md:w-[280px] lg:w-[400px] h-auto object-contain drop-shadow-[0_0_50px_rgba(168,85,247,0.4)] relative z-10" 
       />
     </div>
 
   </div>
 </section>
+
 <section id="mentor" class="py-12 md:py-24 px-4 md:px-6 bg-[#050505]">
   <div class="max-w-6xl mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
