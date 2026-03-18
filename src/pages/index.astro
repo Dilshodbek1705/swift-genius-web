@@ -197,54 +197,96 @@ const modules = [
     ]
   }
 ];
+
 const months = [
   {
     name: "1-OY: SwiftUI asoslari va loyiha poydevorini qurish",
-    items: modules.slice(0, 4) // 01-04 modullar
+    items: modules.slice(0, 4)
   },
   {
     name: "2-OY: Biznes mantiqini ajratish va murakkab navigatsiya",
-    items: modules.slice(4, 8) // 05-08 modullar
+    items: modules.slice(4, 8)
   },
   {
     name: "3-OY: Modullashtirish, xavfsizlik va QA standartlari",
-    items: modules.slice(8, 12) // 09-12 modullar
+    items: modules.slice(8, 12)
   }
 ];
 
 const faqs = [
-  { 
-    q: 'Swiftni bilmasam ham kursga qo\'shilishim mumkinmi?', 
-    a: 'Yo\'q, bu kurs kamida 1 yillik ish tajribasi yoki kuchli "Strong Junior" darajasiga ega bo`lganlar uchun.' 
-  },
-  { 
-    q: 'Darslar qanday formatda o\'tkaziladi?', 
-    a: `Mentor bilan kelishilgan holda offlayn yoki onlayn`
-  },
-  { 
-    q: 'Kurs qancha vaqt davom etadi?', 
-    a: '3 oy' 
+  // 1. KIRISH VA TALABLAR (Kimlar uchun?)
+  {
+    q: "Kursga qo'shilish uchun qanday daraja va texnik bilimlar talab qilinadi?",
+    a: "Kurs kamida 1 yillik amaliy tajribaga ega (Strong Junior) dasturchilar uchun mo'ljallangan. Sizdan SwiftUI, Swift (OOP/POP) va Git bo'yicha mustaqil ishlash tajribasi talab qilinadi. Noldan o'rganayotganlar uchun bu kurs og'irlik qiladi."
   },
   {
-    q: 'Kursda qaysi frameworkdan foydalaniladi: SwiftUI yoki UIKit?',
-    a: `SwiftUI`
-  },
-  { 
-    q: 'Bu kursda asosiy fokus nimaga qaratilgan: UI yoki Architecture ?', 
-    a: 'Asosiy maqsad — mustahkam arxitektura qurishga qaratilgan, UI bilan ishlash ko\'nikmasi ham shakillantiriladi.' 
-  },
-  { 
-    q: 'Nega bu kursda o‘qishim kerak? AI (ChatGPT, Claude) ga prompt yozsam barcha ishlarni qilib beradiku.', 
-    a: `AI taqdim etgan yechimlarni nazorat qilish va boshqarish — chuqur arxitektura bilimini talab qiladi. Biz bilan ushbu mahoratni bosqichma-bosqich o'zlashtirasiz.`
-  },
-  { 
-    q: 'Loyiha arxitekturasini noldan qurishni o\'rganamanmi?', 
-    a: 'Kurs davomida zamonaviy talablarga javob beradigan, modullarga ajratilgan loyihalarni qurishni o`rganasiz.' 
+    q: "Kursda qaysi frameworkdan foydalaniladi: SwiftUI yoki UIKit?",
+    a: "Faqat SwiftUI. Barcha zamonaviy arxitektura va muhandislik yechimlari SwiftUI ekotizimida quriladi."
   },
   {
-    q: 'Kursni tugatgandan so‘ng men Senior iOS Developer bo‘lamanmi?',
-    a: `Seniorlik — bu yillar davomida to'plangan tajriba va mas’uliyat natijasidir. Kursda ushbu darajaga olib chiquvchi arxitektura bilimlari shakllantiriladi.
-        Qolaversa Seniorlar kabi fikrlashga va murakkab tizimlarni boshqarishga o‘rgatadi.`
+    q: "Nega bu kursda o‘qishim kerak? AI (ChatGPT, Claude) ga prompt yozsam barcha ishlarni qilib beradi-ku.",
+    a: "AI taqdim etgan yechimlarni nazorat qilish, xatosini topish va yirik tizimga moslashtirish uchun insonning o'zida chuqur arxitektura bilimi bo'lishi shart. Biz bilan aynan ushbu 'AI boshqara olmaydigan' muhandislik mahoratini o'zlashtirasiz."
+  },
+
+  // 2. KURS KONTENTI VA JARAYON (Nima quramiz va qanday?)
+  {
+    q: "Loyiha arxitekturasini noldan quramizmi va u qanday loyiha bo'ladi?",
+    a: "Ha, biz noldan boshlab har qanday yirik domen (bank, e-commerce) uchun mos keluvchi universal arxitektura quramiz. Fokus butunlay biznes mantiq va tizim dizaynida bo'lgani sababli, UI ataylab minimal saqlanadi."
+  },
+  {
+    q: "Kurs qancha vaqt davom etadi va darslar qanday formatda o'tkaziladi?",
+    a: "Kurs 3 oy davom etadi. Darslar haftada 2 marta, 2.5–3 soatdan mentor bilan kelishilgan holda oflayn yoki onlayn formatda bo'lib o'tadi."
+  },
+  {
+    q: "Dars yozuvlari va materiallar kursdan keyin ham menda qoladimi?",
+    a: "Ha. Barcha dars yozuvlari, arxitektura sxemalari va yozilgan kodlar (Source code) sizda umrbod qoladi."
+  },
+
+  // 3. NATIJA VA MOLIYAVIY QISM (Nima olaman va narxi?)
+  {
+    q: "Kursni tugatgandan so‘ng men Senior iOS Developer bo‘lamanmi?",
+    a: "Seniorlik — bu yillar davomida to'plangan tajriba va mas’uliyat natijasidir. Kurs sizni bittada Senior qilib qo'ymaydi, lekin Senior darajasida fikrlashga, toza kod yozishga va murakkab tizimlarni mustaqil boshqarishga o'rgatadi."
+  },
+  {
+    q: "Kurs narxi qancha va to'lovni bo'lib to'lash imkoniyati bormi?",
+    a: "Oylik to'lov — 2,500,000 UZS (Jami 3 oy). Agar kurs uchun to'liq to'lovni oldindan qilsangiz, 15% chegirma taqdim etiladi. Joylar soni sifatli Code Review ta'minlash maqsadida qat'iy cheklangan (maksimum 12 kishi)."
+  }
+];
+
+const outcomeList = [
+  // --- 1. PAIN POINT (Massive VC) ---
+ { 
+  title: "Advanced MVVM / VIPER", 
+  desc: "'Massive VC' va 'Massive ViewModel' muammolariga chek qo'yib, biznes mantiqni UI'dan 100% ajratish." 
+},
+  // --- 2. PAIN POINT (Mo'rt kod) ---
+  { 
+    title: "Modular Clean Architecture", 
+    desc: "'Tegma buzib qo`yasan' qabilidagi kodlardan xalos bo'lib, loyihani RIBs asosida butunlay mustaqil modullarga bo'lish."  },
+  // --- 3. STANDARD (Ijobiy) ---
+  { 
+    title: "Production-Grade Unit Testing", 
+     desc: "Biznes mantiqni 100% Test Coverage bilan himoyalab, ilova barqarorligini to'liq kafolatlash."
+  },
+  // --- 4. PAIN POINT (Spagetti routing) ---
+  { 
+    title: "Advanced DI & Routing", 
+    desc: "Ekrandan ekranga o'tishdagi 'spagetti' navigatsiyaga chek qo'yib, UI'dan to'liq uzilgan markazlashgan xavfsiz routing yaratish." 
+  },
+  // --- 5. STANDARD (Ijobiy) ---
+  { 
+    title: "SOLID & Clean Code", 
+    desc: "O'zgarishlarga chidamli va oson kengaytiriladigan (Scalable) mustahkam kod bazasini qurish."
+  },
+  // --- 6. STANDARD (Ijobiy) ---
+  { 
+    title: "Core Infrastructure", 
+    desc: "Markazlashgan CoreRouter, CoreBuilder va CoreInteractor komponentlari qo‘llanilgan arxitektura." 
+  },
+  // --- 7. STANDARD (Ijobiy) ---
+  { 
+    title: "Production-Ready Base", 
+    desc: "Istalgan yangi yirik loyihani qo'rqmasdan boshlash uchun kuchli shablon (Boilerplate)." 
   }
 ];
 
@@ -253,7 +295,7 @@ const mentorProjects = [
   { name: 'Milliy Business', logo: '/milliy_logo.png', href: 'https://apps.apple.com/uz/app/milliy-business/id6742812650', badge: null },
   { name: 'Sello', logo: '/sello_logo.png', href: 'https://apps.apple.com/uz/app/sello-pay-payments-transfers/id1603818062', badge: null },
   { name: 'SwiftGenius', logo: '/swiftGenius_logo.png', href: 'https://apps.apple.com/uz/app/swiftgenius/id6759780139', badge: null },
-  { name: 'MyBank Business', logo: '/mybank_business.png', href: null, badge: 'Under develop' },
+  { name: 'MyBank Business', logo: '/mybank_business.png', href: null, badge: 'Under development' },
 ];
 --- 
 <html lang="uz">
@@ -280,7 +322,7 @@ const mentorProjects = [
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
   <body class="sg-body sg-mesh">
-   <style is:global>
+    <style is:global>
   /* 1. Global Reset & Performance */
   html { scroll-behavior: smooth; }
   .sg-body {
@@ -291,101 +333,51 @@ const mentorProjects = [
     -webkit-font-smoothing: antialiased;
   }
 
-
-  /* 2. Hero Section Refined */
- .hero-title {
-  font-size: clamp(2.5rem, 8vw, 4.5rem) !important; 
-  line-height: 1.1 !important;
-  font-weight: 900;
-  letter-spacing: -0.05em;
-  font-style: italic;
-  color: #ffffff;
-  white-space: normal !important; 
-  width: 120% !important; 
-  max-width: none !important;
-  display: block;
-  /* MANA SHU QATORNI QO'SHING YOKI YANGILANG */
-  margin-bottom: 2.5rem !important; 
-}
-
-@media (max-width: 1023px) {
-  .hero-title {
-    width: 100% !important;
-    font-size: 2.8rem !important;
-    white-space: normal !important;
-  }
-}
-  /* Hero Logo Majburiy Kichraytirish */
-  .hero-logo-col img {
-    width: 220px !important;
-    height: auto !important;
-    object-fit: contain;
-    filter: drop-shadow(0 0 50px rgba(168, 85, 247, 0.4));
-  }
-
-  @media (max-width: 1023px) {
-    .hero-title { white-space: normal; font-size: 3rem; }
-    .hero-logo-col img { width: 180px !important; }
-  }
-
-  /* 3. Mentor & Education Refactor */
- 
- .mentor-photo-wrap {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: scale(1.15);
-  z-index: 10;
-}
-
-.mentor-photo-wrap::before {
-  content: '';
-  position: absolute;
-  inset: -60px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
-  filter: blur(50px); /* Nurni yumshatish uchun muhim */
-  z-index: -1; /* !!! MANA SHU: Nurni rasmning orqasiga o'tkazadi */
-  pointer-events: none; /* Nur rasm ustidagi kliklarni to'smaydi */
-}
-
-.mentor-photo-img {
-  position: relative; /* z-index ishlashi uchun kerak */
-  z-index: 2; /* Rasmni nurdan balandga ko'taramiz */
-  width: 100%;
-  max-width: 500px;
-  border-radius: 30px;
-}
-
-
- /* 3. Credential & Education - Pro Refactor */
- 
-  .edu-card-pro {
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(168, 85, 247, 0.2);
-    border-radius: 20px;
-    padding: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  /* 2. Global Card Container Style (Consolidated UI Component) */
+  .sg-glass-card {
+    background: linear-gradient(145deg, rgba(168, 85, 247, 0.05) 0%, rgba(0, 0, 0, 0.8) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 40px;
+    box-shadow: 0 0 50px rgba(168, 85, 247, 0.08);
     position: relative;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding: 3rem;
   }
-.edu-section-title {
-    font-size: 0.75rem;
-    font-weight: 900 !important; /* Bold bo'lishini kafolatlaydi */
-    text-transform: uppercase;
-    letter-spacing: 0.25em;
-    color: #A855F7;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  @media (max-width: 768px) {
+    .sg-glass-card {
+      border-radius: 24px;
+      padding: 1.5rem;
+    }
   }
 
-  /* Mission & Target Section Styles */
+  /* 3. Mentor Section Elements */
+  .mentor-photo-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1.15);
+    z-index: 10;
+  }
+  .mentor-photo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -60px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+    filter: blur(50px);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .mentor-photo-img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 30px;
+  }
+
+  /* 4. Mission Section */
   .mission-card {
     background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
     border-left: 4px solid #A855F7;
@@ -410,202 +402,55 @@ const mentorProjects = [
     box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
   }
 
- .roadmap-wrapper {
-    display: flex;
-    gap: 2rem;
-    padding: 2rem 0;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Firefox */
-  }
-  .roadmap-wrapper::-webkit-scrollbar { display: none; } /* Chrome/Safari */
-
-  .roadmap-step-card {
-    min-width: 300px;
-    height: 400px;
-    scroll-snap-align: center;
-    background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(168, 85, 247, 0.02) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 40px;
-    padding: 2.5rem;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    cursor: grab;
-  }
-
-  /* Architecture & Design Section Styles */
-  .arch-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 32px;
-    padding: 3rem;
-    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-
-  .arch-card:hover {
-    border-color: rgba(168, 85, 247, 0.3);
-    background: rgba(168, 85, 247, 0.02);
-  }
-
-  .arch-list-item {
-    position: relative;
-    padding-left: 4rem;
-    margin-bottom: 3rem;
-  }
-
-  .arch-dot {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 2.5rem;
-    height: 2.5rem;
-    border: 3px solid rgba(168, 85, 247, 0.4);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .arch-dot::after {
-    content: '';
-    width: 0.8rem;
-    height: 0.8rem;
-    background: #A855F7;
-    border-radius: 50%;
-    box-shadow: 0 0 15px #A855F7;
-  }
-
-  .arch-icon-glow {
-    filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.4));
-  }
-
-  /* Spotlight Effect */
-  .roadmap-step-card:hover {
-    border-color: rgba(168, 85, 247, 0.6);
-    background: rgba(168, 85, 247, 0.05);
-    transform: scale(1.02) translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(168, 85, 247, 0.2);
-  }
-
-  .step-index {
-    font-size: 5rem;
-    font-weight: 900;
-    line-height: 1;
-    background: linear-gradient(180deg, rgba(168, 85, 247, 0.2) 0%, transparent 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
-  }
-
-  .glowing-path {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 200%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #A855F7, #6366f1, transparent);
-    z-index: 0;
-    opacity: 0.3;
-    pointer-events: none;
-  }
-
-
-
- /* 4. Interactive Curriculum - Spatial Refactor */
+  /* 5. Curriculum Interactive Modules */
   .module-card {
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 24px !important; /* Burchaklar biroz o'tkirroq, ixchamroq */
-    padding: 1.5rem 2rem !important; /* Heightni kamaytirish uchun padding qisqartirildi */
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 24px;
+    padding: 1.5rem 2rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     margin-bottom: 1rem;
+    box-shadow: 0 0 40px rgba(255,255,255,0.02);
   }
-
+  @media (min-width: 768px) {
+    .module-card {
+      border-color: rgba(168, 85, 247, 0.4);
+      padding: 2.5rem;
+    }
+  }
   .module-card:hover {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(168, 85, 247, 0.4);
-    transform: translateY(-2px); /* Katta sakrash emas, nafis ko'tarilish */
+    background: rgba(168, 85, 247, 0.02);
+    border-color: rgba(168, 85, 247, 0.5);
+    transform: translateY(-2px);
   }
-
   .module-card.active {
-    background: rgba(168, 85, 247, 0.03);
+    background: rgba(168, 85, 247, 0.04);
     border-color: rgba(168, 85, 247, 0.6);
   }
-
-  /* Font o'lchamlarini normallashtirish */
-  .module-number {
-    font-size: 1.8rem !important; /* 3.5rem juda katta edi */
-    font-weight: 800;
-    opacity: 0.25;
-    background: linear-gradient(135deg, #fff, #a855f7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    width: 60px;
-  }
-
-  .module-title {
-    font-size: 1.25rem !important; /* Desktop uchun ideal sarlavha o'lchami */
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
-  .category-tag {
-    font-size: 9px !important; /* Juda kichik, lekin o'qiladigan "eyecandy" */
-    letter-spacing: 0.15em;
-    color: #a855f7;
-    font-weight: 800;
-    margin-bottom: 2px;
-  }
-
-  /* Kontent ochilgandagi o'lchamlar */
   .content-wrapper {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
-
   .module-card.active .content-wrapper {
-    max-height: 1500px;
+    max-height: 2000px;
     opacity: 1;
     padding-top: 1.5rem;
     padding-bottom: 0.5rem;
   }
 
-  /* Section Title normallashtirish */
-  .section-title-main {
-    font-size: clamp(2rem, 5vw, 3.5rem) !important;
-    line-height: 1;
-    margin-bottom: 1rem;
-  }
-    /* 4. Interactive Curriculum tugadi */
-
-/* Final Big Picture Section */
-  .arch-display-container {
-    background: radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
-    border-radius: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-
+  /* 6. Big Picture Section Elements */
   .arch-img-shadow {
-    filter: drop-shadow(0 0 50px rgba(168, 85, 247, 0.3));
+    max-height: 450px !important; 
+    width: auto !important; 
+    object-fit: contain;
+    filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.25));
     transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-
-  .arch-display-container:hover .arch-img-shadow {
-    transform: scale(1.02) translateY(-10px);
+  @media (max-width: 768px) {
+    .arch-img-shadow { max-height: 300px !important; }
   }
-
   .big-picture-tag {
     background: rgba(168, 85, 247, 0.1);
     border: 1px solid rgba(168, 85, 247, 0.4);
@@ -618,306 +463,62 @@ const mentorProjects = [
     letter-spacing: 2px;
   }
 
-  /* Rasm konteynerini balandligini jilovlash */
-  .arch-display-container {
-    background: radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, transparent 70%);
-    border-radius: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 3rem 4rem; /* Padding biroz kamaytirildi */
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .arch-img-shadow {
-    /* Balandlikni cheklash uchun max-height qo'shildi */
-    max-height: 450px !important; 
-    width: auto !important; /* Kenglik avtomat o'zi moslashadi */
-    object-fit: contain;
-    filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.25));
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-
-  /* Mobil qurilmalar uchun yana biroz kichiklashtiramiz */
-  @media (max-width: 768px) {
-    .arch-img-shadow {
-      max-height: 300px !important;
-    }
-    .arch-display-container {
-      padding: 2rem;
-    }
-  }
-
- /* Final Outcome - Card Style */
-  .outcome-card {
-    background: #080808; /* To'q fon */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 40px;
-    padding: 4rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .outcome-bullet {
-    display: flex;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-  }
-
-  .bullet-circle {
-    width: 2.5rem;
-    height: 2.5rem;
-    border: 2px solid rgba(168, 85, 247, 0.4);
-    border-radius: 50%;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 0.25rem;
-  }
-
-  .bullet-dot {
-    width: 0.8rem;
-    height: 0.8rem;
-    background: #A855F7;
-    border-radius: 50%;
-    box-shadow: 0 0 15px #A855F7;
-  }
-
-  .outcome-title-main {
-    font-size: 5rem;
-    line-height: 0.9;
-    font-weight: 950;
-    font-style: italic;
-    letter-spacing: -0.05em;
-    color: #fff;
-  }
-
-  .outcome-subtitle {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.5rem;
-  }
-
-  .outcome-desc {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.5);
-    line-height: 1.6;
-    max-width: 500px;
-  }
-  /* Final Call to Action Styles */
+  /* 7. Final Call to Action */
   .cta-final-wrapper {
     background: radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, #000 100%);
     position: relative;
-    padding: 120px 20px;
+    padding: 120px 20px 0;
     min-height: 600px;
     display: flex;
     align-items: center;
   }
-
-  /* O'ng tarafdagi kontent ierarxiyasi */
-  .cta-right-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 100%;
-    text-align: right;
-  }
-
-
- .cta-title-main {
-  font-size: clamp(3rem, 6vw, 5rem); 
-  line-height: 1.3;
-  font-weight: 900;
-  font-style: italic;
-  text-transform: uppercase;
-}
-
-.limited-seats-alert {
-  /* Qizil yozuvni o'ta katta qilmaymiz */
-  font-size: clamp(1.2rem, 1.5vw, 1.8rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  display: block;
-  margin-top: 0.5rem;
-}
-  @keyframes pulse-red {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
-  }
-
-  /* Joylar soni cheklangan - pastroqda */
-  .limited-text-box {
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-  }
-
-  .cta-button-final {
-    align-self: flex-end;
-    margin-top: auto;
-  }
-
   .mentor-display-img {
-    width: 100%;
-    max-width: 580px;
-    filter: drop-shadow(0 0 50px rgba(168, 85, 247, 0.3));
-    z-index: 5;
+    display: block !important;
+    line-height: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
   }
 
-  /* 5. Utility Styles */
+  /* 8. Global Utilities */
   .sg-btn-gradient {
     background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
     color: white;
-    padding: 14px 28px;
-    border-radius: 14px;
     font-weight: 800;
     transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
-
   .sg-btn-gradient:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 15px 30px rgba(168, 85, 247, 0.4);
   }
-
   .sg-scroll-in {
     opacity: 0;
     transform: translateY(40px);
-    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   }
-
   .sg-visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
   }
 
-  /* Footer Contact Cards Style */
-  .contact-card-pro {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 24px;
-    padding: 2rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    text-decoration: none !important;
-  }
-
-  .contact-card-pro:hover {
-    background: rgba(168, 85, 247, 0.04);
-    border-color: rgba(168, 85, 247, 0.4);
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  }
-
-  .contact-icon-wrap {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
-  }
-
-  .contact-card-pro:hover .contact-icon-wrap {
-    transform: scale(1.1);
-  }
-
-  .contact-label {
-    font-size: 0.65rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: #A855F7;
-    margin-bottom: 0.5rem;
-  }
-
-  .contact-value {
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #fff;
-    opacity: 0.9;
-  }
-
-.footer-title-fix {
-    display: inline-block;
-    line-height: 1.3 !important; /* Balandlikni sezilarli oshirdik */
-    padding: 20px 10px !important; /* Har tomondan xavfsizlik maydoni */
-    margin: 0 auto;
-    overflow: visible !important; /* Hech narsani yashirmaydi */
-    -webkit-box-decoration-break: clone;
-    box-decoration-break: clone;
-  }
-
-  .contact-card-pro {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 24px;
-    padding: 2.5rem 1.5rem; /* Ichki paddingni biroz oshirdik */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.4s ease;
-  }
-
-.faq-item {
-    line-height: 1.6;
-    color: #d1d1d1; /* Matn rangi */
-}
-
-.intro-text {
-    margin-bottom: 12px;
-    display: block;
-}
-
-.points-list {
-    list-style: none; /* Standart nuqtalarni olib tashlaymiz */
-    padding-left: 0;
-}
-
-.point-item {
-    margin-bottom: 8px;
-    display: flex;
-    align-items: flex-start;
-}
-
-.bullet {
-    color: #a855f7; /* Binafsha rangli nuqta (SwiftGenius branding) */
-    margin-right: 10px;
-    font-weight: bold;
-}
-
- .nav-link {
+  /* 9. Navbar Styles */
+  .nav-link {
     position: relative;
-    padding: 0.5rem 0.2rem; /* Yonlardan kamroq, tagidan joy qoldiramiz */
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.4);
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  /* Tagidagi chiziq (Underline effect) */
- .nav-link {
-    position: relative;
-    padding: 0.4rem 0.6rem; /* Gorizontal padding qisqartirildi */
-    font-size: 0.75rem; /* Shrift biroz kichraytirildi */
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
     font-weight: 800;
     color: rgba(255, 255, 255, 0.4);
     text-decoration: none;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 0.02em; /* Letter spacing kamaytirildi */
+    letter-spacing: 0.02em;
     white-space: nowrap;
   }
-
-  /* Tagidagi chiziq (Underline animation) */
+  @media (max-width: 1200px) {
+    .nav-link { padding: 0.4rem 0.4rem; font-size: 0.7rem; }
+  }
   .nav-link::after {
     content: '';
     position: absolute;
@@ -929,20 +530,12 @@ const mentorProjects = [
     box-shadow: 0 0 8px #A855F7;
     transition: width 0.3s ease;
   }
-
-  .nav-link.active {
-    color: #ffffff;
-  }
-
-  .nav-link.active::after {
-    width: 80%;
-  }
-
-  /* Kursga yozilish tugmasi - IERARXIYA uchun */
+  .nav-link.active { color: #ffffff; }
+  .nav-link.active::after { width: 80%; }
   .nav-btn {
     background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
     color: white;
-    padding: 8px 16px; /* Tugma ixchamroq */
+    padding: 8px 16px;
     border-radius: 12px;
     font-size: 0.75rem;
     font-weight: 900;
@@ -951,57 +544,19 @@ const mentorProjects = [
     transition: 0.3s;
     flex-shrink: 0;
   }
-
   .nav-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
   }
-   .nav-btn-hero:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 20px 40px rgba(168, 85, 247, 0.5);
-	}
-
-
-  /* Kichikroq laptop ekranlari uchun qo'shimcha qisqartirish */
-  @media (max-width: 1200px) {
-    .nav-link { padding: 0.4rem 0.4rem; font-size: 0.7rem; }
-    .nav-btn { padding: 6px 12px; font-size: 0.7rem; }
-  }
-
-  /* Mobil linklar uslubi */
-  .mobile-nav-link {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: white;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-style: italic;
-    letter-spacing: -0.02em;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s ease;
-  }
-
-  /* Overlay ochiq holati */
   #mobile-overlay.active {
     opacity: 1;
     pointer-events: auto;
   }
-
-  #mobile-overlay.active .mobile-nav-link {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Hamburger animatsiyasi */
   .menu-open #path1 { transform: translateY(6px) rotate(45deg); transform-origin: center; }
   .menu-open #path2 { opacity: 0; }
   .menu-open #path3 { transform: translateY(-6px) rotate(-45deg); transform-origin: center; }
-
-  /* Body scrollni to'xtatish */
-  body.no-scroll { overflow: hidden; }
-
 </style>
+
 <nav class="fixed top-0 left-0 right-0 z-[100] border-b border-white/5 bg-black/80 backdrop-blur-xl">
   <div class="max-w-[1440px] mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
     
@@ -1020,70 +575,37 @@ const mentorProjects = [
       <a href="#faq" class="nav-link text-sm xl:text-base">FAQ</a>
       <a href="#contact" class="nav-link text-sm xl:text-base">Kontakt</a> 
       
-      <a href="https://t.me/iosDev007" target="_blank" class="nav-btn ml-2 px-4 py-2 bg-white text-black rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+      <a href="https://t.me/iosDev007" target="_blank" class="nav-btn ml-2">
         Kursga yozilish
       </a>
     </div>
 
     <button id="menu-toggle" class="lg:hidden z-[110] text-white p-2 focus:outline-none" aria-label="Toggle menu">
       <svg id="menu-icon" class="w-7 h-7 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path id="path1" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-width="2" d="M4 6h16"></path>
-        <path id="path2" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-width="2" d="M4 12h16"></path>
-        <path id="path3" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-width="2" d="M4 18h16"></path>
+        <path id="path1" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path>
+        <path id="path2" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"></path>
+        <path id="path3" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"></path>
       </svg>
     </button>
   </div>
 
-  <div id="mobile-overlay" class="fixed inset-0 bg-black/95 z-[105] flex flex-col items-center justify-center gap-4 opacity-0 pointer-events-none transition-all duration-500 overflow-y-auto pt-20">
-    <a href="#mentor" class="text-white text-xl font-medium hover:text-gray-300">Mentor</a>
-    <a href="#mission" class="text-white text-xl font-medium hover:text-gray-300">Missiya</a>
-    <a href="#roadmap" class="text-white text-xl font-medium hover:text-gray-300">Kurs Dasturi</a>
-    <a href="#architecture-design" class="text-white text-xl font-medium hover:text-gray-300">Soft/Architecture</a>
-    <a href="#curriculum" class="text-white text-xl font-medium hover:text-gray-300">Darslar</a>
-    <a href="#final-picture" class="text-white text-xl font-medium hover:text-gray-300">Big Picture</a>
-    <a href="#modular-architecture" class="text-white text-xl font-medium hover:text-gray-300">RIBs</a>
-    <a href="#expected-outcome" class="text-white text-xl font-medium hover:text-gray-300">Natija</a>
-    <a href="#faq" class="text-white text-xl font-medium hover:text-gray-300">FAQ</a>
-    <a href="#contact" class="text-white text-xl font-medium hover:text-gray-300">Kontakt</a> 
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/95 z-[105] flex flex-col items-center justify-center gap-6 opacity-0 pointer-events-none transition-all duration-500 overflow-y-auto pt-20">
+    <a href="#mentor" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">Muallif</a>
+    <a href="#mission" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">Missiya</a>
+    <a href="#curriculum" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">O'quv rejasi</a>
+    <a href="#final-picture" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">Arxitektura</a>
+    <a href="#modular-architecture" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">RIBs</a>
+    <a href="#expected-outcome" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">Natija</a>
+    <a href="#faq" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">FAQ</a>
+    <a href="#contact" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">Kontakt</a> 
     
-    <a href="https://t.me/Dilshodbek1705" target="_blank" class="sg-btn-gradient text-lg px-8 py-4 mt-4 no-underline text-white font-bold rounded-xl text-center">
+    <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-lg px-8 py-4 mt-4 no-underline text-white font-bold rounded-xl text-center">
       Kursga yozilish
     </a>
   </div>
 </nav>
 
-<script>
-  // Mobile menu ishlashi uchun kichik script (agar hali yo'q bo'lsa)
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileOverlay = document.getElementById('mobile-overlay');
-  let isOpen = false;
-
-  menuToggle?.addEventListener('click', () => {
-    isOpen = !isOpen;
-    if (isOpen) {
-      mobileOverlay?.classList.remove('opacity-0', 'pointer-events-none');
-      mobileOverlay?.classList.add('opacity-100', 'pointer-events-auto');
-      document.body.style.overflow = 'hidden'; // Scrollni bloklash
-    } else {
-      mobileOverlay?.classList.add('opacity-0', 'pointer-events-none');
-      mobileOverlay?.classList.remove('opacity-100', 'pointer-events-auto');
-      document.body.style.overflow = 'auto';
-    }
-  });
-
-  // Havolalarni bosganda menyuni yopish
-  const mobileLinks = document.querySelectorAll('#mobile-overlay a');
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileOverlay?.classList.add('opacity-0', 'pointer-events-none');
-      document.body.style.overflow = 'auto';
-      isOpen = false;
-    });
-  });
-</script>
-
 <section class="min-h-screen flex items-center px-4 md:px-6 pt-24 md:pt-20 overflow-hidden relative bg-black">
-  
   <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
     <div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-purple-600/10 blur-[150px] rounded-full"></div>
     <div class="absolute bottom-[10%] right-[5%] w-[30%] h-[30%] bg-purple-800/5 blur-[120px] rounded-full"></div>
@@ -1092,12 +614,11 @@ const mentorProjects = [
   <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full relative z-10">
     
     <div class="sg-scroll-in sg-visible text-center lg:text-left order-2 lg:order-1">
+     <div class="inline-block px-6 py-2 mb-6 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs md:text-sm font-black tracking-[0.2em] uppercase">
+       3 oylik intensiv o'quv dasturi
+     </div>
       
-      <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-[10px] md:text-xs font-black tracking-widest uppercase">
-        3 oylik intensiv o'quv dasturi
-      </div>
-      
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] bg-gradient-to-b from-white to-purple-500/30 bg-clip-text text-transparent mb-6">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] bg-gradient-to-b from-white to-purple-500/30 bg-clip-text text-transparent mb-6 italic uppercase tracking-tighter">
         Professional <br class="hidden md:block" /> iOS Muhandisligi
       </h1>
 
@@ -1105,23 +626,21 @@ const mentorProjects = [
         Murakkab tizimlarni loyihalash: <span class="text-white">Arxitektura</span>, <span class="text-white">modullashtirish va mustahkam yechimlar.</span>
       </p>
 
-      <div class="flex justify-center lg:justify-start">
-        <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 no-underline text-white font-bold rounded-2xl inline-block transition-transform hover:scale-105 shadow-[0_0_30px_rgba(168,85,247,0.2)]">
-          Kursga yozilish
-        </a>
-      </div>
+    <div class="flex justify-center lg:justify-start">
+      <a href="#mentor" class="sg-btn-gradient text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 rounded-2xl">
+       Batafsil
+      </a>
+    </div>
     </div>
 
     <div class="flex justify-center lg:justify-end relative order-1 lg:order-2">
       <div class="absolute inset-0 bg-purple-600/20 blur-[80px] md:blur-[120px] rounded-full"></div>
-      
       <img 
         src="/brend_logo.png" 
         alt="SwiftGenius" 
         class="w-[180px] md:w-[280px] lg:w-[400px] h-auto object-contain drop-shadow-[0_0_50px_rgba(168,85,247,0.4)] relative z-10" 
       />
     </div>
-
   </div>
 </section>
 
@@ -1135,14 +654,14 @@ const mentorProjects = [
           <img 
             src="/brend_me.png" 
             alt="Dilshodbek Qulmirzayev" 
-            class="mentor-photo-img w-[260px] md:w-[350px] lg:w-full h-auto relative z-10" 
+            class="mentor-photo-img" 
           />
         </div>
       </div>
 
-      <div class="space-y-8 md:space-y-10 order-2">
+      <div class="space-y-8 md:space-y-10 order-2 sg-scroll-in">
         <div class="text-center lg:text-left">
-          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-3 italic text-white">
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-3 italic text-white uppercase">
             Dilshodbek <br class="hidden md:block"/> Qulmirzayev
           </h2>
           <p class="text-xl md:text-2xl text-purple-400 font-bold">
@@ -1150,43 +669,42 @@ const mentorProjects = [
           </p>
         </div>
 
-        <div class="edu-container">
-          <h3 class="edu-section-title italic text-xl text-gray-400 mb-4 border-b border-white/10 pb-2">
+        <div>
+          <h3 class="text-xs font-black uppercase tracking-[0.25em] text-purple-500 mb-6 border-b border-white/10 pb-3 flex items-center gap-3">
             Ta'lim
           </h3> 
           
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 mb-12">
-            {["- Swift Academy", "- PDP Academy", "- Essential Developer Academy", "- Swiftful Thinking"].map(edu => (
-              <div class="edu-item py-1">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-10">
+            {["Swift Academy", "PDP Academy", "Essential Developer Academy", "Swiftful Thinking"].map(edu => (
+              <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-500 shadow-[0_0_8px_#A855F7]"></span>
                 <span class="font-bold text-gray-300 text-sm md:text-base">{edu}</span>
               </div>
             ))}
           </div>
 
-          <div class="mt-8"> 
-            <h3 class="edu-section-title italic text-xl text-gray-400 mb-6 border-b border-white/10 pb-2">
-              Ishtirok etilgan loyihlar
-            </h3>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {mentorProjects.map((p) => (
-                <a 
-                  href={p.href} 
-                  target="_blank" 
-                  class="flex items-center gap-3 p-3 bg-white/5 rounded-2xl border border-white/10 no-underline hover:border-purple-500 transition-all group"
-                >
-                  <img src={p.logo} class="w-10 h-10 md:w-12 md:h-12 rounded-xl object-contain shadow-lg" alt={p.name} />
-                  <div class="min-w-0">
-                    <span class="text-white font-bold block truncate group-hover:text-purple-400 transition text-sm md:text-base">
-                      {p.name}
-                    </span>
-                    <span class="text-[10px] text-gray-500 uppercase tracking-wider">
-                      {p.badge || 'App Store →'}
-                    </span>
-                  </div>
-                </a>
-              ))}
-            </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {mentorProjects.map((p) => (
+            <a 
+              href={p.href} 
+              target={p.href ? "_blank" : undefined}
+              class={`flex items-center gap-3 p-3 bg-[#0a0a0a] rounded-2xl border border-purple-500/20 transition-all group shadow-sm
+                ${!p.href ? 'pointer-events-none opacity-80' : 'hover:border-purple-500/60 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(168,85,247,0.15)]'}
+              `}
+            >
+              <div class="flex items-center gap-3 w-full transition-all">
+                <img src={p.logo} class={`w-10 h-10 md:w-12 md:h-12 rounded-xl object-contain shadow-lg ${!p.href ? 'grayscale' : ''}`} alt={p.name} />
+                <div class="min-w-0 text-left">
+                  <span class="text-white font-bold block truncate group-hover:text-purple-400 transition text-sm md:text-base">
+                    {p.name}
+                  </span>
+                  <span class={`text-[10px] uppercase tracking-wider ${!p.href ? 'text-purple-500 font-bold' : 'text-gray-500'}`}>
+                    {p.badge || 'App Store →'}
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
           </div>
         </div>
       </div>
@@ -1194,30 +712,29 @@ const mentorProjects = [
   </div>
 </section>
 
-<section id="mission" class="py-12 md:py-20 px-4 md:px-6 bg-black relative overflow-hidden">
-  <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[200px] md:w-[300px] h-[200px] md:h-[300px] bg-purple-600/10 blur-[80px] md:blur-[120px] rounded-full"></div>
+<section id="mission" class="py-12 md:py-24 px-4 md:px-6 bg-black relative overflow-hidden">
+  <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[200px] md:w-[300px] h-[200px] md:h-[300px] bg-purple-600/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
 
   <div class="max-w-6xl mx-auto">
-    <div class="arch-card relative overflow-hidden p-6 md:p-12 border border-purple-500/50 rounded-3xl md:rounded-[40px] shadow-[0_0_65px_rgba(255,255,255,0.12)] bg-gradient-to-br from-purple-900/10 to-transparent">
-      
-      <div class="absolute -right-20 -top-20 w-40 md:w-80 h-40 md:h-80 bg-purple-600/5 blur-[60px] md:blur-[100px] rounded-full"></div>
+    <div class="sg-glass-card sg-scroll-in">
+      <div class="absolute -right-20 -top-20 w-40 md:w-80 h-40 md:h-80 bg-purple-600/10 blur-[60px] md:blur-[100px] rounded-full pointer-events-none"></div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 mb-16 md:mb-24 items-start relative z-10">
-        <div class="sg-scroll-in">
-          <h2 class="text-4xl md:text-5xl lg:text-7xl font-black italic tracking-tighter mb-6 md:mb-8 leading-none text-white">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 mb-16 md:mb-20 items-start relative z-10">
+        <div>
+          <h2 class="text-4xl md:text-5xl lg:text-7xl font-black italic tracking-tighter mb-6 md:mb-8 leading-none text-white uppercase">
             Kurs <br class="hidden md:block"/> <span class="text-purple-500">Missiyasi</span>
           </h2>
-          <div class="mission-card rounded-r-2xl md:rounded-r-3xl border-l-4 border-purple-500 pl-4 md:pl-6">
+          <div class="mission-card rounded-r-2xl md:rounded-r-3xl">
             <p class="text-gray-300 text-base md:text-lg leading-relaxed italic">
               "Bugungi IT sohasida shunchaki SwiftUI interfeyslarini chizish yetarli emas. Haqiqiy Production darajasidagi loyihalar har qanday o'zgarishga moslashuvchan (Maintainable) va ishonchli (Testable) kod bazasi talab qiladi. Ushbu kurs iOS Engineeringni yangi bosqichiga olib chiqib, yirik tizimlarni professional arxitektura asosida loyihalashga yo'naltirilgan."
             </p>
           </div>
         </div>
 
-        <div class="sg-scroll-in lg:pt-3">
+        <div class="lg:pt-4">
           <h3 class="text-xl md:text-2xl font-black mb-4 md:mb-6 uppercase tracking-widest text-gray-500">Kimlar uchun:</h3>
           <div class="mb-6 md:mb-8">
-            <span class="target-badge text-sm md:text-lg lg:text-2xl bg-purple-500/10 text-purple-400 px-4 md:px-6 py-2 rounded-full border border-purple-500/30 inline-block leading-tight">
+            <span class="target-badge text-sm md:text-lg lg:text-xl">
               Strong Junior & Middle iOS Engineerlar uchun
             </span>
           </div>
@@ -1227,9 +744,9 @@ const mentorProjects = [
         </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 sg-scroll-in relative z-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 relative z-10">
         <div class="group">
-          <div class="feature-icon-box flex items-center justify-center text-white w-10 h-10 md:w-12 md:h-12 bg-purple-600/20 rounded-xl mb-4 md:mb-6 shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+          <div class="feature-icon-box flex items-center justify-center text-white">
             <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
             </svg>
@@ -1241,7 +758,7 @@ const mentorProjects = [
         </div>
 
         <div class="group">
-          <div class="feature-icon-box flex items-center justify-center text-white w-10 h-10 md:w-12 md:h-12 bg-purple-600/20 rounded-xl mb-4 md:mb-6 shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+          <div class="feature-icon-box flex items-center justify-center text-white">
             <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
             </svg>
@@ -1253,7 +770,7 @@ const mentorProjects = [
         </div>
 
         <div class="group">
-          <div class="feature-icon-box flex items-center justify-center text-white w-10 h-10 md:w-12 md:h-12 bg-purple-600/20 rounded-xl mb-4 md:mb-6 shadow-[0_0_15px_rgba(168,85,247,0.4)]">
+          <div class="feature-icon-box flex items-center justify-center text-white">
             <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
             </svg>
@@ -1268,41 +785,35 @@ const mentorProjects = [
   </div>
 </section>
 
- <section id="curriculum" class="py-16 md:py-24 px-4 md:px-6 bg-black relative overflow-hidden">
+<section id="curriculum" class="py-16 md:py-24 px-4 md:px-6 bg-[#050505] relative overflow-hidden">
   <div class="absolute top-0 left-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-purple-600/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
-  <div class="absolute bottom-0 right-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-blue-600/5 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
 
   <div class="max-w-6xl mx-auto relative z-10">
-    <div class="text-center mb-16 md:mb-32">
-      <h2 class="text-4xl md:text-6xl lg:text-7xl font-[950] italic tracking-tighter leading-[0.9] mb-8 md:mb-12 text-white uppercase">
+    <div class="text-center mb-16 md:mb-24 sg-scroll-in">
+      <h2 class="text-4xl md:text-6xl lg:text-7xl font-[950] italic tracking-tighter leading-[0.9] text-white uppercase">
         O'quv <span class="text-purple-500">Rejasi</span>
       </h2>
     </div>
 
-    <div class="space-y-16 md:space-y-32">
-      {months.map((month, index) => (
-        <div class="month-group">
-          <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 border-b border-white/10 pb-6 md:pb-8 gap-4">
-            <div>
-              <h3 class="text-2xl md:text-4xl font-black text-purple-500 italic uppercase tracking-tight">{month.name}</h3>
-            </div>
+    <div class="space-y-16 md:space-y-24">
+      {months.map((month) => (
+        <div class="month-group sg-scroll-in">
+          <div class="mb-8 md:mb-10 border-b border-purple-500/20 pb-4">
+            <h3 class="text-xl md:text-3xl font-black text-purple-400 italic uppercase tracking-tight">{month.name}</h3>
           </div>
 
           <div class="grid gap-4 md:gap-6">
             {month.items.map((mod) => (
-              <div 
-                class="module-card bg-[#0A0A0A] border border-purple-500/30 md:border-purple-500/50 shadow-[0_0_40px_rgba(255,255,255,0.05)] md:shadow-[0_0_60px_rgba(255,255,255,0.08)] rounded-[1.5rem] md:rounded-[2rem] p-5 md:p-10 cursor-pointer group transition-all duration-500 hover:bg-purple-500/[0.02]" 
-                onclick="this.classList.toggle('active')"
-              >
+              <div class="module-card cursor-pointer group toggle-module">
                 
                 <div class="flex items-center justify-between gap-4">
-                  <div class="flex items-center gap-4 md:gap-10">
-                    <span class="text-3xl md:text-5xl font-black italic text-white/5 group-hover:text-purple-500/20 transition-colors duration-500 select-none shrink-0">
+                  <div class="flex items-center gap-4 md:gap-8">
+                    <span class="text-3xl md:text-5xl font-black italic text-white/5 group-hover:text-purple-500/20 transition-colors duration-500 select-none shrink-0 w-12 md:w-16">
                       {mod.num}
                     </span>
                     <div class="min-w-0">
-                      <span class="text-purple-500/80 font-bold uppercase tracking-[0.15em] text-[9px] md:text-[10px] mb-1 block">{mod.category}</span>
-                      <h4 class="text-lg md:text-3xl font-bold text-white group-hover:text-purple-400 transition-all duration-300 italic leading-tight">
+                      <span class="text-purple-500/80 font-bold uppercase tracking-[0.15em] text-[9px] md:text-[11px] mb-1 block">{mod.category}</span>
+                      <h4 class="text-lg md:text-2xl font-bold text-white group-hover:text-purple-400 transition-all duration-300 italic leading-tight">
                         {mod.title}
                       </h4>
                     </div>
@@ -1315,18 +826,18 @@ const mentorProjects = [
                   </div>
                 </div>
 
-                <div class="content-wrapper hidden group-[.active]:block transition-all duration-500">
+                <div class="content-wrapper">
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 border-t border-white/5 mt-6 md:mt-8 pt-6 md:pt-8">
                     {mod.subsections.map((sub) => (
                       <div class="space-y-4">
-                        <h5 class="text-purple-400 font-black text-[10px] md:text-[11px] uppercase tracking-[0.2em] flex items-center gap-2">
+                        <h5 class="text-purple-400 font-black text-[10px] md:text-xs uppercase tracking-[0.2em] flex items-center gap-2">
                           <span class="w-3 md:w-4 h-[1px] bg-purple-500/50"></span>
                           {sub.head}
                         </h5>
                         <ul class="space-y-3">
                           {sub.items.map((item) => (
                             <li class="flex items-start gap-3 text-gray-400 text-sm md:text-base hover:text-white transition-colors leading-snug">
-                              <span class="text-purple-500 mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0 shadow-[0_0_8px_#A855F7]"></span>
+                              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0 shadow-[0_0_8px_#A855F7]"></span>
                               {item}
                             </li>
                           ))}
@@ -1344,95 +855,78 @@ const mentorProjects = [
   </div>
 </section>
 
-<section id="final-picture" class="py-12 md:py-20 px-4 md:px-6 bg-black relative">
+<section id="final-picture" class="py-12 md:py-24 px-4 md:px-6 bg-black relative">
   <div class="max-w-6xl mx-auto">
     <div class="text-center mb-10 md:mb-16 sg-scroll-in">
       <div class="mb-4 md:mb-6">
-        <span class="big-picture-tag px-4 py-1.5 border border-purple-500/30 rounded-full text-purple-400 text-[10px] md:text-xs font-black uppercase tracking-widest bg-purple-500/10">
-          Final Destination
-        </span>
+        <span class="big-picture-tag">Final Destination</span>
       </div>
-      <h2 class="text-3xl md:text-5xl font-[950] italic tracking-tighter leading-none mb-6 text-white uppercase">
+      <h2 class="text-3xl md:text-5xl lg:text-6xl font-[950] italic tracking-tighter leading-none mb-6 text-white uppercase">
         Final <span class="text-purple-500">Big Picture</span>
       </h2>
     </div>
 
-    <div class="arch-display-container sg-scroll-in relative border border-purple-500/50 rounded-3xl md:rounded-[40px] p-6 md:p-12 overflow-hidden bg-gradient-to-b from-purple-900/20 to-transparent shadow-[0_0_65px_rgba(255,255,255,0.12)]">
+    <div class="sg-glass-card sg-scroll-in flex flex-col items-center">
       <div class="absolute inset-0 bg-purple-600/[0.04] blur-[100px] rounded-full pointer-events-none"></div>
 
-      <div class="relative md:absolute md:top-8 md:left-8 z-20 mb-8 md:mb-0">
-        <h3 class="text-xl md:text-2xl font-black text-white italic leading-tight">
+      <div class="w-full text-center md:text-left mb-8 md:mb-0 md:absolute md:top-10 md:left-10 z-20">
+        <h3 class="text-xl md:text-2xl font-black text-white italic leading-tight uppercase">
           Advanced MVVM & <br class="md:hidden" /> Clean Architecture
         </h3>
       </div>
 
-      <div class="relative z-10 flex md:mt-10 justify-center items-center">
-        <img 
-          src="/mvvmArch.png" 
-          alt="Architecture" 
-          class="arch-img-shadow w-full max-w-5xl rounded-xl md:rounded-2xl" 
-        />
+      <div class="relative z-10 w-full flex justify-center mt-2 md:mt-16">
+        <img src="/mvvmArch.png" alt="Architecture" class="arch-img-shadow" />
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-16 border-t border-white/10 pt-8 md:pt-10 relative z-20">
+      <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-16 border-t border-purple-500/20 pt-8 relative z-20">
         <div class="text-center md:text-left">
-          <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base">Scalability</span>
-          <p class="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest leading-relaxed">
-            Istalgancha modullarni qo'shish va kengaytirish imkoniyati.
-          </p>
+          <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base uppercase tracking-wider">Scalability</span>
+          <p class="text-xs md:text-sm text-gray-400 leading-relaxed">Istalgancha modullarni qo'shish va kengaytirish imkoniyati.</p>
         </div>
-        <div class="text-center md:text-left border-y md:border-y-0 md:border-x border-white/5 py-6 md:py-0 md:px-4">
-          <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base">Testability</span>
-          <p class="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest leading-relaxed">
-            Har bir qatlam DI va Protocollar orqali 100% testlanuvchan.
-          </p>
+        <div class="text-center md:text-left border-y md:border-y-0 md:border-x border-purple-500/20 py-6 md:py-0 md:px-6">
+          <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base uppercase tracking-wider">Testability</span>
+          <p class="text-xs md:text-sm text-gray-400 leading-relaxed">Har bir qatlam DI va Protocollar orqali 100% testlanuvchan.</p>
         </div>
-        <div class="text-center md:text-left">
-          <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base">Isolation</span>
-          <p class="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest leading-relaxed">
-            Business Logic UI dan butunlay ajratilgan tizim.
-          </p>
+        <div class="text-center md:text-left md:pl-6">
+          <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base uppercase tracking-wider">Isolation</span>
+          <p class="text-xs md:text-sm text-gray-400 leading-relaxed">Business Logic UI dan butunlay ajratilgan tizim.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="modular-architecture" class="py-12 md:py-20 px-4 md:px-6 bg-black relative">
+<section id="modular-architecture" class="py-12 md:py-24 px-4 md:px-6 bg-[#050505] relative">
   <div class="max-w-6xl mx-auto">
-    <div class="outcome-card sg-scroll-in p-6 md:p-12 relative overflow-hidden border border-purple-500/50 rounded-3xl md:rounded-[40px] bg-gradient-to-tr from-purple-900/20 via-transparent to-transparent shadow-[0_0_65px_rgba(255,255,255,0.12)]">
-      
+    <div class="sg-glass-card sg-scroll-in">
       <div class="absolute -left-20 -bottom-20 w-full h-full bg-purple-600/[0.06] blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
 
       <div class="mb-8 md:mb-12 relative z-10 text-center md:text-left">
         <div class="mb-4 md:mb-6">
-          <span class="big-picture-tag px-4 py-1.5 border border-purple-500/30 rounded-full text-purple-400 text-[10px] md:text-xs font-black uppercase tracking-widest bg-purple-500/10 inline-block">
-            Advanced Concepts
-          </span>
+          <span class="big-picture-tag">Advanced Concepts</span>
         </div>
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-[950] italic tracking-tighter leading-[1.1] mb-6 text-white uppercase">
-          Scalable <span class="text-purple-500"> RIBs-based</span> <br class="hidden md:block" /> Modular  Architecture
+          Scalable <span class="text-purple-500"> RIBs-based</span> <br class="hidden md:block" /> Modular Architecture
         </h2>
       </div>
 
       <div class="relative z-10 flex justify-center items-center mb-10 md:mb-16">
-        <img src="/ribArch.png" alt="RIBs Architecture" class="arch-img-shadow w-full rounded-xl md:rounded-2xl" />
+        <img src="/ribArch.png" alt="RIBs Architecture" class="arch-img-shadow" />
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-white/10 pt-8 md:pt-10 relative z-20">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-purple-500/20 pt-8 relative z-20">
         <div class="flex flex-col items-center md:items-start text-center md:text-left">
           <span class="text-white font-bold text-base md:text-lg mb-1">Deep Link Support</span>
-          <p class="text-[10px] md:text-xs text-gray-500 italic uppercase tracking-wider">Ilovaning istalgan qismiga yo'naltirish.</p>
+          <p class="text-xs text-gray-400 italic">Ilovaning istalgan qismiga yo'naltirish.</p>
         </div>
-        
-        <div class="flex flex-col items-center md:items-start text-center md:text-left border-y md:border-y-0 md:border-x border-white/5 py-6 md:py-0 md:px-4">
+        <div class="flex flex-col items-center md:items-start text-center md:text-left border-y md:border-y-0 md:border-x border-purple-500/20 py-6 md:py-0 md:px-6">
           <span class="text-white font-bold text-base md:text-lg mb-1">Business Logic First</span>
-          <p class="text-[10px] md:text-xs text-gray-500 italic uppercase tracking-wider">UI ga bog'lanmagan mantiq boshqaruvi.</p>
+          <p class="text-xs text-gray-400 italic">UI ga bog'lanmagan mantiq boshqaruvi.</p>
         </div>
-        
-        <div class="flex flex-col items-center md:items-start text-center md:text-left">
+        <div class="flex flex-col items-center md:items-start text-center md:text-left md:pl-6">
           <span class="text-white font-bold text-base md:text-lg mb-1">Extreme Isolation</span>
-          <p class="text-[10px] md:text-xs text-gray-500 italic uppercase tracking-wider">Modullar o'rtasidagi qat'iy nazorat.</p>
+          <p class="text-xs text-gray-400 italic">Modullar o'rtasidagi qat'iy nazorat.</p>
         </div>
       </div>
     </div>
@@ -1441,134 +935,62 @@ const mentorProjects = [
 
 <section id="expected-outcome" class="py-16 md:py-24 px-4 md:px-6 bg-black relative">
   <div class="max-w-6xl mx-auto">
-    <div class="outcome-card sg-scroll-in border border-purple-500/30 p-6 md:p-16 rounded-3xl md:rounded-[40px] relative overflow-hidden bg-[#080808] shadow-[0_0_80px_rgba(168,85,247,0.1)]">
-      
+    <div class="sg-glass-card sg-scroll-in">
       <div class="absolute inset-0 bg-purple-600/[0.03] blur-[100px] md:blur-[120px] rounded-full pointer-events-none"></div>
 
       <div class="relative z-10">
-        <div class="mb-12 md:mb-20 flex flex-col items-center text-center">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-[950] italic tracking-tighter leading-none text-white uppercase mb-4 md:mb-6">
-            Kutilayotgan <span class="text-purple-500"> Natija</span>
+        <div class="mb-12 md:mb-16 text-center">
+          <h2 class="text-3xl md:text-5xl lg:text-6xl font-[950] italic tracking-tighter leading-none text-white uppercase">
+            Kutilayotgan <span class="text-purple-500">Natija</span>
           </h2>
         </div>
 
-        <div class="grid gap-6 md:gap-8">
-          <ul class="space-y-8 md:space-y-12 text-gray-300">
-            
+        <ul class="space-y-8 md:space-y-10 text-gray-300">
+          { outcomeList.map((item) => (
             <li class="flex items-start gap-4 md:gap-6 group">
-              <span class="text-purple-500 text-xl md:text-2xl leading-none mt-1.5 md:mt-2 shrink-0">●</span>
+              <span class="text-purple-500 text-xl md:text-2xl leading-none mt-1 shrink-0">●</span>
               <div>
-                <h3 class="text-lg md:text-2xl lg:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-1 md:mb-2">
-                  Advanced MVVM / VIPER Architecture
+                <h3 class="text-lg md:text-2xl font-bold text-white italic group-hover:text-purple-400 transition mb-2 uppercase">
+                  {item.title}
                 </h3>
-                <p class="text-sm md:text-xl lg:text-2xl leading-relaxed italic text-gray-400">
-                  Murakkab tizimlarni boshqarish uchun eng sara patternlar.
+                <p class="text-sm md:text-lg leading-relaxed text-gray-400">
+                  {item.desc}
                 </p>
               </div>
             </li>
-
-            <li class="flex items-start gap-4 md:gap-6 group">
-              <span class="text-purple-500 text-xl md:text-2xl leading-none mt-1.5 md:mt-2 shrink-0">●</span>
-              <div>
-                <h3 class="text-lg md:text-2xl lg:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-1 md:mb-2">
-                  Modular Clean Architecture
-                </h3>
-                <p class="text-sm md:text-xl lg:text-2xl leading-relaxed italic text-gray-400">
-                  RIBs (Uber) arxitekturasi prinsiplari asosida qurilgan modulli tizim.
-                </p>
-              </div>
-            </li>
-
-            <li class="flex items-start gap-4 md:gap-6 group">
-              <span class="text-purple-500 text-xl md:text-2xl leading-none mt-1.5 md:mt-2 shrink-0">●</span>
-              <div>
-                <h3 class="text-lg md:text-2xl lg:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-1 md:mb-2">
-                  Unit Testing
-                </h3>
-                <p class="text-sm md:text-xl lg:text-2xl leading-relaxed italic text-gray-400">
-                  Biznes mantiqning har bir bo'g'ini xatosiz ishlashini kafolatlovchi to'liq testlash jarayoni.
-                </p>
-              </div>
-            </li>
-
-            <li class="flex items-start gap-4 md:gap-6 group">
-              <span class="text-purple-500 text-xl md:text-2xl leading-none mt-1.5 md:mt-2 shrink-0">●</span>
-              <div>
-                <h3 class="text-lg md:text-2xl lg:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-1 md:mb-2">
-                  Professional DI & Navigation
-                </h3>
-                <p class="text-sm md:text-xl lg:text-2xl leading-relaxed italic text-gray-400">
-                  Dependency Injection va markazlashgan zamonaviy navigatsiya tizimi.
-                </p>
-              </div>
-            </li>
-
-            <li class="flex items-start gap-4 md:gap-6 group">
-              <span class="text-purple-500 text-xl md:text-2xl leading-none mt-1.5 md:mt-2 shrink-0">●</span>
-              <div>
-                <h3 class="text-lg md:text-2xl lg:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-1 md:mb-2">
-                  SOLID Principles
-                </h3>
-                <p class="text-sm md:text-xl lg:text-2xl leading-relaxed italic text-gray-400">
-                  Kodning moslashuvchanligini ta'minlovchi va har qanday yangi talabga oson moslashadigan "Clean Code" arxitekturasi.
-                </p>
-              </div>
-            </li>
-
-            <li class="flex items-start gap-4 md:gap-6 group">
-              <span class="text-purple-500 text-xl md:text-2xl leading-none mt-1.5 md:mt-2 shrink-0">●</span>
-              <div>
-                <h3 class="text-lg md:text-2xl lg:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-1 md:mb-2">
-                  Core Infrastructure
-                </h3>
-                <p class="text-sm md:text-xl lg:text-2xl leading-relaxed italic text-gray-400">
-                  Markazlashgan CoreRouter, CoreBuilder va CoreInteractor komponentlari qo‘llanilgan arxitektura.
-                </p>
-              </div>
-            </li>
-
-            <li class="flex items-start gap-4 md:gap-6 group">
-              <span class="text-purple-500 text-xl md:text-2xl leading-none mt-1.5 md:mt-2 shrink-0">●</span>
-              <div>
-                <h3 class="text-lg md:text-2xl lg:text-3xl font-bold text-white italic group-hover:text-purple-400 transition mb-1 md:mb-2">
-                  Production-Ready Boilerplate
-                </h3>
-                <p class="text-sm md:text-xl lg:text-2xl leading-relaxed italic text-gray-400">
-                  Yirik loyihalarda ishlatiladigan loyiha tuzilmasi.
-                </p>
-              </div>
-            </li>
-
-          </ul>
-        </div>
+          ))}
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cta-final-wrapper pt-20 md:pt-32 pb-0 bg-black relative overflow-hidden">
-  <div class="max-w-6xl mx-auto w-full px-4 md:px-6">
-    <div class="grid grid-cols-1 lg:grid-cols-2 items-end gap-10 md:gap-12">
+<section class="cta-final-wrapper">
+  <div class="max-w-7xl mx-auto w-full px-4 md:px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-40">
       
-      <div class="sg-scroll-in pb-10 lg:pb-32 flex flex-col items-center lg:items-start text-center lg:text-left">
-        <h2 class="text-4xl md:text-6xl lg:text-8xl text-white font-[950] italic tracking-tighter leading-[1.1] uppercase mb-8 md:mb-12">
+      <div class="sg-scroll-in flex flex-col items-center lg:items-start text-center lg:text-left lg:-translate-y-20">
+        <h2 class="text-5xl md:text-6xl lg:text-7xl text-white font-[950] italic tracking-tighter leading-[1.2] uppercase mb-10 md:mb-16">
           Level up <br/> 
-          <span class="text-purple-500">Your Engineering</span>
+          <span class="text-purple-500 whitespace-nowrap">Your Engineering</span>
         </h2>
         
-        <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-lg md:text-xl px-8 md:px-10 py-5 lg:py-16 no-underline text-white font-bold rounded-2xl transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(168,85,247,0.3)] w-full sm:w-auto">
-          Karyerangizga investitsiya qiling
-        </a>
+        <div class="flex items-center gap-6">
+          <h2 class="text-4xl md:text-5xl lg:text-6xl text-purple-500 whitespace-nowrap font-[950] italic tracking-tighter uppercase leading-none m-0">
+            Now:
+          </h2>
+          <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-2xl md:text-4xl px-10 py-4 rounded-3xl tracking-wide">
+            Join
+          </a>
+        </div>
       </div>
 
-      <div class="flex justify-center items-end relative h-full mt-10 lg:mt-0">
-        <div class="absolute inset-0 bg-purple-600/20 blur-[80px] md:blur-[120px] rounded-full translate-y-20 pointer-events-none"></div>
-        
+      <div class="flex justify-center lg:justify-end relative h-full self-end">
+        <div class="absolute inset-0 bg-purple-600/20 blur-[80px] md:blur-[120px] rounded-full translate-y-10 pointer-events-none"></div>
         <img 
           src="/my_photo.png" 
           alt="Dilshodbek Qulmirzayev" 
-          class="relative z-10 w-full max-w-[300px] md:max-w-[450px] lg:max-w-[550px] block h-auto object-contain"
-          style="display: block; vertical-align: bottom; margin-bottom: 0;" 
+          class="relative z-10 w-full max-w-[350px] md:max-w-[450px] lg:max-w-[500px] mentor-display-img object-contain"
         />
       </div>
 
@@ -1576,47 +998,24 @@ const mentorProjects = [
   </div>
 </section>
 
-<style>
-  /* Section va rasm orasidagi mikroskopik bo'shliqlarni yo'qotish */
-  .cta-final-wrapper {
-    padding-bottom: 0 !important;
-  }
-  
-  .mentor-display-img {
-    display: block !important;
-    line-height: 0 !important;
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-  }
-  
-  /* Tugma uchun qo'shimcha stil (agar globalda bo'lmasa) */
-  .sg-btn-gradient {
-    background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
-    display: inline-block;
-  }
-</style>
-
-<section id="faq" class="py-16 md:py-32 px-4 md:px-6 border-t border-white/5 bg-[#050505]">
+<section id="faq" class="py-16 md:py-24 px-4 md:px-6 border-t border-white/5 bg-[#050505]">
   <div class="max-w-3xl mx-auto">
-    <h2 class="text-4xl md:text-6xl font-black text-center mb-10 md:mb-16 italic tracking-tighter uppercase text-white">
+    <h2 class="text-4xl md:text-6xl font-black text-center mb-10 md:mb-16 italic tracking-tighter uppercase text-white sg-scroll-in">
       FAQ
     </h2>
 
     <div class="space-y-4 md:space-y-6">
       {faqs.map((faq) => (
-        /* Module Card: Border va Shadow mobilga moslandi */
-        <details class="module-card !rounded-2xl !p-0 overflow-hidden group border border-purple-500/40 md:border-purple-500/50 shadow-[0_0_40px_rgba(255,255,255,0.03)] md:shadow-[0_0_55px_rgba(255,255,255,0.05)] bg-black transition-all duration-500">
-          
+        <details class="module-card !p-0 overflow-hidden group">
           <summary class="p-5 md:p-8 cursor-pointer font-bold flex justify-between items-center list-none hover:bg-purple-500/[0.03] transition-colors select-none">
-            <span class="text-base md:text-xl pr-4 md:pr-6 text-white leading-tight">
+            <span class="text-base md:text-lg pr-4 md:pr-6 text-white leading-tight">
               {faq.q}
             </span>
             <span class="text-purple-500 text-2xl md:text-3xl transition-transform duration-500 group-open:rotate-45 shrink-0">
               +
             </span>
           </summary>
-
-          <div class="px-5 pb-5 md:px-8 md:pb-8 text-gray-400 text-sm md:text-lg border-t border-white/5 pt-5 md:pt-8 leading-relaxed whitespace-pre-line bg-gradient-to-b from-purple-900/10 to-transparent">
+          <div class="px-5 pb-5 md:px-8 md:pb-8 text-gray-400 text-sm md:text-base border-t border-purple-500/20 pt-5 md:pt-6 leading-relaxed bg-gradient-to-b from-purple-900/10 to-transparent">
             {faq.a}
           </div>
         </details>
@@ -1625,179 +1024,110 @@ const mentorProjects = [
   </div>
 </section>
 
-<footer id="contact" class="py-16 md:py-32 px-4 md:px-6 border-t border-white/5 bg-black relative overflow-hidden">
-  <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] md:w-[800px] h-[200px] md:h-[400px] bg-purple-500/[0.02] blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
+<footer id="contact" class="relative py-20 md:py-32 px-4 md:px-6 bg-black overflow-hidden border-t border-white/5">
+  <div class="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[300px] md:w-[800px] h-[300px] md:h-[600px] bg-purple-600/20 blur-[100px] md:blur-[150px] rounded-full pointer-events-none"></div>
 
   <div class="max-w-6xl mx-auto relative z-10">
-    <div class="flex justify-center text-center mb-12 md:mb-24">
-      <h2 class="text-4xl md:text-6xl lg:text-7xl text-white font-[950] italic tracking-tighter leading-[1.1] uppercase mb-8 md:mb-12">
+    <div class="flex flex-col items-center justify-center text-center mb-16 md:mb-20 sg-scroll-in">
+      <h2 class="text-5xl md:text-6xl lg:text-7xl text-white font-[950] italic tracking-tighter leading-[1.1] uppercase">
         BOG'LANISH <br/> 
         <span class="text-purple-500">UCHUN</span>
       </h2>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full mb-16 md:mb-24">
-      
-      <a href="tel:+998930676239" class="group border border-purple-500/40 md:border-purple-500/50 rounded-2xl md:rounded-[2rem] p-4 md:p-8 flex flex-col items-center justify-center transition-all duration-500 shadow-lg bg-gradient-to-b from-purple-900/10 to-transparent hover:bg-purple-500/[0.03]">
-        <div class="w-10 h-10 md:w-20 md:h-20 mb-3 md:mb-6">
-          <img src="/phone_logo.png" class="w-full h-full object-contain" alt="Phone" />
-        </div>
-        <span class="text-white font-bold text-[10px] sm:text-xs md:text-base group-hover:text-purple-400 transition text-center break-all">
-          +998 93 067 62 39
-        </span>
-      </a>
-
-      <a href="https://t.me/iosDev007" target="_blank" class="group border border-purple-500/40 md:border-purple-500/50 rounded-2xl md:rounded-[2rem] p-4 md:p-8 flex flex-col items-center justify-center transition-all duration-500 shadow-lg bg-gradient-to-b from-purple-900/10 to-transparent hover:bg-purple-500/[0.03]">
-        <div class="w-10 h-10 md:w-20 md:h-20 mb-3 md:mb-6">
-          <img src="/telegram_logo.png" class="w-full h-full object-contain" alt="Telegram" />
-        </div>
-        <span class="text-white font-bold text-[10px] sm:text-xs md:text-base group-hover:text-purple-400 transition text-center">
-          @iosDev007
-        </span>
-      </a>
-
-      <a href="https://www.linkedin.com/in/dilshodbek-qulmirzayev-14b308282/" target="_blank" class="group border border-purple-500/40 md:border-purple-500/50 rounded-2xl md:rounded-[2rem] p-4 md:p-8 flex flex-col items-center justify-center transition-all duration-500 shadow-lg bg-gradient-to-b from-purple-900/10 to-transparent hover:bg-purple-500/[0.03]">
-        <div class="w-10 h-10 md:w-20 md:h-20 mb-3 md:mb-6">
-          <img src="/linkedin_logo.png" class="w-full h-full object-contain" alt="LinkedIn" />
-        </div>
-        <span class="text-white font-bold text-[10px] sm:text-xs md:text-base group-hover:text-purple-400 transition text-center">
-          LinkedIn
-        </span>
-      </a>
-
-      <a href="https://www.youtube.com/@swift_Genius" target="_blank" class="group border border-purple-500/40 md:border-purple-500/50 rounded-2xl md:rounded-[2rem] p-4 md:p-8 flex flex-col items-center justify-center transition-all duration-500 shadow-lg bg-gradient-to-b from-purple-900/10 to-transparent hover:bg-purple-500/[0.03]">
-        <div class="w-10 h-10 md:w-20 md:h-20 mb-3 md:mb-6">
-          <img src="/youtube_logo.png" class="w-full h-full object-contain" alt="YouTube" />
-        </div>
-        <span class="text-white font-bold text-[10px] sm:text-xs md:text-base group-hover:text-purple-400 transition text-center">
-          Swift Genius
-        </span>
-      </a>
-
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 w-full max-w-4xl mx-auto mb-16 md:mb-24 sg-scroll-in">
+      {[
+        { name: "Telegram", href: "https://t.me/iosDev007", logo: "/telegram_logo.png", color: "hover:border-blue-500" },
+        { name: "LinkedIn", href: "https://www.linkedin.com/in/dilshodbek-qulmirzayev-14b308282/", logo: "/linkedin_logo.png", color: "hover:border-blue-400" },
+        { name: "Swift Genius", href: "https://www.youtube.com/@swift_Genius", logo: "/youtube_logo.png", color: "hover:border-red-500" }
+      ].map(social => (
+        <a href={social.href} target="_blank" class={`group rounded-3xl p-6 md:p-8 flex flex-col items-center justify-center transition-all duration-300 bg-[#0a0a0a] border border-purple-500/30 ${social.color} hover:-translate-y-2 shadow-[0_0_30px_rgba(168,85,247,0.05)] hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]`}>
+          <div class="w-14 h-14 md:w-20 md:h-20 mb-4 md:mb-6 transform transition-transform duration-300 group-hover:scale-110">
+            <img src={social.logo} class="w-full h-full object-contain" alt={social.name} />
+          </div>
+          <span class="text-gray-400 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
+            {social.name}
+          </span>
+        </a>
+      ))}
     </div>
 
-    <div class="flex flex-col md:flex-row items-center justify-between pt-8 md:pt-12 border-t border-white/5 gap-6 md:gap-8">
+    <div class="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-purple-500/20 gap-6">
       <div class="flex items-center gap-4">
         <img src="/brend_logo.png" class="h-8 md:h-10 w-auto" alt="Logo" />
         <div class="flex flex-col text-left">
           <span class="font-black italic tracking-tighter text-lg md:text-xl leading-none text-white uppercase">Swift Genius</span>
-          <span class="text-[8px] md:text-[10px] text-purple-500 font-bold tracking-[0.3em] uppercase">iOS Academy</span>
+          <span class="text-[9px] md:text-[10px] text-purple-500 font-bold tracking-[0.3em] uppercase mt-1">iOS Academy</span>
         </div>
       </div>
-      <p class="text-gray-500 text-[10px] md:text-sm text-center md:text-right">
+      <p class="text-gray-500 text-xs md:text-sm text-center font-medium">
         © 2026 SwiftGenius — Barcha huquqlar himoyalangan.
       </p>
     </div>
   </div>
 </footer>
 
-    <script>
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('sg-visible');
-        });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.sg-scroll-in').forEach(el => observer.observe(el));
+<script>
+  // 1. Mobile Menu Toggle Logic
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  const menuIcon = document.getElementById('menu-icon');
+  let isOpen = false;
 
-	  const slider = document.querySelector('.roadmap-wrapper');
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+  const toggleMenu = () => {
+    isOpen = !isOpen;
+    if (isOpen) {
+      mobileOverlay?.classList.add('active');
+      menuIcon?.classList.add('menu-open');
+      document.body.style.overflow = 'hidden';
+    } else {
+      mobileOverlay?.classList.remove('active');
+      menuIcon?.classList.remove('menu-open');
+      document.body.style.overflow = '';
+    }
+  };
 
-  slider.addEventListener('mousedown', (e) => {
-    isDown = true;
-    slider.classList.add('active');
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
+  menuToggle?.addEventListener('click', toggleMenu);
+  document.querySelectorAll('#mobile-overlay a').forEach(link => {
+    link.addEventListener('click', () => { if (isOpen) toggleMenu(); });
   });
-  slider.addEventListener('mouseleave', () => {
-    isDown = false;
+
+  // 2. Scroll Intersect Observer for Animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('sg-visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.sg-scroll-in').forEach(el => observer.observe(el));
+
+  // 3. Curriculum Toggle Module Scripts
+  document.querySelectorAll('.toggle-module').forEach(card => {
+    card.addEventListener('click', function() {
+      this.classList.toggle('active');
+    });
   });
-  slider.addEventListener('mouseup', () => {
-    isDown = false;
-  });
-  slider.addEventListener('mousemove', (e) => {
-    if(!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2;
-    slider.scrollLeft = scrollLeft - walk;
-  });
-    </script>
-	<script>
+
+  // 4. Scroll Active Navigation Links (Unified & Optimised)
   const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('section[id], footer[id]');
 
-  function handleScroll() {
+  const handleScroll = () => {
     let currentId = "";
-
-    // 1. Qaysi section markazga yaqinligini aniqlash
     sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      // Agar oyna o'rtasi section ichida bo'lsa
-      if (window.scrollY >= (sectionTop - 200)) {
+      if (window.scrollY >= (section.offsetTop - window.innerHeight / 3)) {
         currentId = section.getAttribute('id');
       }
     });
 
-    // 2. Navbatdagi linklarni yangilash
     navLinks.forEach(link => {
       link.classList.remove('active');
       if (link.getAttribute('href') === `#${currentId}`) {
         link.classList.add('active');
       }
     });
-  }
+  };
 
-  // Bosilganda scroll qilish (smooth scroll browser tomonidan boshqariladi)
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
-    });
-  });
-
-  window.addEventListener('scroll', handleScroll);
-  // Sahifa yuklanganda holatni aniqlash
-  handleScroll();
-</script>
-<script>
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id]');
-
-  function handleScroll() {
-    let currentId = "";
-
-    // 1. Markaziy nuqtani hisobga olgan holda faol sectionni aniqlash
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (window.scrollY >= (sectionTop - 200)) {
-        currentId = section.getAttribute('id');
-      }
-    });
-
-    // 2. Active klassini yangilash
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      const href = link.getAttribute('href').replace('#', '');
-      if (href === currentId) {
-        link.classList.add('active');
-      }
-    });
-  }
-
-  // Click bo'lganda smooth scroll (Brauzer nativ qo'llaydi)
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      navLinks.forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
-    });
-  });
-
-  window.addEventListener('scroll', handleScroll);
-  // Birinchi yuklanganda holatni tekshirish
+  window.addEventListener('scroll', handleScroll, { passive: true });
   window.addEventListener('DOMContentLoaded', handleScroll);
 </script>
 
