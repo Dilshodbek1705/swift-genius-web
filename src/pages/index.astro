@@ -225,7 +225,7 @@ const faqs = [
   },
   {
     q: "Nega bu kursda o‘qishim kerak? AI (ChatGPT, Claude) ga prompt yozsam barcha ishlarni qilib beradi-ku.",
-    a: "AI taqdim etgan yechimlarni nazorat qilish, xatosini topish va yirik tizimga moslashtirish uchun insonning o'zida chuqur arxitektura bilimi bo'lishi shart. Biz bilan aynan ushbu 'AI boshqara olmaydigan' muhandislik mahoratini o'zlashtirasiz."
+    a: "AI taqdim etgan yechimlarni nazorat qilish, xatosini topish va yirik tizimga moslashtirish uchun dasturchining o'zida chuqur arxitektura bilimi bo'lishi shart. Biz bilan aynan 'AI boshqara olmaydigan' muhandislik mahoratini o'zlashtirasiz."
   },
 
   // 2. KURS KONTENTI VA JARAYON (Nima quramiz va qanday?)
@@ -250,7 +250,11 @@ const faqs = [
   {
     q: "Kurs narxi qancha va to'lovni bo'lib to'lash imkoniyati bormi?",
     a: "Oylik to'lov — 2,500,000 UZS (Jami 3 oy). Agar kurs uchun to'liq to'lovni oldindan qilsangiz, 15% chegirma taqdim etiladi. Joylar soni sifatli Code Review ta'minlash maqsadida qat'iy cheklangan (maksimum 12 kishi)."
-  }
+  }, 
+  {
+  q: "Kurs narxi biroz qimmat emasmi? Bu sarmoya o'zini oqlaydimi?",
+  a: "Bu shunchaki to'lov emas, daromad potensialingizni oshirishga qaratilgan sarmoyadir. O'rganilgan arxitektura bilimlari intervyulardan muvaffaqiyatli o'tish ko'rsatkichingizni sezilarli darajada oshiradi. Kasbiy darajangizning (Grade) bir pog'ona ko'tarilishi kurs investitsiyasini birinchi oydanoq qoplab beradi."
+}
 ];
 
 const outcomeList = [
@@ -830,8 +834,8 @@ const mentorProjects = [
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 border-t border-white/5 mt-6 md:mt-8 pt-6 md:pt-8">
                     {mod.subsections.map((sub) => (
                       <div class="space-y-4">
-                        <h5 class="text-purple-400 font-black text-[10px] md:text-xs uppercase tracking-[0.2em] flex items-center gap-2">
-                          <span class="w-3 md:w-4 h-[1px] bg-purple-500/50"></span>
+                        <h5 class="text-purple-400 font-black text-[18px] md:text-[17px] uppercase tracking-[0.1em] flex items-center gap-1">
+                          <span class="w-3 md:w-4 h-[1px] bg-purple-500/20"></span>
                           {sub.head}
                         </h5>
                         <ul class="space-y-3">
