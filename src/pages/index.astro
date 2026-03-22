@@ -1,28 +1,37 @@
 ---
-import '../styles/global.css';
-const education = [
-  { name: "Swift Academy" },
-  { name: "PDP Academy" },
-  { name: "Essential Developer Academy" },
-  { name: "Swiftful Thinking" }
-];
+// src/pages/index.astro
+export const prerender = false;  // ← shu qatorni QO'SHING
 
+import '../styles/global.css';
+import { getLang } from '../i18n/index.ts';
+import type { Locale } from '../i18n/index.ts'; 
+import '../styles/global.css';
+import { getLang } from '../i18n/index.ts';
+import type { Locale } from '../i18n/index.ts';
+
+// --- Til aniqlash (Cookie → fallback uz) ---
+const cookieLang = Astro.cookies.get('lang')?.value;
+const locale: Locale = (cookieLang === 'en' || cookieLang === 'uz') ? cookieLang : 'uz';
+const t = getLang(locale);
+const isEn = locale === 'en';
+
+// --- Barcha ma'lumotlar ---
 const modules = [
   {
     num: '01',
     category: 'SwiftUI Foundations',
-    title: 'UI Elements, State & Navigation',
+    title: t.modules[0].title,
     subsections: [
       {
         head: 'UI Elements & Modifiers',
         items: ['Text, Image, Button, Spacer', 'VStack, HStack, ZStack', 'padding, frame, alignment', 'background, overlay']
       },
       {
-        head: 'State va Data Flow',
+        head: t.modules[0].subs[0],
         items: ['@State, @Binding, @Bindable', '@StateObject, @ObservedObject', '@ObservableObject, @Published', '@EnvironmentObject, @Environment']
       },
       {
-        head: 'Lists va Dynamic UI',
+        head: t.modules[0].subs[1],
         items: ['List, ScrollView, ForEach', 'LazyVStack, LazyHStack', 'CustomView, ViewModifier']
       },
       {
@@ -34,11 +43,11 @@ const modules = [
   {
     num: '02',
     category: 'Application Structure',
-    title: 'App Lifecycle & Flow Architecture',
+    title: t.modules[1].title,
     subsections: [
       {
         head: "App Architecture & Lifecycle",
-        items: ["App protocol, @main", "Scene, WindowGroup", "UIKit AppDelegate implementation", "Practical: Lifecycle-driven management"]
+        items: ["App protocol, @main", "Scene, WindowGroup", "UIKit AppDelegate implementation", t.modules[1].subs[0]]
       },
       {
         head: "Application Flow Architecture",
@@ -86,14 +95,14 @@ const modules = [
   {
     num: '06',
     category: 'Business Logic',
-    title: 'Interactor Layer & Refactoring',
+    title: t.modules[5].title,
     subsections: [
       {
         head: "Interactor & Business Logic Architecture",
-        items: ["System Design Foundations","Domain Logic Separation", "ViewModel to Interactor Interaction", "Decoupling View Logic from Business Logic"]
+        items: ["System Design Foundations", "Domain Logic Separation", "ViewModel to Interactor Interaction", "Decoupling View Logic from Business Logic"]
       },
       {
-        head: "Centralized global Business Logic",
+        head: t.modules[5].subs[0],
         items: ["Global Business Layer (Centralized Logic)", "Manager Integration & Data Flow", "Service Management & Abstraction"]
       },
       {
@@ -146,7 +155,7 @@ const modules = [
   {
     num: '10',
     category: 'Production Features',
-    title: 'Analytics, Security & Localization',
+    title: t.modules[9].title,
     subsections: [
       {
         head: "Logging & Diagnostics",
@@ -157,7 +166,7 @@ const modules = [
         items: ["Firebase & Mixpanel Integration", "Facade Pattern for Analytics", "Behavioral Tracking events"]
       },
       {
-        head: "App Security & Protected UI",
+        head: t.modules[9].subs[0],
         items: ["Privacy-preserving UI (Blur Overlay)", "DeepLink Security", "Sensitive Data Protection"]
       },
       {
@@ -184,7 +193,7 @@ const modules = [
   {
     num: '12',
     category: 'Quality Assurance',
-    title: 'Unit & UI Testing Strategies',
+    title: t.modules[11].title,
     subsections: [
       {
         head: "Unit Testing & QA",
@@ -199,880 +208,794 @@ const modules = [
 ];
 
 const months = [
-  {
-    name: "1-OY: SwiftUI asoslari va loyiha poydevorini qurish",
-    items: modules.slice(0, 4)
-  },
-  {
-    name: "2-OY: Biznes mantiqini ajratish va murakkab navigatsiya",
-    items: modules.slice(4, 8)
-  },
-  {
-    name: "3-OY: Modullashtirish, xavfsizlik va QA standartlari",
-    items: modules.slice(8, 12)
-  }
-];
-
-const faqs = [
-  // 1. KIRISH VA TALABLAR (Kimlar uchun?)
-  {
-    q: "Kursga qo'shilish uchun qanday daraja va texnik bilimlar talab qilinadi?",
-    a: "Kurs kamida 1 yillik amaliy tajribaga ega (Strong Junior) dasturchilar uchun mo'ljallangan. Sizdan SwiftUI, Swift (OOP/POP) va Git bo'yicha mustaqil ishlash tajribasi talab qilinadi. Noldan o'rganayotganlar uchun bu kurs og'irlik qiladi."
-  },
-  {
-    q: "Kursda qaysi frameworkdan foydalaniladi: SwiftUI yoki UIKit?",
-    a: "SwiftUI"
-  },
-  {
-    q: "Nega bu kursda o‘qishim kerak? AI (ChatGPT, Claude) ga prompt yozsam barcha ishlarni qilib beradi-ku.",
-    a: "AI taqdim etgan yechimlarni nazorat qilish, xatosini topish va yirik tizimga moslashtirish uchun dasturchining o'zida chuqur arxitektura bilimi bo'lishi shart. Biz bilan aynan 'AI boshqara olmaydigan' muhandislik mahoratini o'zlashtirasiz."
-  },
-
-  // 2. KURS KONTENTI VA JARAYON (Nima quramiz va qanday?)
-  {
-    q: "Loyiha arxitekturasini noldan quramizmi va u qanday loyiha bo'ladi?",
-    a: "Ha, biz noldan boshlab har qanday yirik domen (bank, e-commerce) uchun mos keluvchi universal arxitektura quramiz. Fokus butunlay biznes mantiq va tizim dizaynida bo'lgani sababli, UI ataylab minimal saqlanadi."
-  },
-  {
-    q: "Kurs qancha vaqt davom etadi va darslar qanday formatda o'tkaziladi?",
-    a: "Kurs 3 oy davom etadi. Darslar haftada 2 marta, 2.5–3 soatdan mentor bilan kelishilgan holda oflayn yoki onlayn formatda bo'lib o'tadi."
-  },
-  {
-    q: "Dars yozuvlari va materiallar kursdan keyin ham menda qoladimi?",
-    a: "Ha. Barcha dars yozuvlari, arxitektura sxemalari va yozilgan kodlar (Source code) sizda umrbod qoladi."
-  },
- {
-    q: "Uy vazifalari va amaliyot qanday tekshiriladi?",
-    a: "GitHub repozitoriyingizda tekshiriladi. Siz kodni Pull Request (PR) qilasiz, mentor esa uni Code Review qiladi."
-  },
-  // 3. NATIJA VA MOLIYAVIY QISM (Nima olaman va narxi?)
-  {
-    q: "Kursni tugatgandan so‘ng men Senior iOS Developer bo‘lamanmi?",
-    a: "Seniorlik — bu yillar davomida to'plangan tajriba va mas’uliyat natijasidir. Kurs sizni bittada Senior qilib qo'ymaydi, lekin Senior darajasida fikrlashga, toza kod yozishga va murakkab tizimlarni mustaqil boshqarishga o'rgatadi."
-  },
-  {
-    q: "Kurs narxi qancha va to'lovni bo'lib to'lash imkoniyati bormi?",
-    a: "Oylik to'lov — 2,500,000 UZS (Jami 3 oy). Agar kurs uchun to'liq to'lovni oldindan qilsangiz, 15% chegirma taqdim etiladi. Joylar soni sifatli Code Review ta'minlash maqsadida qat'iy cheklangan (maksimum 12 kishi)."
-  }, 
-  {
-  q: "Kurs narxi biroz qimmat emasmi? Bu sarmoya o'zini oqlaydimi?",
-  a: "Bu shunchaki to'lov emas, daromad potensialingizni oshirishga qaratilgan sarmoyadir. O'rganilgan arxitektura bilimlari intervyulardan muvaffaqiyatli o'tish ko'rsatkichingizni sezilarli darajada oshiradi. Kasbiy darajangizning (Grade) bir pog'ona ko'tarilishi kurs investitsiyasini birinchi oydanoq qoplab beradi."
-}
-];
-
-const outcomeList = [
-  // --- 1. PAIN POINT (Massive VC) ---
- { 
-  title: "Advanced MVVM / VIPER", 
-  desc: "'Massive ViewController'  muammolariga chek qo'yib, biznes mantiqni UI'dan 100% ajratish." 
-},
-  // --- 2. PAIN POINT (Mo'rt kod) ---
-  { 
-    title: "Modular Clean Architecture", 
-    desc: "'Tegma buzib qo`yasan' qabilidagi kodlardan xalos bo'lib, loyihani RIBs asosida butunlay mustaqil modullarga bo'lish."  },
-  // --- 3. STANDARD (Ijobiy) ---
-  { 
-    title: "Production-Grade Unit Testing", 
-     desc: "Biznes mantiqni 100% Test Coverage bilan himoyalab, ilova barqarorligini to'liq kafolatlash."
-  },
-  // --- 4. PAIN POINT (Spagetti routing) ---
-  { 
-    title: "Advanced DI & Routing", 
-    desc: "Ekrandan ekranga o'tishdagi 'spagetti' navigatsiyaga chek qo'yib, UI'dan to'liq uzilgan markazlashgan xavfsiz routing yaratish." 
-  },
-  // --- 5. STANDARD (Ijobiy) ---
-  { 
-    title: "SOLID & Clean Code", 
-    desc: "O'zgarishlarga chidamli va oson kengaytiriladigan (Scalable) mustahkam kod bazasini qurish."
-  },
-  // --- 6. STANDARD (Ijobiy) ---
-  { 
-    title: "Core Infrastructure", 
-    desc: "Markazlashgan CoreRouter, CoreBuilder va CoreInteractor komponentlari qo‘llanilgan arxitektura." 
-  },
-  // --- 7. STANDARD (Ijobiy) ---
-  { 
-    title: "Production-Ready Base", 
-    desc: "Istalgan yangi yirik loyihani qo'rqmasdan boshlash uchun kuchli shablon (Boilerplate)." 
-  }
+  { name: t.months[0], items: modules.slice(0, 4) },
+  { name: t.months[1], items: modules.slice(4, 8) },
+  { name: t.months[2], items: modules.slice(8, 12) }
 ];
 
 const mentorProjects = [
-  { name: 'MyBank UZ', logo: '/mybank_logo.png', href: 'https://apps.apple.com/uz/app/mybank-uz/id6503429804', badge: null },
-  { name: 'Milliy Business', logo: '/milliy_logo.png', href: 'https://apps.apple.com/uz/app/milliy-business/id6742812650', badge: null },
-  { name: 'Sello', logo: '/sello_logo.png', href: 'https://apps.apple.com/uz/app/sello-pay-payments-transfers/id1603818062', badge: null },
-  { name: 'SwiftGenius', logo: '/swiftGenius_logo.png', href: 'https://apps.apple.com/uz/app/swiftgenius/id6759780139', badge: null },
-  { name: 'MyBank Business', logo: '/mybank_business.png', href: null, badge: 'Under development' },
+  { name: 'MyBank UZ',       logo: '/mybank_logo.png',        href: 'https://apps.apple.com/uz/app/mybank-uz/id6503429804',                           badge: null },
+  { name: 'Milliy Business', logo: '/milliy_logo.png',        href: 'https://apps.apple.com/uz/app/milliy-business/id6742812650',                      badge: null },
+  { name: 'Sello',           logo: '/sello_logo.png',         href: 'https://apps.apple.com/uz/app/sello-pay-payments-transfers/id1603818062',          badge: null },
+  { name: 'SwiftGenius',     logo: '/swiftGenius_logo.png',   href: 'https://apps.apple.com/uz/app/swiftgenius/id6759780139',                           badge: null },
+  { name: 'MyBank Business', logo: '/mybank_business.png',    href: null,                                                                               badge: t.mentor.underDev },
 ];
---- 
-<html lang="uz">
+---
+
+<html lang={locale}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
-  
+
   <title>SwiftGenius — Professional iOS Engineering & Architecture</title>
-  <meta name="title" content="SwiftGenius — Professional iOS Engineering & Architecture" />
+  <meta name="title"       content="SwiftGenius — Professional iOS Engineering & Architecture" />
   <meta name="description" content="iOS muhandisligi va arxitektura: Professional darajadagi chuqurlashtirilgan o'quv dasturi." />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://swiftgenius.uz/" />
-  <meta property="og:title" content="SwiftGenius — Professional iOS Engineering & Architecture" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://swiftgenius.uz/" />
+  <meta property="og:title"       content="SwiftGenius — Professional iOS Engineering & Architecture" />
   <meta property="og:description" content="Swift va SwiftUI: Yuqori darajadagi dasturiy arxitektura hamda yirik loyihalar uchun muhandislik yondashuvi." />
-  <meta property="og:image" content="https://swiftgenius.uz/summery_image.png" />
+  <meta property="og:image"       content="https://swiftgenius.uz/summery_image.png" />
 
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://swiftgenius.uz/" />
-  <meta property="twitter:title" content="SwiftGenius — Professional iOS Engineering & Architecture" />
+  <meta property="twitter:card"        content="summary_large_image" />
+  <meta property="twitter:url"         content="https://swiftgenius.uz/" />
+  <meta property="twitter:title"       content="SwiftGenius — Professional iOS Engineering & Architecture" />
   <meta property="twitter:description" content="Swift va SwiftUI: Yuqori darajadagi dasturiy arxitektura hamda yirik loyihalar uchun muhandislik yondashuvi." />
-  <meta property="twitter:image" content="https://swiftgenius.uz/summery_image.png" />
+  <meta property="twitter:image"       content="https://swiftgenius.uz/summery_image.png" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
-  <body class="sg-body sg-mesh">
-    <style is:global>
-  /* 1. Global Reset & Performance */
-  html { scroll-behavior: smooth; }
-  .sg-body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: #000000;
-    color: #FFFFFF;
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-  }
 
-  /* 2. Global Card Container Style (Consolidated UI Component) */
-  .sg-glass-card {
-    background: linear-gradient(145deg, rgba(168, 85, 247, 0.05) 0%, rgba(0, 0, 0, 0.8) 100%);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(168, 85, 247, 0.3);
-    border-radius: 40px;
-    box-shadow: 0 0 50px rgba(168, 85, 247, 0.08);
-    position: relative;
-    overflow: hidden;
-    padding: 3rem;
-  }
-  @media (max-width: 768px) {
+<body class="sg-body sg-mesh">
+  <style is:global>
+    /* 1. Global Reset & Performance */
+    html { scroll-behavior: smooth; }
+    .sg-body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #000000;
+      color: #FFFFFF;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 2. Global Card Container Style */
     .sg-glass-card {
-      border-radius: 24px;
-      padding: 1.5rem;
+      background: linear-gradient(145deg, rgba(168, 85, 247, 0.05) 0%, rgba(0, 0, 0, 0.8) 100%);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 40px;
+      box-shadow: 0 0 50px rgba(168, 85, 247, 0.08);
+      position: relative;
+      overflow: hidden;
+      padding: 3rem;
     }
-  }
+    @media (max-width: 768px) {
+      .sg-glass-card { border-radius: 24px; padding: 1.5rem; }
+    }
 
-  /* 3. Mentor Section Elements */
-  .mentor-photo-wrap {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: scale(1.15);
-    z-index: 10;
-  }
-  .mentor-photo-wrap::before {
-    content: '';
-    position: absolute;
-    inset: -60px;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
-    filter: blur(50px);
-    z-index: -1;
-    pointer-events: none;
-  }
-  .mentor-photo-img {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 500px;
-    border-radius: 30px;
-  }
+    /* 3. Mentor Section */
+    .mentor-photo-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: scale(1.15);
+      z-index: 10;
+    }
+    .mentor-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -60px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+      filter: blur(50px);
+      z-index: -1;
+      pointer-events: none;
+    }
+    .mentor-photo-img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 30px;
+    }
 
-  /* 4. Mission Section */
-  .mission-card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
-    border-left: 4px solid #A855F7;
-    padding: 2rem;
-    transition: 0.3s;
-  }
-  .target-badge {
-    background: rgba(168, 85, 247, 0.1);
-    border: 1px solid rgba(168, 85, 247, 0.4);
-    color: #A855F7;
-    padding: 0.5rem 1.5rem;
-    border-radius: 99px;
-    font-weight: 800;
-    display: inline-block;
-  }
-  .feature-icon-box {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
-    border-radius: 10px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
-  }
+    /* 4. Mission Section */
+    .mission-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+      border-left: 4px solid #A855F7;
+      padding: 2rem;
+      transition: 0.3s;
+    }
+    .target-badge {
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #A855F7;
+      padding: 0.5rem 1.5rem;
+      border-radius: 99px;
+      font-weight: 800;
+      display: inline-block;
+    }
+    .feature-icon-box {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+    }
 
-  /* 5. Curriculum Interactive Modules */
-  .module-card {
-    background: rgba(10, 10, 10, 0.95);
-    border: 1px solid rgba(168, 85, 247, 0.3);
-    border-radius: 24px;
-    padding: 1.5rem 2rem;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    margin-bottom: 1rem;
-    box-shadow: 0 0 40px rgba(255,255,255,0.02);
-  }
-  @media (min-width: 768px) {
+    /* 5. Curriculum */
     .module-card {
-      border-color: rgba(168, 85, 247, 0.4);
-      padding: 2.5rem;
+      background: rgba(10, 10, 10, 0.95);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 24px;
+      padding: 1.5rem 2rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-bottom: 1rem;
+      box-shadow: 0 0 40px rgba(255,255,255,0.02);
     }
-  }
-  .module-card:hover {
-    background: rgba(168, 85, 247, 0.02);
-    border-color: rgba(168, 85, 247, 0.5);
-    transform: translateY(-2px);
-  }
-  .module-card.active {
-    background: rgba(168, 85, 247, 0.04);
-    border-color: rgba(168, 85, 247, 0.6);
-  }
-  .content-wrapper {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .module-card.active .content-wrapper {
-    max-height: 2000px;
-    opacity: 1;
-    padding-top: 1.5rem;
-    padding-bottom: 0.5rem;
-  }
+    @media (min-width: 768px) {
+      .module-card { border-color: rgba(168, 85, 247, 0.4); padding: 2.5rem; }
+    }
+    .module-card:hover {
+      background: rgba(168, 85, 247, 0.02);
+      border-color: rgba(168, 85, 247, 0.5);
+      transform: translateY(-2px);
+    }
+    .module-card.active {
+      background: rgba(168, 85, 247, 0.04);
+      border-color: rgba(168, 85, 247, 0.6);
+    }
+    .content-wrapper {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .module-card.active .content-wrapper {
+      max-height: 2000px;
+      opacity: 1;
+      padding-top: 1.5rem;
+      padding-bottom: 0.5rem;
+    }
 
-  /* 6. Big Picture Section Elements */
-  .arch-img-shadow {
-    max-height: 450px !important; 
-    width: auto !important; 
-    object-fit: contain;
-    filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.25));
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-  @media (max-width: 768px) {
-    .arch-img-shadow { max-height: 300px !important; }
-  }
-  .big-picture-tag {
-    background: rgba(168, 85, 247, 0.1);
-    border: 1px solid rgba(168, 85, 247, 0.4);
-    color: #A855F7;
-    padding: 6px 16px;
-    border-radius: 99px;
-    font-size: 12px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
+    /* 6. Big Picture */
+    .arch-img-shadow {
+      max-height: 450px !important;
+      width: auto !important;
+      object-fit: contain;
+      filter: drop-shadow(0 0 40px rgba(168, 85, 247, 0.25));
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    @media (max-width: 768px) {
+      .arch-img-shadow { max-height: 300px !important; }
+    }
+    .big-picture-tag {
+      background: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #A855F7;
+      padding: 6px 16px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
 
-  /* 7. Final Call to Action */
-  .cta-final-wrapper {
-    background: radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, #000 100%);
-    position: relative;
-    padding: 120px 20px 0;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-  }
-  .mentor-display-img {
-    display: block !important;
-    line-height: 0 !important;
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-  }
+    /* 7. CTA Final */
+    .cta-final-wrapper {
+      background: radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, #000 100%);
+      position: relative;
+      padding: 120px 20px 0;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+    }
+    .mentor-display-img {
+      display: block !important;
+      line-height: 0 !important;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
 
-  /* 8. Global Utilities */
-  .sg-btn-gradient {
-    background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
-    color: white;
-    font-weight: 800;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .sg-btn-gradient:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(168, 85, 247, 0.4);
-  }
-  .sg-scroll-in {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .sg-visible {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-  }
+    /* 8. Utilities */
+    .sg-btn-gradient {
+      background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
+      color: white;
+      font-weight: 800;
+      transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sg-btn-gradient:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(168, 85, 247, 0.4);
+    }
+    .sg-scroll-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .sg-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
 
-  /* 9. Navbar Styles */
-  .nav-link {
-    position: relative;
-    padding: 0.4rem 0.6rem;
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.4);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-  }
-  @media (max-width: 1200px) {
-    .nav-link { padding: 0.4rem 0.4rem; font-size: 0.7rem; }
-  }
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 10%;
-    width: 0;
-    height: 2px;
-    background: #A855F7;
-    box-shadow: 0 0 8px #A855F7;
-    transition: width 0.3s ease;
-  }
-  .nav-link.active { color: #ffffff; }
-  .nav-link.active::after { width: 80%; }
-  .nav-btn {
-    background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: 0.3s;
-    flex-shrink: 0;
-  }
-  .nav-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
-  }
-  #mobile-overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .menu-open #path1 { transform: translateY(6px) rotate(45deg); transform-origin: center; }
-  .menu-open #path2 { opacity: 0; }
-  .menu-open #path3 { transform: translateY(-6px) rotate(-45deg); transform-origin: center; }
-</style>
+    /* 9. Navbar */
+    .nav-link {
+      position: relative;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    @media (max-width: 1200px) {
+      .nav-link { padding: 0.4rem 0.4rem; font-size: 0.7rem; }
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 10%;
+      width: 0;
+      height: 2px;
+      background: #A855F7;
+      box-shadow: 0 0 8px #A855F7;
+      transition: width 0.3s ease;
+    }
+    .nav-link.active { color: #ffffff; }
+    .nav-link.active::after { width: 80%; }
+    .nav-btn {
+      background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: 0.3s;
+      flex-shrink: 0;
+    }
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
+    }
+    #mobile-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .menu-open #path1 { transform: translateY(6px) rotate(45deg); transform-origin: center; }
+    .menu-open #path2 { opacity: 0; }
+    .menu-open #path3 { transform: translateY(-6px) rotate(-45deg); transform-origin: center; }
 
-<nav class="fixed top-0 left-0 right-0 z-[100] border-b border-white/5 bg-black/80 backdrop-blur-xl">
-  <div class="max-w-[1440px] mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
-    
-    <a href="#" class="flex items-center gap-2 no-underline z-[110]">
-      <img src="/brend_logo.png" alt="Logo" class="h-6 md:h-8 w-auto" />
-      <span class="text-white font-[950] text-base md:text-lg tracking-tighter italic whitespace-nowrap">SWIFT GENIUS</span>
-    </a>
+    /* 10. Language Toggle */
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      border-radius: 99px;
+      overflow: hidden;
+      background: rgba(168, 85, 247, 0.05);
+      flex-shrink: 0;
+    }
+    .lang-toggle button {
+      padding: 5px 12px;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      border: none;
+      background: transparent;
+      color: rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .lang-toggle button.lang-active {
+      background: linear-gradient(135deg, #A855F7 0%, #6366f1 100%);
+      color: #fff;
+      border-radius: 99px;
+      margin: 2px;
+      box-shadow: 0 0 12px rgba(168,85,247,0.4);
+    }
+    .lang-toggle button:hover:not(.lang-active) {
+      color: rgba(255,255,255,0.7);
+    }
+  </style>
 
-    <div class="hidden lg:flex items-center gap-1 xl:gap-2">
-      <a href="#mentor" class="nav-link text-sm xl:text-base">Muallif</a>
-      <a href="#mission" class="nav-link text-sm xl:text-base">Missiya</a>
-      <a href="#curriculum" class="nav-link text-sm xl:text-base">O'quv rejasi</a>
-      <a href="#final-picture" class="nav-link text-sm xl:text-base">Arxitektura</a>
-      <a href="#modular-architecture" class="nav-link text-sm xl:text-base">RIBs</a>
-      <a href="#expected-outcome" class="nav-link text-sm xl:text-base">Natija</a>
-      <a href="#faq" class="nav-link text-sm xl:text-base">FAQ</a>
-      <a href="#contact" class="nav-link text-sm xl:text-base">Kontakt</a> 
-      
-      <a href="https://t.me/iosDev007" target="_blank" class="nav-btn ml-2">
-        Kursga yozilish
+  <!-- ═══════════════════════════════════════════════════════ NAVBAR ═══ -->
+  <nav class="fixed top-0 left-0 right-0 z-[100] border-b border-white/5 bg-black/80 backdrop-blur-xl">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 no-underline z-[110]">
+        <img src="/brend_logo.png" alt="Logo" class="h-6 md:h-8 w-auto" />
+        <span class="text-white font-[950] text-base md:text-lg tracking-tighter italic whitespace-nowrap">SWIFT GENIUS</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden lg:flex items-center gap-1 xl:gap-2">
+        <a href="#mentor"             class="nav-link">{t.nav.author}</a>
+        <a href="#mission"            class="nav-link">{t.nav.mission}</a>
+        <a href="#curriculum"         class="nav-link">{t.nav.curriculum}</a>
+        <a href="#final-picture"      class="nav-link">{t.nav.architecture}</a>
+        <a href="#modular-architecture" class="nav-link">RIBs</a>
+        <a href="#expected-outcome"   class="nav-link">{t.nav.outcome}</a>
+        <a href="#faq"                class="nav-link">FAQ</a>
+        <a href="#contact"            class="nav-link">{t.nav.contact}</a>
+
+        <!-- Lang toggle (desktop) -->
+        <div class="lang-toggle ml-2" id="lang-toggle-desktop">
+          <button data-lang="uz" class={isEn ? '' : 'lang-active'}>🇺🇿 UZ</button>
+          <button data-lang="en" class={isEn ? 'lang-active' : ''}>🇬🇧 EN</button>
+        </div>
+
+        <a href="https://t.me/iosDev007" target="_blank" class="nav-btn ml-2">
+          {t.nav.enroll}
+        </a>
+      </div>
+
+      <!-- Hamburger -->
+      <button id="menu-toggle" class="lg:hidden z-[110] text-white p-2 focus:outline-none" aria-label="Toggle menu">
+        <svg id="menu-icon" class="w-7 h-7 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="path1" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"/>
+          <path id="path2" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"/>
+          <path id="path3" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/95 z-[105] flex flex-col items-center justify-center gap-6 opacity-0 pointer-events-none transition-all duration-500 overflow-y-auto pt-20">
+      <a href="#mentor"               class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">{t.nav.author}</a>
+      <a href="#mission"              class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">{t.nav.mission}</a>
+      <a href="#curriculum"           class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">{t.nav.curriculum}</a>
+      <a href="#final-picture"        class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">{t.nav.architecture}</a>
+      <a href="#modular-architecture" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">RIBs</a>
+      <a href="#expected-outcome"     class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">{t.nav.outcome}</a>
+      <a href="#faq"                  class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">FAQ</a>
+      <a href="#contact"              class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">{t.nav.contact}</a>
+
+      <!-- Lang toggle (mobile) -->
+      <div class="lang-toggle" id="lang-toggle-mobile">
+        <button data-lang="uz" class={isEn ? '' : 'lang-active'}>🇺🇿 UZ</button>
+        <button data-lang="en" class={isEn ? 'lang-active' : ''}>🇬🇧 EN</button>
+      </div>
+
+      <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-lg px-8 py-4 mt-4 no-underline text-white font-bold rounded-xl text-center">
+        {t.nav.enroll}
       </a>
     </div>
+  </nav>
 
-    <button id="menu-toggle" class="lg:hidden z-[110] text-white p-2 focus:outline-none" aria-label="Toggle menu">
-      <svg id="menu-icon" class="w-7 h-7 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path id="path1" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path>
-        <path id="path2" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"></path>
-        <path id="path3" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"></path>
-      </svg>
-    </button>
-  </div>
-
-  <div id="mobile-overlay" class="fixed inset-0 bg-black/95 z-[105] flex flex-col items-center justify-center gap-6 opacity-0 pointer-events-none transition-all duration-500 overflow-y-auto pt-20">
-    <a href="#mentor" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">Muallif</a>
-    <a href="#mission" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">Missiya</a>
-    <a href="#curriculum" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">O'quv rejasi</a>
-    <a href="#final-picture" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">Arxitektura</a>
-    <a href="#modular-architecture" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">RIBs</a>
-    <a href="#expected-outcome" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">Natija</a>
-    <a href="#faq" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">FAQ</a>
-    <a href="#contact" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">Kontakt</a> 
-    
-    <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-lg px-8 py-4 mt-4 no-underline text-white font-bold rounded-xl text-center">
-      Kursga yozilish
-    </a>
-  </div>
-</nav>
-
-<section class="min-h-screen flex items-center px-4 md:px-6 pt-24 md:pt-20 overflow-hidden relative bg-black">
-  <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-    <div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-purple-600/10 blur-[150px] rounded-full"></div>
-    <div class="absolute bottom-[10%] right-[5%] w-[30%] h-[30%] bg-purple-800/5 blur-[120px] rounded-full"></div>
-  </div>
-
-  <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full relative z-10">
-    
-    <div class="sg-scroll-in sg-visible text-center lg:text-left order-2 lg:order-1">
-     <div class="inline-block px-6 py-2 mb-6 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs md:text-sm font-black tracking-[0.2em] uppercase">
-       3 oylik intensiv o'quv dasturi
-     </div>
-      
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] bg-gradient-to-b from-white to-purple-500/30 bg-clip-text text-transparent mb-6 italic uppercase tracking-tighter">
-        Professional <br class="hidden md:block" /> iOS Muhandisligi
-      </h1>
-
-      <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed italic">
-        Murakkab tizimlarni loyihalash: <span class="text-white">Arxitektura</span>, <span class="text-white">modullashtirish va mustahkam yechimlar.</span>
-      </p>
-
-    <div class="flex justify-center lg:justify-start">
-      <a href="#mentor" class="sg-btn-gradient text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 rounded-2xl">
-       Batafsil
-      </a>
-    </div>
+  <!-- ═══════════════════════════════════════════════════════ HERO ═══ -->
+  <section class="min-h-screen flex items-center px-4 md:px-6 pt-24 md:pt-20 overflow-hidden relative bg-black">
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+      <div class="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-purple-600/10 blur-[150px] rounded-full"></div>
+      <div class="absolute bottom-[10%] right-[5%] w-[30%] h-[30%] bg-purple-800/5 blur-[120px] rounded-full"></div>
     </div>
 
-    <div class="flex justify-center lg:justify-end relative order-1 lg:order-2">
-      <div class="absolute inset-0 bg-purple-600/20 blur-[80px] md:blur-[120px] rounded-full"></div>
-      <img 
-        src="/brend_logo.png" 
-        alt="SwiftGenius" 
-        class="w-[180px] md:w-[280px] lg:w-[400px] h-auto object-contain drop-shadow-[0_0_50px_rgba(168,85,247,0.4)] relative z-10" 
-      />
-    </div>
-  </div>
-</section>
-
-<section id="mentor" class="py-12 md:py-24 px-4 md:px-6 bg-[#050505]">
-  <div class="max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      
-      <div class="flex justify-center lg:justify-start lg:pr-12 order-1">
-        <div class="mentor-photo-wrap relative">
-          <div class="absolute inset-0 bg-purple-600/10 blur-[60px] rounded-full"></div>
-          <img 
-            src="/brend_me.png" 
-            alt="Dilshodbek Qulmirzayev" 
-            class="mentor-photo-img" 
-          />
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full relative z-10">
+      <div class="sg-scroll-in sg-visible text-center lg:text-left order-2 lg:order-1">
+        <div class="inline-block px-6 py-2 mb-6 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-xs md:text-sm font-black tracking-[0.2em] uppercase">
+          {t.hero.badge}
         </div>
-      </div>
-
-      <div class="space-y-8 md:space-y-10 order-2 sg-scroll-in">
-        <div class="text-center lg:text-left">
-          <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-3 italic text-white uppercase">
-            Dilshodbek <br class="hidden md:block"/> Qulmirzayev
-          </h2>
-          <p class="text-xl md:text-2xl text-purple-400 font-bold">
-            iOS Engineer, TUNE Consulting
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xs font-black uppercase tracking-[0.25em] text-purple-500 mb-6 border-b border-white/10 pb-3 flex items-center gap-3">
-            Ta'lim
-          </h3> 
-          
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-10">
-            {["Swift Academy", "PDP Academy", "Essential Developer Academy", "Swiftful Thinking"].map(edu => (
-              <div class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-purple-500 shadow-[0_0_8px_#A855F7]"></span>
-                <span class="font-bold text-gray-300 text-sm md:text-base">{edu}</span>
-              </div>
-            ))}
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {mentorProjects.map((p) => (
-            <a 
-              href={p.href} 
-              target={p.href ? "_blank" : undefined}
-              class={`flex items-center gap-3 p-3 bg-[#0a0a0a] rounded-2xl border border-purple-500/20 transition-all group shadow-sm
-                ${!p.href ? 'pointer-events-none opacity-80' : 'hover:border-purple-500/60 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(168,85,247,0.15)]'}
-              `}
-            >
-              <div class="flex items-center gap-3 w-full transition-all">
-                <img src={p.logo} class={`w-10 h-10 md:w-12 md:h-12 rounded-xl object-contain shadow-lg ${!p.href ? 'grayscale' : ''}`} alt={p.name} />
-                <div class="min-w-0 text-left">
-                  <span class="text-white font-bold block truncate group-hover:text-purple-400 transition text-sm md:text-base">
-                    {p.name}
-                  </span>
-                  <span class={`text-[10px] uppercase tracking-wider ${!p.href ? 'text-purple-500 font-bold' : 'text-gray-500'}`}>
-                    {p.badge || 'App Store →'}
-                  </span>
-                </div>
-              </div>
-            </a>
-          ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="mission" class="py-12 md:py-24 px-4 md:px-6 bg-black relative overflow-hidden">
-  <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[200px] md:w-[300px] h-[200px] md:h-[300px] bg-purple-600/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
-
-  <div class="max-w-6xl mx-auto">
-    <div class="sg-glass-card sg-scroll-in">
-      <div class="absolute -right-20 -top-20 w-40 md:w-80 h-40 md:h-80 bg-purple-600/10 blur-[60px] md:blur-[100px] rounded-full pointer-events-none"></div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 mb-16 md:mb-20 items-start relative z-10">
-        <div>
-          <h2 class="text-4xl md:text-5xl lg:text-7xl font-black italic tracking-tighter mb-6 md:mb-8 leading-none text-white uppercase">
-            Kurs <br class="hidden md:block"/> <span class="text-purple-500">Missiyasi</span>
-          </h2>
-          <div class="mission-card rounded-r-2xl md:rounded-r-3xl">
-            <p class="text-gray-300 text-base md:text-lg leading-relaxed italic">
-              "Bugungi IT sohasida shunchaki SwiftUI interfeyslarini chizish yetarli emas. Haqiqiy Production darajasidagi loyihalar har qanday o'zgarishga moslashuvchan (Maintainable) va ishonchli (Testable) kod bazasi talab qiladi. Ushbu kurs iOS Engineeringni yangi bosqichiga olib chiqib, yirik tizimlarni professional arxitektura asosida loyihalashga yo'naltirilgan."
-            </p>
-          </div>
-        </div>
-
-        <div class="lg:pt-4">
-          <h3 class="text-xl md:text-2xl font-black mb-4 md:mb-6 uppercase tracking-widest text-gray-500">Kimlar uchun:</h3>
-          <div class="mb-6 md:mb-8">
-            <span class="target-badge text-sm md:text-lg lg:text-xl">
-              Strong Junior & Middle iOS Engineerlar uchun
-            </span>
-          </div>
-          <p class="text-gray-400 text-base md:text-lg">
-            "Spagetti koddan" xalos bo'lish va tizimga professional iOS arxitektor ko'zi bilan qarashni istovchi dasturchilar uchun.
-          </p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 relative z-10">
-        <div class="group">
-          <div class="feature-icon-box flex items-center justify-center text-white">
-            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-            </svg>
-          </div>
-          <h4 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-white group-hover:text-purple-400 transition italic">Architectural Evolution</h4>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Ilovani bir-biriga bog'lanmagan modullarga ajratish va RIBs patterni orqali yuqori darajadagi Scalability-ga erishish.
-          </p>
-        </div>
-
-        <div class="group">
-          <div class="feature-icon-box flex items-center justify-center text-white">
-            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
-          </div>
-          <h4 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-white group-hover:text-purple-400 transition italic">Engineering Excellence</h4>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            SOLID tamoyillari, POP va OOP paradigmalari asosidagi professional "Clean Code" madaniyati.
-          </p>
-        </div>
-
-        <div class="group">
-          <div class="feature-icon-box flex items-center justify-center text-white">
-            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-            </svg>
-          </div>
-          <h4 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-white group-hover:text-purple-400 transition italic">Logic Isolation</h4>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Biznes mantiqni UI qatlamidan to'liq ajratish va qatlamlar o'rtasida xatosiz Data Flow-ni yo'lga qo'yish.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="curriculum" class="py-16 md:py-24 px-4 md:px-6 bg-[#050505] relative overflow-hidden">
-  <div class="absolute top-0 left-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-purple-600/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
-
-  <div class="max-w-6xl mx-auto relative z-10">
-    <div class="text-center mb-16 md:mb-24 sg-scroll-in">
-      <h2 class="text-4xl md:text-6xl lg:text-7xl font-[950] italic tracking-tighter leading-[0.9] text-white uppercase">
-        O'quv <span class="text-purple-500">Rejasi</span>
-      </h2>
-    </div>
-
-    <div class="space-y-16 md:space-y-24">
-      {months.map((month) => (
-        <div class="month-group sg-scroll-in">
-          <div class="mb-8 md:mb-10 border-b border-purple-500/20 pb-4">
-            <h3 class="text-xl md:text-3xl font-black text-purple-400 italic uppercase tracking-tight">{month.name}</h3>
-          </div>
-
-          <div class="grid gap-4 md:gap-6">
-            {month.items.map((mod) => (
-              <div class="module-card cursor-pointer group toggle-module">
-                
-                <div class="flex items-center justify-between gap-4">
-                  <div class="flex items-center gap-4 md:gap-8">
-                    <span class="text-3xl md:text-5xl font-black italic text-white/5 group-hover:text-purple-500/20 transition-colors duration-500 select-none shrink-0 w-12 md:w-16">
-                      {mod.num}
-                    </span>
-                    <div class="min-w-0">
-                      <span class="text-purple-500/80 font-bold uppercase tracking-[0.15em] text-[9px] md:text-[11px] mb-1 block">{mod.category}</span>
-                      <h4 class="text-lg md:text-2xl font-bold text-white group-hover:text-purple-400 transition-all duration-300 italic leading-tight">
-                        {mod.title}
-                      </h4>
-                    </div>
-                  </div>
-                  
-                  <div class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-purple-500 group-hover:border-purple-500 transition-all duration-500 shrink-0">
-                    <svg class="w-4 h-4 md:w-5 md:h-5 text-white transition-transform duration-500 group-[.active]:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                  </div>
-                </div>
-
-                <div class="content-wrapper">
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 border-t border-white/5 mt-6 md:mt-8 pt-6 md:pt-8">
-                    {mod.subsections.map((sub) => (
-                      <div class="space-y-4">
-                        <h5 class="text-purple-400 font-black text-[18px] md:text-[17px] uppercase tracking-[0.1em] flex items-center gap-1">
-                          <span class="w-3 md:w-4 h-[1px] bg-purple-500/20"></span>
-                          {sub.head}
-                        </h5>
-                        <ul class="space-y-3">
-                          {sub.items.map((item) => (
-                            <li class="flex items-start gap-3 text-gray-400 text-sm md:text-base hover:text-white transition-colors leading-snug">
-                              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0 shadow-[0_0_8px_#A855F7]"></span>
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-<section id="final-picture" class="py-12 md:py-24 px-4 md:px-6 bg-black relative">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-10 md:mb-16 sg-scroll-in">
-      <div class="mb-4 md:mb-6">
-        <span class="big-picture-tag">Final Destination</span>
-      </div>
-      <h2 class="text-3xl md:text-5xl lg:text-6xl font-[950] italic tracking-tighter leading-none mb-6 text-white uppercase">
-        Final <span class="text-purple-500">Big Picture</span>
-      </h2>
-    </div>
-
-    <div class="sg-glass-card sg-scroll-in flex flex-col items-center">
-      <div class="absolute inset-0 bg-purple-600/[0.04] blur-[100px] rounded-full pointer-events-none"></div>
-
-      <div class="w-full text-center md:text-left mb-8 md:mb-0 md:absolute md:top-10 md:left-10 z-20">
-        <h3 class="text-xl md:text-2xl font-black text-white italic leading-tight uppercase">
-          Advanced MVVM & <br class="md:hidden" /> Clean Architecture
-        </h3>
-      </div>
-
-      <div class="relative z-10 w-full flex justify-center mt-2 md:mt-16">
-        <img src="/mvvmArch.png" alt="Architecture" class="arch-img-shadow" />
-      </div>
-
-      <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-16 border-t border-purple-500/20 pt-8 relative z-20">
-        <div class="text-center md:text-left">
-          <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base uppercase tracking-wider">Scalability</span>
-          <p class="text-xs md:text-sm text-gray-400 leading-relaxed">Istalgancha modullarni qo'shish va kengaytirish imkoniyati.</p>
-        </div>
-        <div class="text-center md:text-left border-y md:border-y-0 md:border-x border-purple-500/20 py-6 md:py-0 md:px-6">
-          <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base uppercase tracking-wider">Testability</span>
-          <p class="text-xs md:text-sm text-gray-400 leading-relaxed">Har bir qatlam DI va Protocollar orqali 100% testlanuvchan.</p>
-        </div>
-        <div class="text-center md:text-left md:pl-6">
-          <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base uppercase tracking-wider">Isolation</span>
-          <p class="text-xs md:text-sm text-gray-400 leading-relaxed">Business Logic UI dan butunlay ajratilgan tizim.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="modular-architecture" class="py-12 md:py-24 px-4 md:px-6 bg-[#050505] relative">
-  <div class="max-w-6xl mx-auto">
-    <div class="sg-glass-card sg-scroll-in">
-      <div class="absolute -left-20 -bottom-20 w-full h-full bg-purple-600/[0.06] blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
-
-      <div class="mb-8 md:mb-12 relative z-10 text-center md:text-left">
-        <div class="mb-4 md:mb-6">
-          <span class="big-picture-tag">Advanced Concepts</span>
-        </div>
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-[950] italic tracking-tighter leading-[1.1] mb-6 text-white uppercase">
-          Scalable <span class="text-purple-500"> RIBs-based</span> <br class="hidden md:block" /> Modular Architecture
-        </h2>
-      </div>
-
-      <div class="relative z-10 flex justify-center items-center mb-10 md:mb-16">
-        <img src="/ribArch.png" alt="RIBs Architecture" class="arch-img-shadow" />
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-purple-500/20 pt-8 relative z-20">
-        <div class="flex flex-col items-center md:items-start text-center md:text-left">
-          <span class="text-white font-bold text-base md:text-lg mb-1">Deep Link Support</span>
-          <p class="text-xs text-gray-400 italic">Ilovaning istalgan qismiga yo'naltirish.</p>
-        </div>
-        <div class="flex flex-col items-center md:items-start text-center md:text-left border-y md:border-y-0 md:border-x border-purple-500/20 py-6 md:py-0 md:px-6">
-          <span class="text-white font-bold text-base md:text-lg mb-1">Business Logic First</span>
-          <p class="text-xs text-gray-400 italic">UI ga bog'lanmagan mantiq boshqaruvi.</p>
-        </div>
-        <div class="flex flex-col items-center md:items-start text-center md:text-left md:pl-6">
-          <span class="text-white font-bold text-base md:text-lg mb-1">Extreme Isolation</span>
-          <p class="text-xs text-gray-400 italic">Modullar o'rtasidagi qat'iy nazorat.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="expected-outcome" class="py-16 md:py-24 px-4 md:px-6 bg-black relative">
-  <div class="max-w-6xl mx-auto">
-    <div class="sg-glass-card sg-scroll-in">
-      <div class="absolute inset-0 bg-purple-600/[0.03] blur-[100px] md:blur-[120px] rounded-full pointer-events-none"></div>
-
-      <div class="relative z-10">
-        <div class="mb-12 md:mb-16 text-center">
-          <h2 class="text-3xl md:text-5xl lg:text-6xl font-[950] italic tracking-tighter leading-none text-white uppercase">
-            Kutilayotgan <span class="text-purple-500">Natija</span>
-          </h2>
-        </div>
-
-        <ul class="space-y-8 md:space-y-10 text-gray-300">
-          { outcomeList.map((item) => (
-            <li class="flex items-start gap-4 md:gap-6 group">
-              <span class="text-purple-500 text-xl md:text-2xl leading-none mt-1 shrink-0">●</span>
-              <div>
-                <h3 class="text-lg md:text-2xl font-bold text-white italic group-hover:text-purple-400 transition mb-2 uppercase">
-                  {item.title}
-                </h3>
-                <p class="text-sm md:text-lg leading-relaxed text-gray-400">
-                  {item.desc}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-final-wrapper">
-  <div class="max-w-7xl mx-auto w-full px-4 md:px-6">
-    <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-40">
-      
-      <div class="sg-scroll-in flex flex-col items-center lg:items-start text-center lg:text-left lg:-translate-y-20">
-        <h2 class="text-5xl md:text-6xl lg:text-7xl text-white font-[950] italic tracking-tighter leading-[1.2] uppercase mb-10 md:mb-16">
-          Level up <br/> 
-          <span class="text-purple-500 whitespace-nowrap">Your Engineering</span>
-        </h2>
-        
-        <div class="flex items-center gap-6">
-          <h2 class="text-4xl md:text-5xl lg:text-6xl text-purple-500 whitespace-nowrap font-[950] italic tracking-tighter uppercase leading-none m-0">
-            Now:
-          </h2>
-          <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-2xl md:text-4xl px-10 py-4 rounded-3xl tracking-wide">
-            Join
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] bg-gradient-to-b from-white to-purple-500/30 bg-clip-text text-transparent mb-6 italic uppercase tracking-tighter">
+          {t.hero.title}
+        </h1>
+        <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed italic">
+          {t.hero.desc1} <span class="text-white">{t.hero.desc2}</span> {t.hero.desc3}<span class="text-white">{t.hero.desc4}</span>
+        </p>
+        <div class="flex justify-center lg:justify-start">
+          <a href="#mentor" class="sg-btn-gradient text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 rounded-2xl">
+            {t.hero.cta}
           </a>
         </div>
       </div>
 
-      <div class="flex justify-center lg:justify-end relative h-full self-end">
-        <div class="absolute inset-0 bg-purple-600/20 blur-[80px] md:blur-[120px] rounded-full translate-y-10 pointer-events-none"></div>
-        <img 
-          src="/my_photo.png" 
-          alt="Dilshodbek Qulmirzayev" 
-          class="relative z-10 w-full max-w-[350px] md:max-w-[450px] lg:max-w-[500px] mentor-display-img object-contain"
-        />
+      <div class="flex justify-center lg:justify-end relative order-1 lg:order-2">
+        <div class="absolute inset-0 bg-purple-600/20 blur-[80px] md:blur-[120px] rounded-full"></div>
+        <img src="/brend_logo.png" alt="SwiftGenius"
+          class="w-[180px] md:w-[280px] lg:w-[400px] h-auto object-contain drop-shadow-[0_0_50px_rgba(168,85,247,0.4)] relative z-10" />
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="faq" class="py-16 md:py-24 px-4 md:px-6 border-t border-white/5 bg-[#050505]">
-  <div class="max-w-3xl mx-auto">
-    <h2 class="text-4xl md:text-6xl font-black text-center mb-10 md:mb-16 italic tracking-tighter uppercase text-white sg-scroll-in">
-      FAQ
-    </h2>
+  <!-- ═══════════════════════════════════════════════════════ MENTOR ═══ -->
+  <section id="mentor" class="py-12 md:py-24 px-4 md:px-6 bg-[#050505]">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-    <div class="space-y-4 md:space-y-6">
-      {faqs.map((faq) => (
-        <details class="module-card !p-0 overflow-hidden group">
-          <summary class="p-5 md:p-8 cursor-pointer font-bold flex justify-between items-center list-none hover:bg-purple-500/[0.03] transition-colors select-none">
-            <span class="text-base md:text-lg pr-4 md:pr-6 text-white leading-tight">
-              {faq.q}
-            </span>
-            <span class="text-purple-500 text-2xl md:text-3xl transition-transform duration-500 group-open:rotate-45 shrink-0">
-              +
-            </span>
-          </summary>
-          <div class="px-5 pb-5 md:px-8 md:pb-8 text-gray-400 text-sm md:text-base border-t border-purple-500/20 pt-5 md:pt-6 leading-relaxed bg-gradient-to-b from-purple-900/10 to-transparent">
-            {faq.a}
+        <div class="flex justify-center lg:justify-start lg:pr-12 order-1">
+          <div class="mentor-photo-wrap relative">
+            <div class="absolute inset-0 bg-purple-600/10 blur-[60px] rounded-full"></div>
+            <img src="/brend_me.png" alt="Dilshodbek Qulmirzayev" class="mentor-photo-img" />
           </div>
-        </details>
-      ))}
-    </div>
-  </div>
-</section>
+        </div>
 
-<footer id="contact" class="relative py-20 md:py-32 px-4 md:px-6 bg-black overflow-hidden border-t border-white/5">
-  <div class="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[300px] md:w-[800px] h-[300px] md:h-[600px] bg-purple-600/20 blur-[100px] md:blur-[150px] rounded-full pointer-events-none"></div>
-
-  <div class="max-w-6xl mx-auto relative z-10">
-    <div class="flex flex-col items-center justify-center text-center mb-16 md:mb-20 sg-scroll-in">
-      <h2 class="text-5xl md:text-6xl lg:text-7xl text-white font-[950] italic tracking-tighter leading-[1.1] uppercase">
-        BOG'LANISH <br/> 
-        <span class="text-purple-500">UCHUN</span>
-      </h2>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 w-full max-w-4xl mx-auto mb-16 md:mb-24 sg-scroll-in">
-      {[
-        { name: "Telegram", href: "https://t.me/iosDev007", logo: "/telegram_logo.png", color: "hover:border-blue-500" },
-        { name: "LinkedIn", href: "https://www.linkedin.com/in/dilshodbek-qulmirzayev-14b308282/", logo: "/linkedin_logo.png", color: "hover:border-blue-400" },
-        { name: "Swift Genius", href: "https://www.youtube.com/@swift_Genius", logo: "/youtube_logo.png", color: "hover:border-red-500" }
-      ].map(social => (
-        <a href={social.href} target="_blank" class={`group rounded-3xl p-6 md:p-8 flex flex-col items-center justify-center transition-all duration-300 bg-[#0a0a0a] border border-purple-500/30 ${social.color} hover:-translate-y-2 shadow-[0_0_30px_rgba(168,85,247,0.05)] hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]`}>
-          <div class="w-14 h-14 md:w-20 md:h-20 mb-4 md:mb-6 transform transition-transform duration-300 group-hover:scale-110">
-            <img src={social.logo} class="w-full h-full object-contain" alt={social.name} />
+        <div class="space-y-8 md:space-y-10 order-2 sg-scroll-in">
+          <div class="text-center lg:text-left">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-3 italic text-white uppercase">
+              Dilshodbek <br class="hidden md:block"/> Qulmirzayev
+            </h2>
+            <p class="text-xl md:text-2xl text-purple-400 font-bold">iOS Engineer, TUNE Consulting</p>
           </div>
-          <span class="text-gray-400 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">
-            {social.name}
-          </span>
-        </a>
-      ))}
-    </div>
 
-    <div class="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-purple-500/20 gap-6">
-      <div class="flex items-center gap-4">
-        <img src="/brend_logo.png" class="h-8 md:h-10 w-auto" alt="Logo" />
-        <div class="flex flex-col text-left">
-          <span class="font-black italic tracking-tighter text-lg md:text-xl leading-none text-white uppercase">Swift Genius</span>
-          <span class="text-[9px] md:text-[10px] text-purple-500 font-bold tracking-[0.3em] uppercase mt-1">iOS Academy</span>
+          <div>
+            <h3 class="text-xs font-black uppercase tracking-[0.25em] text-purple-500 mb-6 border-b border-white/10 pb-3 flex items-center gap-3">
+              {t.mentor.education}
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-10">
+              {["Swift Academy", "PDP Academy", "Essential Developer Academy", "Swiftful Thinking"].map(edu => (
+                <div class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-purple-500 shadow-[0_0_8px_#A855F7]"></span>
+                  <span class="font-bold text-gray-300 text-sm md:text-base">{edu}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {mentorProjects.map((p) => (
+                <a
+                  href={p.href}
+                  target={p.href ? "_blank" : undefined}
+                  class={`flex items-center gap-3 p-3 bg-[#0a0a0a] rounded-2xl border border-purple-500/20 transition-all group shadow-sm
+                    ${!p.href ? 'pointer-events-none opacity-80' : 'hover:border-purple-500/60 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(168,85,247,0.15)]'}`}
+                >
+                  <div class="flex items-center gap-3 w-full transition-all">
+                    <img src={p.logo} class={`w-10 h-10 md:w-12 md:h-12 rounded-xl object-contain shadow-lg ${!p.href ? 'grayscale' : ''}`} alt={p.name} />
+                    <div class="min-w-0 text-left">
+                      <span class="text-white font-bold block truncate group-hover:text-purple-400 transition text-sm md:text-base">{p.name}</span>
+                      <span class={`text-[10px] uppercase tracking-wider ${!p.href ? 'text-purple-500 font-bold' : 'text-gray-500'}`}>
+                        {p.badge || 'App Store →'}
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
 
+  <!-- ═══════════════════════════════════════════════════════ MISSION ═══ -->
+  <section id="mission" class="py-12 md:py-24 px-4 md:px-6 bg-black relative overflow-hidden">
+    <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[200px] md:w-[300px] h-[200px] md:h-[300px] bg-purple-600/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto">
+      <div class="sg-glass-card sg-scroll-in">
+        <div class="absolute -right-20 -top-20 w-40 md:w-80 h-40 md:h-80 bg-purple-600/10 blur-[60px] md:blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 mb-16 md:mb-20 items-start relative z-10">
+          <div>
+            <h2 class="text-4xl md:text-5xl lg:text-7xl font-black italic tracking-tighter mb-6 md:mb-8 leading-none text-white uppercase">
+              {t.mission.title1} <br class="hidden md:block"/> <span class="text-purple-500">{t.mission.title2}</span>
+            </h2>
+            <div class="mission-card rounded-r-2xl md:rounded-r-3xl">
+              <p class="text-gray-300 text-base md:text-lg leading-relaxed italic">
+                {t.mission.quote}
+              </p>
+            </div>
+          </div>
+
+          <div class="lg:pt-4">
+            <h3 class="text-xl md:text-2xl font-black mb-4 md:mb-6 uppercase tracking-widest text-gray-500">{t.mission.forWhomLabel}</h3>
+            <div class="mb-6 md:mb-8">
+              <span class="target-badge text-sm md:text-lg lg:text-xl">{t.mission.forWhomBadge}</span>
+            </div>
+            <p class="text-gray-400 text-base md:text-lg">{t.mission.forWhomDesc}</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 relative z-10">
+          <div class="group">
+            <div class="feature-icon-box flex items-center justify-center text-white">
+              <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+            </div>
+            <h4 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-white group-hover:text-purple-400 transition italic">Architectural Evolution</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">{t.mission.feat1}</p>
+          </div>
+          <div class="group">
+            <div class="feature-icon-box flex items-center justify-center text-white">
+              <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h4 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-white group-hover:text-purple-400 transition italic">Engineering Excellence</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">{t.mission.feat2}</p>
+          </div>
+          <div class="group">
+            <div class="feature-icon-box flex items-center justify-center text-white">
+              <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+            </div>
+            <h4 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-white group-hover:text-purple-400 transition italic">Logic Isolation</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">{t.mission.feat3}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ CURRICULUM ═══ -->
+  <section id="curriculum" class="py-16 md:py-24 px-4 md:px-6 bg-[#050505] relative overflow-hidden">
+    <div class="absolute top-0 left-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-purple-600/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="text-center mb-16 md:mb-24 sg-scroll-in">
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-[950] italic tracking-tighter leading-[0.9] text-white uppercase">
+          {t.curriculum.title1} <span class="text-purple-500">{t.curriculum.title2}</span>
+        </h2>
+      </div>
+
+      <div class="space-y-16 md:space-y-24">
+        {months.map((month) => (
+          <div class="month-group sg-scroll-in">
+            <div class="mb-8 md:mb-10 border-b border-purple-500/20 pb-4">
+              <h3 class="text-xl md:text-3xl font-black text-purple-400 italic uppercase tracking-tight">{month.name}</h3>
+            </div>
+            <div class="grid gap-4 md:gap-6">
+              {month.items.map((mod) => (
+                <div class="module-card cursor-pointer group toggle-module">
+                  <div class="flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-4 md:gap-8">
+                      <span class="text-3xl md:text-5xl font-black italic text-white/5 group-hover:text-purple-500/20 transition-colors duration-500 select-none shrink-0 w-12 md:w-16">{mod.num}</span>
+                      <div class="min-w-0">
+                        <span class="text-purple-500/80 font-bold uppercase tracking-[0.15em] text-[9px] md:text-[11px] mb-1 block">{mod.category}</span>
+                        <h4 class="text-lg md:text-2xl font-bold text-white group-hover:text-purple-400 transition-all duration-300 italic leading-tight">{mod.title}</h4>
+                      </div>
+                    </div>
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-purple-500 group-hover:border-purple-500 transition-all duration-500 shrink-0">
+                      <svg class="w-4 h-4 md:w-5 md:h-5 text-white transition-transform duration-500 group-[.active]:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="content-wrapper">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 border-t border-white/5 mt-6 md:mt-8 pt-6 md:pt-8">
+                      {mod.subsections.map((sub) => (
+                        <div class="space-y-4">
+                          <h5 class="text-purple-400 font-black text-[18px] md:text-[17px] uppercase tracking-[0.1em] flex items-center gap-1">
+                            <span class="w-3 md:w-4 h-[1px] bg-purple-500/20"></span>
+                            {sub.head}
+                          </h5>
+                          <ul class="space-y-3">
+                            {sub.items.map((item) => (
+                              <li class="flex items-start gap-3 text-gray-400 text-sm md:text-base hover:text-white transition-colors leading-snug">
+                                <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0 shadow-[0_0_8px_#A855F7]"></span>
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ FINAL PICTURE ═══ -->
+  <section id="final-picture" class="py-12 md:py-24 px-4 md:px-6 bg-black relative">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10 md:mb-16 sg-scroll-in">
+        <div class="mb-4 md:mb-6"><span class="big-picture-tag">Final Destination</span></div>
+        <h2 class="text-3xl md:text-5xl lg:text-6xl font-[950] italic tracking-tighter leading-none mb-6 text-white uppercase">
+          Final <span class="text-purple-500">Big Picture</span>
+        </h2>
+      </div>
+
+      <div class="sg-glass-card sg-scroll-in flex flex-col items-center">
+        <div class="absolute inset-0 bg-purple-600/[0.04] blur-[100px] rounded-full pointer-events-none"></div>
+        <div class="w-full text-center md:text-left mb-8 md:mb-0 md:absolute md:top-10 md:left-10 z-20">
+          <h3 class="text-xl md:text-2xl font-black text-white italic leading-tight uppercase">
+            Advanced MVVM & <br class="md:hidden" /> Clean Architecture
+          </h3>
+        </div>
+        <div class="relative z-10 w-full flex justify-center mt-2 md:mt-16">
+          <img src="/mvvmArch.png" alt="Architecture" class="arch-img-shadow" />
+        </div>
+        <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-16 border-t border-purple-500/20 pt-8 relative z-20">
+          <div class="text-center md:text-left">
+            <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base uppercase tracking-wider">Scalability</span>
+            <p class="text-xs md:text-sm text-gray-400 leading-relaxed">{t.finalPicture.scalability}</p>
+          </div>
+          <div class="text-center md:text-left border-y md:border-y-0 md:border-x border-purple-500/20 py-6 md:py-0 md:px-6">
+            <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base uppercase tracking-wider">Testability</span>
+            <p class="text-xs md:text-sm text-gray-400 leading-relaxed">{t.finalPicture.testability}</p>
+          </div>
+          <div class="text-center md:text-left md:pl-6">
+            <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base uppercase tracking-wider">Isolation</span>
+            <p class="text-xs md:text-sm text-gray-400 leading-relaxed">{t.finalPicture.isolation}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ RIBS ═══ -->
+  <section id="modular-architecture" class="py-12 md:py-24 px-4 md:px-6 bg-[#050505] relative">
+    <div class="max-w-6xl mx-auto">
+      <div class="sg-glass-card sg-scroll-in">
+        <div class="absolute -left-20 -bottom-20 w-full h-full bg-purple-600/[0.06] blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="mb-8 md:mb-12 relative z-10 text-center md:text-left">
+          <div class="mb-4 md:mb-6"><span class="big-picture-tag">Advanced Concepts</span></div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-[950] italic tracking-tighter leading-[1.1] mb-6 text-white uppercase">
+            Scalable <span class="text-purple-500"> RIBs-based</span> <br class="hidden md:block" /> Modular Architecture
+          </h2>
+        </div>
+        <div class="relative z-10 flex justify-center items-center mb-10 md:mb-16">
+          <img src="/ribArch.png" alt="RIBs Architecture" class="arch-img-shadow" />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-purple-500/20 pt-8 relative z-20">
+          <div class="flex flex-col items-center md:items-start text-center md:text-left">
+            <span class="text-white font-bold text-base md:text-lg mb-1">Deep Link Support</span>
+            <p class="text-xs text-gray-400 italic">{t.ribs.deepLink}</p>
+          </div>
+          <div class="flex flex-col items-center md:items-start text-center md:text-left border-y md:border-y-0 md:border-x border-purple-500/20 py-6 md:py-0 md:px-6">
+            <span class="text-white font-bold text-base md:text-lg mb-1">Business Logic First</span>
+            <p class="text-xs text-gray-400 italic">{t.ribs.businessLogic}</p>
+          </div>
+          <div class="flex flex-col items-center md:items-start text-center md:text-left md:pl-6">
+            <span class="text-white font-bold text-base md:text-lg mb-1">Extreme Isolation</span>
+            <p class="text-xs text-gray-400 italic">{t.ribs.extremeIsolation}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ OUTCOME ═══ -->
+  <section id="expected-outcome" class="py-16 md:py-24 px-4 md:px-6 bg-black relative">
+    <div class="max-w-6xl mx-auto">
+      <div class="sg-glass-card sg-scroll-in">
+        <div class="absolute inset-0 bg-purple-600/[0.03] blur-[100px] md:blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="relative z-10">
+          <div class="mb-12 md:mb-16 text-center">
+            <h2 class="text-3xl md:text-5xl lg:text-6xl font-[950] italic tracking-tighter leading-none text-white uppercase">
+              {t.outcome.title1} <span class="text-purple-500">{t.outcome.title2}</span>
+            </h2>
+          </div>
+          <ul class="space-y-8 md:space-y-10 text-gray-300">
+            {t.outcomeList.map((item) => (
+              <li class="flex items-start gap-4 md:gap-6 group">
+                <span class="text-purple-500 text-xl md:text-2xl leading-none mt-1 shrink-0">●</span>
+                <div>
+                  <h3 class="text-lg md:text-2xl font-bold text-white italic group-hover:text-purple-400 transition mb-2 uppercase">{item.title}</h3>
+                  <p class="text-sm md:text-lg leading-relaxed text-gray-400">{item.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ CTA ═══ -->
+  <section class="cta-final-wrapper">
+    <div class="max-w-7xl mx-auto w-full px-4 md:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-40">
+        <div class="sg-scroll-in flex flex-col items-center lg:items-start text-center lg:text-left lg:-translate-y-20">
+          <h2 class="text-5xl md:text-6xl lg:text-7xl text-white font-[950] italic tracking-tighter leading-[1.2] uppercase mb-10 md:mb-16">
+            Level up <br/>
+            <span class="text-purple-500 whitespace-nowrap">Your Engineering</span>
+          </h2>
+          <div class="flex items-center gap-6">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl text-purple-500 whitespace-nowrap font-[950] italic tracking-tighter uppercase leading-none m-0">
+              Now:
+            </h2>
+            <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-2xl md:text-4xl px-10 py-4 rounded-3xl tracking-wide">
+              Join
+            </a>
+          </div>
+        </div>
+        <div class="flex justify-center lg:justify-end relative h-full self-end">
+          <div class="absolute inset-0 bg-purple-600/20 blur-[80px] md:blur-[120px] rounded-full translate-y-10 pointer-events-none"></div>
+          <img src="/my_photo.png" alt="Dilshodbek Qulmirzayev"
+            class="relative z-10 w-full max-w-[350px] md:max-w-[450px] lg:max-w-[500px] mentor-display-img object-contain" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ FAQ ═══ -->
+  <section id="faq" class="py-16 md:py-24 px-4 md:px-6 border-t border-white/5 bg-[#050505]">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-4xl md:text-6xl font-black text-center mb-10 md:mb-16 italic tracking-tighter uppercase text-white sg-scroll-in">FAQ</h2>
+      <div class="space-y-4 md:space-y-6">
+        {t.faqs.map((faq) => (
+          <details class="module-card !p-0 overflow-hidden group">
+            <summary class="p-5 md:p-8 cursor-pointer font-bold flex justify-between items-center list-none hover:bg-purple-500/[0.03] transition-colors select-none">
+              <span class="text-base md:text-lg pr-4 md:pr-6 text-white leading-tight">{faq.q}</span>
+              <span class="text-purple-500 text-2xl md:text-3xl transition-transform duration-500 group-open:rotate-45 shrink-0">+</span>
+            </summary>
+            <div class="px-5 pb-5 md:px-8 md:pb-8 text-gray-400 text-sm md:text-base border-t border-purple-500/20 pt-5 md:pt-6 leading-relaxed bg-gradient-to-b from-purple-900/10 to-transparent">
+              {faq.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════ FOOTER ═══ -->
+  <footer id="contact" class="relative py-20 md:py-32 px-4 md:px-6 bg-black overflow-hidden border-t border-white/5">
+    <div class="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[300px] md:w-[800px] h-[300px] md:h-[600px] bg-purple-600/20 blur-[100px] md:blur-[150px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="flex flex-col items-center justify-center text-center mb-16 md:mb-20 sg-scroll-in">
+        <h2 class="text-5xl md:text-6xl lg:text-7xl text-white font-[950] italic tracking-tighter leading-[1.1] uppercase">
+          {t.footer.title1} <br/> <span class="text-purple-500">{t.footer.title2}</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 w-full max-w-4xl mx-auto mb-16 md:mb-24 sg-scroll-in">
+        {[
+          { name: "Telegram",     href: "https://t.me/iosDev007",                                              logo: "/telegram_logo.png", color: "hover:border-blue-500" },
+          { name: "LinkedIn",     href: "https://www.linkedin.com/in/dilshodbek-qulmirzayev-14b308282/",       logo: "/linkedin_logo.png",  color: "hover:border-blue-400" },
+          { name: "Swift Genius", href: "https://www.youtube.com/@swift_Genius",                               logo: "/youtube_logo.png",   color: "hover:border-red-500"  }
+        ].map(social => (
+          <a href={social.href} target="_blank"
+            class={`group rounded-3xl p-6 md:p-8 flex flex-col items-center justify-center transition-all duration-300 bg-[#0a0a0a] border border-purple-500/30 ${social.color} hover:-translate-y-2 shadow-[0_0_30px_rgba(168,85,247,0.05)] hover:shadow-[0_0_40px_rgba(168,85,247,0.15)]`}>
+            <div class="w-14 h-14 md:w-20 md:h-20 mb-4 md:mb-6 transform transition-transform duration-300 group-hover:scale-110">
+              <img src={social.logo} class="w-full h-full object-contain" alt={social.name} />
+            </div>
+            <span class="text-gray-400 font-bold text-sm md:text-base tracking-wide group-hover:text-white transition-colors duration-300">{social.name}</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-purple-500/20 gap-6">
+        <div class="flex items-center gap-4">
+          <img src="/brend_logo.png" class="h-8 md:h-10 w-auto" alt="Logo" />
+          <div class="flex flex-col text-left">
+            <span class="font-black italic tracking-tighter text-lg md:text-xl leading-none text-white uppercase">Swift Genius</span>
+            <span class="text-[9px] md:text-[10px] text-purple-500 font-bold tracking-[0.3em] uppercase mt-1">iOS Academy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 <script>
-  // 1. Mobile Menu Toggle Logic
+  // ── 1. Language Toggle ──────────────────────────────────────────────
+  function setLangCookie(lang) {
+    document.cookie = `lang=${lang}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+    window.location.reload();
+  }
+
+  function bindLangToggle(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.querySelectorAll('button[data-lang]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        if (lang) setLangCookie(lang);
+      });
+    });
+  }
+
+  bindLangToggle('lang-toggle-desktop');
+  bindLangToggle('lang-toggle-mobile');
+
+  // ── 2. Mobile Menu ──────────────────────────────────────────────────
   const menuToggle = document.getElementById('menu-toggle');
   const mobileOverlay = document.getElementById('mobile-overlay');
   const menuIcon = document.getElementById('menu-icon');
@@ -1096,7 +1019,7 @@ const mentorProjects = [
     link.addEventListener('click', () => { if (isOpen) toggleMenu(); });
   });
 
-  // 2. Scroll Intersect Observer for Animations
+  // ── 3. Scroll animations ────────────────────────────────────────────
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('sg-visible');
@@ -1104,36 +1027,32 @@ const mentorProjects = [
   }, { threshold: 0.1 });
   document.querySelectorAll('.sg-scroll-in').forEach(el => observer.observe(el));
 
-  // 3. Curriculum Toggle Module Scripts
+  // ── 4. Curriculum toggle ────────────────────────────────────────────
   document.querySelectorAll('.toggle-module').forEach(card => {
     card.addEventListener('click', function() {
       this.classList.toggle('active');
     });
   });
 
-  // 4. Scroll Active Navigation Links (Unified & Optimised)
+  // ── 5. Active nav links ─────────────────────────────────────────────
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id], footer[id]');
 
   const handleScroll = () => {
-    let currentId = "";
+    let currentId = '';
     sections.forEach(section => {
       if (window.scrollY >= (section.offsetTop - window.innerHeight / 3)) {
-        currentId = section.getAttribute('id');
+        currentId = section.getAttribute('id') ?? '';
       }
     });
-
     navLinks.forEach(link => {
       link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentId}`) {
-        link.classList.add('active');
-      }
+      if (link.getAttribute('href') === `#${currentId}`) link.classList.add('active');
     });
   };
 
   window.addEventListener('scroll', handleScroll, { passive: true });
   window.addEventListener('DOMContentLoaded', handleScroll);
 </script>
-
-  </body>
+</body>
 </html>
