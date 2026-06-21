@@ -1,0 +1,47 @@
+---
+// src/components/FinalPicture.astro
+import type { Translations } from '../i18n/index.ts';
+
+interface Props {
+  t: Translations;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="final-picture" class="py-12 md:py-24 px-4 md:px-6 bg-black relative">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-10 md:mb-16 sg-scroll-in">
+      <div class="mb-4 md:mb-6"><span class="big-picture-tag">Final Destination</span></div>
+      <h2 class="text-3xl md:text-5xl lg:text-6xl font-[950] italic tracking-tighter leading-none mb-6 text-white uppercase">
+        Final <span class="text-purple-500">Big Picture</span>
+      </h2>
+    </div>
+
+    <div class="sg-glass-card sg-scroll-in flex flex-col items-center">
+      <div class="absolute inset-0 bg-purple-600/[0.04] blur-[100px] rounded-full pointer-events-none"></div>
+      <div class="w-full text-center md:text-left mb-8 md:mb-0 md:absolute md:top-10 md:left-10 z-20">
+        <h3 class="text-xl md:text-2xl font-black text-white italic leading-tight uppercase">
+          Advanced MVVM & <br class="md:hidden" /> Clean Architecture
+        </h3>
+      </div>
+      <div class="relative z-10 w-full flex justify-center mt-2 md:mt-16">
+        <img src="/mvvmArch.png" alt="Architecture" class="arch-img-shadow" />
+      </div>
+      <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 md:mt-16 border-t border-purple-500/20 pt-8 relative z-20">
+        <div class="text-center md:text-left">
+          <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base uppercase tracking-wider">Scalability</span>
+          <p class="text-xs md:text-sm text-gray-400 leading-relaxed">{t.finalPicture.scalability}</p>
+        </div>
+        <div class="text-center md:text-left border-y md:border-y-0 md:border-x border-purple-500/20 py-6 md:py-0 md:px-6">
+          <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base uppercase tracking-wider">Testability</span>
+          <p class="text-xs md:text-sm text-gray-400 leading-relaxed">{t.finalPicture.testability}</p>
+        </div>
+        <div class="text-center md:text-left md:pl-6">
+          <span class="text-purple-500 font-bold block mb-2 text-sm md:text-base uppercase tracking-wider">Isolation</span>
+          <p class="text-xs md:text-sm text-gray-400 leading-relaxed">{t.finalPicture.isolation}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

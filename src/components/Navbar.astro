@@ -1,0 +1,75 @@
+---
+// src/components/Navbar.astro
+import type { Translations } from '../i18n/index.ts';
+
+interface Props {
+  t: Translations;
+  isEn: boolean;
+}
+
+const { t, isEn } = Astro.props;
+---
+
+<nav class="fixed top-0 left-0 right-0 z-[100] border-b border-white/5 bg-black/80 backdrop-blur-xl">
+  <div class="max-w-[1440px] mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-2 no-underline z-[110]">
+      <img src="/brend_logo.png" alt="Logo" class="h-6 md:h-8 w-auto" />
+      <span class="text-white font-[950] text-base md:text-lg tracking-tighter italic whitespace-nowrap">SWIFT GENIUS</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden lg:flex items-center gap-1 xl:gap-2">
+      <a href="#mentor"             class="nav-link">{t.nav.author}</a>
+      <a href="#mission"            class="nav-link">{t.nav.mission}</a>
+      <a href="#curriculum"         class="nav-link">{t.nav.curriculum}</a>
+      <a href="#final-picture"      class="nav-link">{t.nav.architecture}</a>
+      <a href="#modular-architecture" class="nav-link">RIBs</a>
+      <a href="#expected-outcome"   class="nav-link">{t.nav.outcome}</a>
+      <a href="#faq"                class="nav-link">FAQ</a>
+      <a href="#contact"            class="nav-link">{t.nav.contact}</a>
+
+      <!-- Lang toggle (desktop) -->
+      <div class="lang-toggle ml-2" id="lang-toggle-desktop">
+        <button data-lang="uz" class={isEn ? '' : 'lang-active'}>🇺🇿 UZ</button>
+        <button data-lang="en" class={isEn ? 'lang-active' : ''}>🇬🇧 EN</button>
+      </div>
+
+      <a href="https://t.me/iosDev007" target="_blank" class="nav-btn ml-2">
+        {t.nav.enroll}
+      </a>
+    </div>
+
+    <!-- Hamburger -->
+    <button id="menu-toggle" class="lg:hidden z-[110] text-white p-2 focus:outline-none" aria-label="Toggle menu">
+      <svg id="menu-icon" class="w-7 h-7 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="path1" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"/>
+        <path id="path2" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16"/>
+        <path id="path3" class="origin-center transition-all duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile overlay -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-black/95 z-[105] flex flex-col items-center justify-center gap-6 opacity-0 pointer-events-none transition-all duration-500 overflow-y-auto pt-20">
+    <a href="#mentor"               class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">{t.nav.author}</a>
+    <a href="#mission"              class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">{t.nav.mission}</a>
+    <a href="#curriculum"           class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">{t.nav.curriculum}</a>
+    <a href="#final-picture"        class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">{t.nav.architecture}</a>
+    <a href="#modular-architecture" class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">RIBs</a>
+    <a href="#expected-outcome"     class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">{t.nav.outcome}</a>
+    <a href="#faq"                  class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">FAQ</a>
+    <a href="#contact"              class="text-white text-xl font-bold uppercase tracking-wider hover:text-purple-400 transition-colors">{t.nav.contact}</a>
+
+    <!-- Lang toggle (mobile) -->
+    <div class="lang-toggle" id="lang-toggle-mobile">
+      <button data-lang="uz" class={isEn ? '' : 'lang-active'}>🇺🇿 UZ</button>
+      <button data-lang="en" class={isEn ? 'lang-active' : ''}>🇬🇧 EN</button>
+    </div>
+
+    <a href="https://t.me/iosDev007" target="_blank" class="sg-btn-gradient text-lg px-8 py-4 mt-4 no-underline text-white font-bold rounded-xl text-center">
+      {t.nav.enroll}
+    </a>
+  </div>
+</nav>

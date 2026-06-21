@@ -1,0 +1,74 @@
+---
+// src/components/Curriculum.astro
+import type { Translations } from '../i18n/index.ts';
+import { getMonths } from '../data/curriculum.ts';
+
+interface Props {
+  t: Translations;
+}
+
+const { t } = Astro.props;
+const months = getMonths(t);
+---
+
+<section id="curriculum" class="py-16 md:py-24 px-4 md:px-6 bg-[#050505] relative overflow-hidden">
+  <div class="absolute top-0 left-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-purple-600/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="text-center mb-16 md:mb-24 sg-scroll-in">
+      <h2 class="text-4xl md:text-6xl lg:text-7xl font-[950] italic tracking-tighter leading-[0.9] text-white uppercase">
+        {t.curriculum.title1} <span class="text-purple-500">{t.curriculum.title2}</span>
+      </h2>
+    </div>
+
+    <div class="space-y-16 md:space-y-24">
+      {months.map((month) => (
+        <div class="month-group sg-scroll-in">
+          <div class="mb-8 md:mb-10 border-b border-purple-500/20 pb-4">
+            <h3 class="text-xl md:text-3xl font-black text-purple-400 italic uppercase tracking-tight">{month.name}</h3>
+          </div>
+          <div class="grid gap-4 md:gap-6">
+            {month.items.map((mod) => (
+              <div class="module-card cursor-pointer group toggle-module">
+                <div class="flex items-center justify-between gap-4">
+                  <div class="flex items-center gap-4 md:gap-8">
+                    <span class="text-3xl md:text-5xl font-black italic text-white/5 group-hover:text-purple-500/20 transition-colors duration-500 select-none shrink-0 w-12 md:w-16">{mod.num}</span>
+                    <div class="min-w-0">
+                      <span class="text-purple-500/80 font-bold uppercase tracking-[0.15em] text-[9px] md:text-[11px] mb-1 block">{mod.category}</span>
+                      <h4 class="text-lg md:text-2xl font-bold text-white group-hover:text-purple-400 transition-all duration-300 italic leading-tight">{mod.title}</h4>
+                    </div>
+                  </div>
+                  <div class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-purple-500 group-hover:border-purple-500 transition-all duration-500 shrink-0">
+                    <svg class="w-4 h-4 md:w-5 md:h-5 text-white transition-transform duration-500 group-[.active]:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="content-wrapper">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 border-t border-white/5 mt-6 md:mt-8 pt-6 md:pt-8">
+                    {mod.subsections.map((sub) => (
+                      <div class="space-y-4">
+                        <h5 class="text-purple-400 font-black text-[18px] md:text-[17px] uppercase tracking-[0.1em] flex items-center gap-1">
+                          <span class="w-3 md:w-4 h-[1px] bg-purple-500/20"></span>
+                          {sub.head}
+                        </h5>
+                        <ul class="space-y-3">
+                          {sub.items.map((item) => (
+                            <li class="flex items-start gap-3 text-gray-400 text-sm md:text-base hover:text-white transition-colors leading-snug">
+                              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0 shadow-[0_0_8px_#A855F7]"></span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

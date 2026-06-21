@@ -1,0 +1,29 @@
+---
+// src/components/Faq.astro
+import type { Translations } from '../i18n/index.ts';
+
+interface Props {
+  t: Translations;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="faq" class="py-16 md:py-24 px-4 md:px-6 border-t border-white/5 bg-[#050505]">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-4xl md:text-6xl font-black text-center mb-10 md:mb-16 italic tracking-tighter uppercase text-white sg-scroll-in">FAQ</h2>
+    <div class="space-y-4 md:space-y-6">
+      {t.faqs.map((faq) => (
+        <details class="module-card !p-0 overflow-hidden group">
+          <summary class="p-5 md:p-8 cursor-pointer font-bold flex justify-between items-center list-none hover:bg-purple-500/[0.03] transition-colors select-none">
+            <span class="text-base md:text-lg pr-4 md:pr-6 text-white leading-tight">{faq.q}</span>
+            <span class="text-purple-500 text-2xl md:text-3xl transition-transform duration-500 group-open:rotate-45 shrink-0">+</span>
+          </summary>
+          <div class="px-5 pb-5 md:px-8 md:pb-8 text-gray-400 text-sm md:text-base border-t border-purple-500/20 pt-5 md:pt-6 leading-relaxed bg-gradient-to-b from-purple-900/10 to-transparent">
+            {faq.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

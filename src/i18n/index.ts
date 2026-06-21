@@ -51,25 +51,9 @@ const uz = {
   },
 
   months: [
-    "1-oy — SwiftUI Foundation & Application Architecture",
-    "2-oy — Engineering & Global Architecture",
-    "3-oy — Production Features & Advanced Engineering",
-  ],
-
-  // ── Modules (faqat tarjima qilinadigan qismlar) ────────────────────
-  modules: [
-    { title: 'UI Elements, State & Navigation',         subs: ['State va Data Flow', 'Lists va Dynamic UI'] },
-    { title: 'App Lifecycle & Flow Architecture',        subs: ['Practical: Lifecycle-driven management'] },
-    { title: 'MVVM Architecture',                        subs: [] },
-    { title: 'Dependency Injection & POP',               subs: [] },
-    { title: 'Global Managers & SOLID',                  subs: [] },
-    { title: 'Interactor Layer & Refactoring',           subs: ['Centralized global Business Logic'] },
-    { title: 'CoreBuilder & Composition Root',           subs: [] },
-    { title: 'CoreRouter & Routing Patterns',            subs: [] },
-    { title: 'Environment & Build Configuration',        subs: [] },
-    { title: 'Analytics, Security & Localization',       subs: ['App Security & Protected UI'] },
-    { title: 'Modular Architecture & RIBs',              subs: [] },
-    { title: 'Unit & UI Testing Strategies',             subs: [] },
+    "1-oy — Arxitektura Poydevori",
+    "2-oy — RIBs Yadro Arxitekturasi",
+    "3-oy — Production-Grade Muhandislik",
   ],
 
   // ── Final Picture ──────────────────────────────────────────────────
@@ -198,24 +182,9 @@ const en: typeof uz = {
   },
 
   months: [
-    "Month 1 — SwiftUI Foundation & Application Architecture",
-    "Month 2 — Engineering & Global Architecture",
-    "Month 3 — Production Features & Advanced Engineering",
-  ],
-
-  modules: [
-    { title: 'UI Elements, State & Navigation',         subs: ['State & Data Flow', 'Lists & Dynamic UI'] },
-    { title: 'App Lifecycle & Flow Architecture',        subs: ['Practical: Lifecycle-driven management'] },
-    { title: 'MVVM Architecture',                        subs: [] },
-    { title: 'Dependency Injection & POP',               subs: [] },
-    { title: 'Global Managers & SOLID',                  subs: [] },
-    { title: 'Interactor Layer & Refactoring',           subs: ['Centralized Global Business Logic'] },
-    { title: 'CoreBuilder & Composition Root',           subs: [] },
-    { title: 'CoreRouter & Routing Patterns',            subs: [] },
-    { title: 'Environment & Build Configuration',        subs: [] },
-    { title: 'Analytics, Security & Localization',       subs: ['App Security & Protected UI'] },
-    { title: 'Modular Architecture & RIBs',              subs: [] },
-    { title: 'Unit & UI Testing Strategies',             subs: [] },
+    "Month 1 — Architecture Foundation",
+    "Month 2 — RIBs Core Architecture",
+    "Month 3 — Production-Grade Engineering",
   ],
 
   finalPicture: {

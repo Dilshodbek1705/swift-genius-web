@@ -1,0 +1,71 @@
+---
+// src/components/Mission.astro
+import type { Translations } from '../i18n/index.ts';
+
+interface Props {
+  t: Translations;
+}
+
+const { t } = Astro.props;
+---
+
+<section id="mission" class="py-12 md:py-24 px-4 md:px-6 bg-black relative overflow-hidden">
+  <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[200px] md:w-[300px] h-[200px] md:h-[300px] bg-purple-600/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto">
+    <div class="sg-glass-card sg-scroll-in">
+      <div class="absolute -right-20 -top-20 w-40 md:w-80 h-40 md:h-80 bg-purple-600/10 blur-[60px] md:blur-[100px] rounded-full pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 mb-16 md:mb-20 items-start relative z-10">
+        <div>
+          <h2 class="text-4xl md:text-5xl lg:text-7xl font-black italic tracking-tighter mb-6 md:mb-8 leading-none text-white uppercase">
+            {t.mission.title1} <br class="hidden md:block"/> <span class="text-purple-500">{t.mission.title2}</span>
+          </h2>
+          <div class="mission-card rounded-r-2xl md:rounded-r-3xl">
+            <p class="text-gray-300 text-base md:text-lg leading-relaxed italic">
+              {t.mission.quote}
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:pt-4">
+          <h3 class="text-xl md:text-2xl font-black mb-4 md:mb-6 uppercase tracking-widest text-gray-500">{t.mission.forWhomLabel}</h3>
+          <div class="mb-6 md:mb-8">
+            <span class="target-badge text-sm md:text-lg lg:text-xl">{t.mission.forWhomBadge}</span>
+          </div>
+          <p class="text-gray-400 text-base md:text-lg">{t.mission.forWhomDesc}</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 relative z-10">
+        <div class="group">
+          <div class="feature-icon-box flex items-center justify-center text-white">
+            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
+          </div>
+          <h4 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-white group-hover:text-purple-400 transition italic">Architectural Evolution</h4>
+          <p class="text-gray-400 text-sm leading-relaxed">{t.mission.feat1}</p>
+        </div>
+        <div class="group">
+          <div class="feature-icon-box flex items-center justify-center text-white">
+            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h4 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-white group-hover:text-purple-400 transition italic">Engineering Excellence</h4>
+          <p class="text-gray-400 text-sm leading-relaxed">{t.mission.feat2}</p>
+        </div>
+        <div class="group">
+          <div class="feature-icon-box flex items-center justify-center text-white">
+            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h4 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-white group-hover:text-purple-400 transition italic">Logic Isolation</h4>
+          <p class="text-gray-400 text-sm leading-relaxed">{t.mission.feat3}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

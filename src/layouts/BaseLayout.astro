@@ -1,0 +1,42 @@
+---
+// src/layouts/BaseLayout.astro
+// Sahifaning umumiy qobig'i: <html>, <head> meta teglari, global stillar va klient skript.
+import '../styles/global.css';
+import type { Locale } from '../i18n/index.ts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<html lang={locale}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+
+  <title>SwiftGenius — Professional iOS Engineering & Architecture</title>
+  <meta name="title"       content="SwiftGenius — Professional iOS Engineering & Architecture" />
+  <meta name="description" content="iOS muhandisligi va arxitektura: Professional darajadagi chuqurlashtirilgan o'quv dasturi." />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://swiftgenius.uz/" />
+  <meta property="og:title"       content="SwiftGenius — Professional iOS Engineering & Architecture" />
+  <meta property="og:description" content="Swift va SwiftUI: Yuqori darajadagi dasturiy arxitektura hamda yirik loyihalar uchun muhandislik yondashuvi." />
+  <meta property="og:image"       content="https://swiftgenius.uz/summery_image.png" />
+
+  <meta property="twitter:card"        content="summary_large_image" />
+  <meta property="twitter:url"         content="https://swiftgenius.uz/" />
+  <meta property="twitter:title"       content="SwiftGenius — Professional iOS Engineering & Architecture" />
+  <meta property="twitter:description" content="Swift va SwiftUI: Yuqori darajadagi dasturiy arxitektura hamda yirik loyihalar uchun muhandislik yondashuvi." />
+  <meta property="twitter:image"       content="https://swiftgenius.uz/summery_image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+
+<body class="sg-body sg-mesh">
+  <slot />
+  <script src="../scripts/main.ts"></script>
+</body>
+</html>
